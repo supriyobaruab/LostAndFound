@@ -51,7 +51,6 @@
             this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "User ID";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -72,7 +71,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(181, 23);
             this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -83,7 +81,6 @@
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(181, 23);
             this.textBox2.TabIndex = 3;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // button1
             // 
@@ -124,6 +121,7 @@
             this.Register.TabIndex = 8;
             this.Register.TabStop = true;
             this.Register.Text = "Create an account";
+            this.Register.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Register_LinkClicked);
             // 
             // FgtPass
             // 
@@ -167,7 +165,6 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.LoginPanel.ResumeLayout(false);
             this.LoginPanel.PerformLayout();
             this.ResumeLayout(false);
