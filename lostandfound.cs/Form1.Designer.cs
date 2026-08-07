@@ -38,7 +38,6 @@
             this.FgtPass = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.LoginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,19 +45,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label1.Location = new System.Drawing.Point(109, 110);
+            this.label1.Location = new System.Drawing.Point(112, 91);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 16);
+            this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Student ID";
+            this.label1.Text = "User ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label2.Location = new System.Drawing.Point(110, 150);
+            this.label2.Location = new System.Drawing.Point(111, 131);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
@@ -68,7 +67,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(192, 106);
+            this.textBox1.Location = new System.Drawing.Point(193, 87);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(181, 23);
@@ -78,7 +77,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox2.Location = new System.Drawing.Point(192, 146);
+            this.textBox2.Location = new System.Drawing.Point(193, 127);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
@@ -88,7 +87,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(112, 223);
+            this.button1.Location = new System.Drawing.Point(113, 204);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(83, 31);
@@ -110,16 +109,16 @@
             this.LoginPanel.Controls.Add(this.textBox1);
             this.LoginPanel.Controls.Add(this.label2);
             this.LoginPanel.Controls.Add(this.label1);
-            this.LoginPanel.Location = new System.Drawing.Point(150, 92);
+            this.LoginPanel.Location = new System.Drawing.Point(27, 22);
             this.LoginPanel.Name = "LoginPanel";
-            this.LoginPanel.Size = new System.Drawing.Size(492, 305);
+            this.LoginPanel.Size = new System.Drawing.Size(492, 277);
             this.LoginPanel.TabIndex = 7;
             // 
             // Register
             // 
             this.Register.AutoSize = true;
             this.Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.Register.Location = new System.Drawing.Point(215, 230);
+            this.Register.Location = new System.Drawing.Point(216, 211);
             this.Register.Name = "Register";
             this.Register.Size = new System.Drawing.Size(115, 16);
             this.Register.TabIndex = 8;
@@ -130,7 +129,7 @@
             // 
             this.FgtPass.AutoSize = true;
             this.FgtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.FgtPass.Location = new System.Drawing.Point(110, 189);
+            this.FgtPass.Location = new System.Drawing.Point(111, 170);
             this.FgtPass.Name = "FgtPass";
             this.FgtPass.Size = new System.Drawing.Size(136, 16);
             this.FgtPass.TabIndex = 7;
@@ -141,7 +140,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.Location = new System.Drawing.Point(455, 12);
+            this.label5.Location = new System.Drawing.Point(455, 18);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 21);
             this.label5.TabIndex = 6;
@@ -151,30 +150,18 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.Location = new System.Drawing.Point(24, 12);
+            this.label4.Location = new System.Drawing.Point(24, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 21);
             this.label4.TabIndex = 5;
             this.label4.Text = "Log In";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label6.Location = new System.Drawing.Point(148, 39);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(494, 26);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Welcome To Lost An Found Management System";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label6);
+            this.ClientSize = new System.Drawing.Size(548, 329);
             this.Controls.Add(this.LoginPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
@@ -184,7 +171,6 @@
             this.LoginPanel.ResumeLayout(false);
             this.LoginPanel.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -200,7 +186,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel FgtPass;
         private System.Windows.Forms.LinkLabel Register;
-        private System.Windows.Forms.Label label6;
     }
 }
 

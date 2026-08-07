@@ -34,8 +34,7 @@ namespace lostandfound.cs
 
         private void Login_Load(object sender, EventArgs e)
         {
-            label1.Text = "Student ID";
-            label2.Text = "Password";
+            
    
         }
         private void button1_Click(object sender, EventArgs e)
