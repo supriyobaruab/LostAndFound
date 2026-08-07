@@ -133,6 +133,7 @@
             this.FgtPass.TabIndex = 7;
             this.FgtPass.TabStop = true;
             this.FgtPass.Text = "Forgot the password?";
+            this.FgtPass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.FgtPass_LinkClicked);
             // 
             // label5
             // 

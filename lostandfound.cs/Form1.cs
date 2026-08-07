@@ -90,6 +90,12 @@ namespace lostandfound.cs
             Register registerForm = new Register();
             registerForm.Show();
         }
+
+        private void FgtPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            ForgetPassword forgetPasswordForm = new ForgetPassword();
+            forgetPasswordForm.Show();
+        }
     }
     }
 
