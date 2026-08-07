@@ -1,13 +1,14 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Data.SqlClient;
 
 namespace lostandfound.cs
 {
@@ -33,15 +34,15 @@ namespace lostandfound.cs
             {
                 conn.Open();
 
-                string query = "SELECT Count(*) FROM Login WHERE User_ID = @User_ID";
+                string query = "SELECT Count(*) FROM Login WHERE User_ID = @User_ID AND Role <> 'admin'";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
-                cmd.Parameters.AddWithValue(@"User_ID", TxtUser.Text);
+                cmd.Parameters.AddWithValue("@User_ID", TxtUser.Text);
 
                 object result = cmd.ExecuteScalar();
 
-               int count = Convert.ToInt32(result);
+                int count = Convert.ToInt32(result);
 
                 if (count>0) { 
                     //MessageBox.Show("User ID exists. You can reset your password.");
@@ -51,12 +52,15 @@ namespace lostandfound.cs
                     LabelPassword.Visible = true;
                     TxtPassword.Visible = true;
                     PassBanner.Text = "Please enter your new password.";
-                    
+                    RecoverBtn.Visible = true;
+                    FindAccount.Visible = false;
+                    TxtPassword.PasswordChar = '*';
+
 
                 }
                 else
                 {
-                    MessageBox.Show("User ID does not exist. Please check your User ID.");
+                    MessageBox.Show("Admin accounts cannot reset passwords here, or User ID does not exist.");
                 }
 
                 
@@ -81,6 +85,41 @@ namespace lostandfound.cs
             string connectionString = "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
 
             SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                string query = "Update Login SET Password = @Password WHERE User_ID = @User_ID";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                //MessageBox.Show("User ID: " + TxtUser.Text + "\nNew Password: " + TxtPassword.Text);
+
+                cmd.Parameters.AddWithValue("@User_ID", TxtUser.Text);
+                cmd.Parameters.AddWithValue("@Password", TxtPassword.Text);
+
+                int rows = cmd.ExecuteNonQuery();
+
+                if (rows > 0)
+                {
+                    MessageBox.Show("Password updated successfully.");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("User ID not found. Nothing was updated.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
 
         }
     }
