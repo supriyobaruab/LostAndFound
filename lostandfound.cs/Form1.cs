@@ -36,9 +36,7 @@ namespace lostandfound.cs
         {
             label1.Text = "Student ID";
             label2.Text = "Password";
-            label3.Text = "Lost And Found Management";
-
-            textBox2.UseSystemPasswordChar = true;
+   
         }
         private void button1_Click(object sender, EventArgs e)
         {

@@ -33,12 +33,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.FgtPass = new System.Windows.Forms.LinkLabel();
             this.Register = new System.Windows.Forms.LinkLabel();
+            this.FgtPass = new System.Windows.Forms.LinkLabel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.LoginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,22 +67,22 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(192, 104);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.textBox1.Location = new System.Drawing.Point(192, 106);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 26);
+            this.textBox1.Size = new System.Drawing.Size(181, 23);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(192, 144);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.textBox2.Location = new System.Drawing.Point(192, 146);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(181, 26);
+            this.textBox2.Size = new System.Drawing.Size(181, 23);
             this.textBox2.TabIndex = 3;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -96,18 +96,6 @@
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.label3.Location = new System.Drawing.Point(145, 38);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(506, 26);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Welcome To Lost And Found Management System";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // LoginPanel
             // 
@@ -127,25 +115,16 @@
             this.LoginPanel.Size = new System.Drawing.Size(492, 305);
             this.LoginPanel.TabIndex = 7;
             // 
-            // label4
+            // Register
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.Location = new System.Drawing.Point(24, 12);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 21);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Log In";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.Location = new System.Drawing.Point(455, 12);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 21);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "X";
+            this.Register.AutoSize = true;
+            this.Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.Register.Location = new System.Drawing.Point(215, 230);
+            this.Register.Name = "Register";
+            this.Register.Size = new System.Drawing.Size(115, 16);
+            this.Register.TabIndex = 8;
+            this.Register.TabStop = true;
+            this.Register.Text = "Create an account";
             // 
             // FgtPass
             // 
@@ -158,16 +137,36 @@
             this.FgtPass.TabStop = true;
             this.FgtPass.Text = "Forgot the password?";
             // 
-            // Register
+            // label5
             // 
-            this.Register.AutoSize = true;
-            this.Register.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.Register.Location = new System.Drawing.Point(215, 230);
-            this.Register.Name = "Register";
-            this.Register.Size = new System.Drawing.Size(115, 16);
-            this.Register.TabIndex = 8;
-            this.Register.TabStop = true;
-            this.Register.Text = "Create an account";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label5.Location = new System.Drawing.Point(455, 12);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(19, 21);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "X";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label4.Location = new System.Drawing.Point(24, 12);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 21);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Log In";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.label6.Location = new System.Drawing.Point(148, 39);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(494, 26);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Welcome To Lost An Found Management System";
             // 
             // Login
             // 
@@ -175,10 +174,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.LoginPanel);
-            this.Controls.Add(this.label3);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.LoginPanel.ResumeLayout(false);
@@ -195,12 +195,12 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel LoginPanel;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.LinkLabel FgtPass;
         private System.Windows.Forms.LinkLabel Register;
+        private System.Windows.Forms.Label label6;
     }
 }
 
