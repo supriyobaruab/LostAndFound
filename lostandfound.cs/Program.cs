@@ -14,10 +14,10 @@ namespace lostandfound.cs
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-            Application.Run(new Dashboard());
-            Application.Run(new Register());
-            Application.Run(new LostItemForm());
-            Application.Run(new FoundItemForm());
+            //Application.Run(new Dashboard());
+            //Application.Run(new Register());
+            //Application.Run(new LostItemForm());
+            //Application.Run(new FoundItemForm());
 
 
 

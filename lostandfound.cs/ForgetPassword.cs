@@ -30,11 +30,17 @@ namespace lostandfound.cs
 
             SqlConnection conn = new SqlConnection(connectionString);
 
+            if(string.IsNullOrWhiteSpace(TxtUser.Text))
+            {
+                MessageBox.Show("User ID cannot be empty.");
+                return;
+            }
+
             try
             {
                 conn.Open();
 
-                string query = "SELECT Count(*) FROM Login WHERE User_ID = @User_ID AND Role <> 'admin'";
+                string query = "SELECT Role FROM Login WHERE User_ID = @User_ID";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -42,13 +48,26 @@ namespace lostandfound.cs
 
                 object result = cmd.ExecuteScalar();
 
-                int count = Convert.ToInt32(result);
+                
+                if(result == null)
+                {
+                    MessageBox.Show("User ID does not exist.");
+                    return;
+                }
+                
+                string role = result.ToString().Trim();
 
-                if (count>0) { 
+                if (role == "admin")
+                {
+                    MessageBox.Show("Admin accounts cannot reset passwords here.");
+                    return;
+                }
+                else 
+                {
                     //MessageBox.Show("User ID exists. You can reset your password.");
+                    IsExist.Visible = true;
                     UserID.Visible = false;
                     TxtUser.Visible = false;
-                    MessageBox.Show("User ID exists. You can reset your password.");
                     LabelPassword.Visible = true;
                     TxtPassword.Visible = true;
                     PassBanner.Text = "Please enter your new password.";
@@ -56,14 +75,8 @@ namespace lostandfound.cs
                     FindAccount.Visible = false;
                     TxtPassword.PasswordChar = '*';
 
-
-                }
-                else
-                {
-                    MessageBox.Show("Admin accounts cannot reset passwords here, or User ID does not exist.");
                 }
 
-                
             }
             catch (Exception ex)
             {
@@ -83,6 +96,11 @@ namespace lostandfound.cs
         private void RecoverBtn_Click(object sender, EventArgs e)
         {
             string connectionString = "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
+            if (string.IsNullOrWhiteSpace(TxtPassword.Text))
+            {
+                MessageBox.Show("Password cannot be empty.");
+                return;
+            }
 
             SqlConnection conn = new SqlConnection(connectionString);
 
