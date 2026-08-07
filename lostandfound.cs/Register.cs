@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,72 +21,52 @@ namespace lostandfound.cs
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            UseSystemPasswordChar = True;
-        }
-
-        private void Register_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-            UseSystemPasswordChar = True;
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn_Registration_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Hide();
+            bool IsValidEmail(string email)
+            {
+                return email.Contains("@") && email.Contains(".");
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtUser.Text) || string.IsNullOrWhiteSpace(TxtEmail.Text) || string.IsNullOrWhiteSpace(Txt_UserID.Text) || string.IsNullOrWhiteSpace(Txt_Password.Text) || string.IsNullOrWhiteSpace(Txt_ConPassword.Text))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return;
+            }
+            if (!Regex.IsMatch(Txt_UserID.Text, @"^[a-zA-Z0-9_]+$"))
+            {
+                MessageBox.Show("User ID can only contain letters, numbers, and underscores.");
+                return;
+            }
+
+            if (!IsValidEmail(TxtEmail.Text))
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return;
+            }
+
+            if (RD_Student.Checked || RD_Officer.Checked)
+            {
+                if (Txt_Password.Text != Txt_ConPassword.Text)
+                {
+                    MessageBox.Show("Passwords do not match.");
+                    return;
+                }
+                else 
+                {
+                    //Database Logic 
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a Occupation.");
+                return;
+            }
         }
     }
     }

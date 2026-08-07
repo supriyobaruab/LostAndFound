@@ -40,7 +40,7 @@ namespace lostandfound.cs
             {
                 conn.Open();
 
-                string query = "SELECT Role FROM Login WHERE User_ID = @User_ID";
+                string query = "SELECT [User] FROM Login WHERE User_ID = @User_ID";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
@@ -108,7 +108,7 @@ namespace lostandfound.cs
             {
                 conn.Open();
 
-                string query = "Update Login SET Password = @Password WHERE User_ID = @User_ID";
+                string query = "Update [User] SET Password = @Password WHERE User_ID = @User_ID";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 

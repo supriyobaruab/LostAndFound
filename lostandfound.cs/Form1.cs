@@ -26,7 +26,7 @@ namespace lostandfound.cs
             {
                 conn.Open();
 
-                string query = "SELECT Role FROM Login WHERE User_ID = @User_ID AND Password = @Password";
+                string query = "SELECT Role FROM [User] WHERE User_ID = @User_ID AND Password = @Password";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
