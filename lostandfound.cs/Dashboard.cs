@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+// im supposed to work in this segment
 namespace lostandfound.cs
 {
     public partial class Dashboard : Form
@@ -16,7 +16,7 @@ namespace lostandfound.cs
         }
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            label1.Text = "Lost and Found Management";
+            label1.Text = "Lost And Found Management";
         }
 
         private void button1_Click(object sender, EventArgs e)
