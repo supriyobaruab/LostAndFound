@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.LoginPanel = new System.Windows.Forms.Panel();
+            this.Txt_ConPassword = new System.Windows.Forms.TextBox();
+            this.LB_ConPassword = new System.Windows.Forms.Label();
+            this.Txt_Password = new System.Windows.Forms.TextBox();
+            this.LB_Password = new System.Windows.Forms.Label();
             this.Btn_Exit = new System.Windows.Forms.Button();
             this.Btn_Registration = new System.Windows.Forms.Button();
             this.RD_Officer = new System.Windows.Forms.RadioButton();
@@ -42,10 +46,6 @@
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.LB_LastName = new System.Windows.Forms.Label();
             this.LB_FirstName = new System.Windows.Forms.Label();
-            this.Txt_Password = new System.Windows.Forms.TextBox();
-            this.LB_Password = new System.Windows.Forms.Label();
-            this.Txt_ConPassword = new System.Windows.Forms.TextBox();
-            this.LB_ConPassword = new System.Windows.Forms.Label();
             this.LoginPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,48 @@
             this.LoginPanel.Size = new System.Drawing.Size(655, 413);
             this.LoginPanel.TabIndex = 8;
             // 
+            // Txt_ConPassword
+            // 
+            this.Txt_ConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Txt_ConPassword.Location = new System.Drawing.Point(227, 243);
+            this.Txt_ConPassword.Margin = new System.Windows.Forms.Padding(2);
+            this.Txt_ConPassword.Name = "Txt_ConPassword";
+            this.Txt_ConPassword.PasswordChar = '*';
+            this.Txt_ConPassword.Size = new System.Drawing.Size(317, 23);
+            this.Txt_ConPassword.TabIndex = 17;
+            // 
+            // LB_ConPassword
+            // 
+            this.LB_ConPassword.AutoSize = true;
+            this.LB_ConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.LB_ConPassword.Location = new System.Drawing.Point(105, 247);
+            this.LB_ConPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LB_ConPassword.Name = "LB_ConPassword";
+            this.LB_ConPassword.Size = new System.Drawing.Size(115, 16);
+            this.LB_ConPassword.TabIndex = 16;
+            this.LB_ConPassword.Text = "Confirm Password";
+            // 
+            // Txt_Password
+            // 
+            this.Txt_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.Txt_Password.Location = new System.Drawing.Point(227, 206);
+            this.Txt_Password.Margin = new System.Windows.Forms.Padding(2);
+            this.Txt_Password.Name = "Txt_Password";
+            this.Txt_Password.PasswordChar = '*';
+            this.Txt_Password.Size = new System.Drawing.Size(317, 23);
+            this.Txt_Password.TabIndex = 15;
+            // 
+            // LB_Password
+            // 
+            this.LB_Password.AutoSize = true;
+            this.LB_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.LB_Password.Location = new System.Drawing.Point(105, 210);
+            this.LB_Password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LB_Password.Name = "LB_Password";
+            this.LB_Password.Size = new System.Drawing.Size(67, 16);
+            this.LB_Password.TabIndex = 14;
+            this.LB_Password.Text = "Password";
+            // 
             // Btn_Exit
             // 
             this.Btn_Exit.Location = new System.Drawing.Point(450, 352);
@@ -83,6 +125,7 @@
             this.Btn_Exit.TabIndex = 13;
             this.Btn_Exit.Text = "Exit";
             this.Btn_Exit.UseVisualStyleBackColor = true;
+            this.Btn_Exit.Click += new System.EventHandler(this.Btn_Exit_Click);
             // 
             // Btn_Registration
             // 
@@ -208,48 +251,6 @@
             this.LB_FirstName.Size = new System.Drawing.Size(68, 16);
             this.LB_FirstName.TabIndex = 0;
             this.LB_FirstName.Text = "Full Name";
-            // 
-            // Txt_Password
-            // 
-            this.Txt_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Txt_Password.Location = new System.Drawing.Point(227, 206);
-            this.Txt_Password.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_Password.Name = "Txt_Password";
-            this.Txt_Password.PasswordChar = '*';
-            this.Txt_Password.Size = new System.Drawing.Size(317, 23);
-            this.Txt_Password.TabIndex = 15;
-            // 
-            // LB_Password
-            // 
-            this.LB_Password.AutoSize = true;
-            this.LB_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LB_Password.Location = new System.Drawing.Point(105, 210);
-            this.LB_Password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LB_Password.Name = "LB_Password";
-            this.LB_Password.Size = new System.Drawing.Size(67, 16);
-            this.LB_Password.TabIndex = 14;
-            this.LB_Password.Text = "Password";
-            // 
-            // Txt_ConPassword
-            // 
-            this.Txt_ConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Txt_ConPassword.Location = new System.Drawing.Point(227, 243);
-            this.Txt_ConPassword.Margin = new System.Windows.Forms.Padding(2);
-            this.Txt_ConPassword.Name = "Txt_ConPassword";
-            this.Txt_ConPassword.PasswordChar = '*';
-            this.Txt_ConPassword.Size = new System.Drawing.Size(317, 23);
-            this.Txt_ConPassword.TabIndex = 17;
-            // 
-            // LB_ConPassword
-            // 
-            this.LB_ConPassword.AutoSize = true;
-            this.LB_ConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LB_ConPassword.Location = new System.Drawing.Point(105, 247);
-            this.LB_ConPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LB_ConPassword.Name = "LB_ConPassword";
-            this.LB_ConPassword.Size = new System.Drawing.Size(115, 16);
-            this.LB_ConPassword.TabIndex = 16;
-            this.LB_ConPassword.Text = "Confirm Password";
             // 
             // Register
             // 

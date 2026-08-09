@@ -49,7 +49,7 @@ namespace lostandfound.cs
                         //admin.Show();
                         //this.Hide();
                     }
-                    else if (role == "user")
+                    else if (role == "student")
                     {
                         Dashboard dashboard = new Dashboard();
                         dashboard.Show();
