@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_User = new System.Windows.Forms.Label();
             this.PanelHeader = new System.Windows.Forms.Panel();
+            this.btn_Logout = new System.Windows.Forms.Button();
+            this.LB_AdminP = new System.Windows.Forms.Label();
+            this.LB_LFHeader = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.LogoHeader = new System.Windows.Forms.Panel();
-            this.LB_LFHeader = new System.Windows.Forms.Label();
-            this.LB_AdminP = new System.Windows.Forms.Label();
-            this.btn_Logout = new System.Windows.Forms.Button();
             this.LB_rUsers = new System.Windows.Forms.Label();
             this.btn_AddUser = new System.Windows.Forms.Button();
             this.Grd_User = new System.Windows.Forms.DataGridView();
@@ -43,8 +43,16 @@
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LB_AItems = new System.Windows.Forms.Label();
+            this.LB_AllLFReport = new System.Windows.Forms.Label();
+            this.Grd_Items = new System.Windows.Forms.DataGridView();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActionItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_User
@@ -70,6 +78,45 @@
             this.PanelHeader.Size = new System.Drawing.Size(800, 52);
             this.PanelHeader.TabIndex = 2;
             // 
+            // btn_Logout
+            // 
+            this.btn_Logout.BackColor = System.Drawing.Color.White;
+            this.btn_Logout.FlatAppearance.BorderSize = 2;
+            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Logout.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(109)))), ((int)(((byte)(138)))));
+            this.btn_Logout.Location = new System.Drawing.Point(728, 13);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(60, 30);
+            this.btn_Logout.TabIndex = 5;
+            this.btn_Logout.Text = "Logout";
+            this.btn_Logout.UseVisualStyleBackColor = false;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            // 
+            // LB_AdminP
+            // 
+            this.LB_AdminP.AutoSize = true;
+            this.LB_AdminP.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.LB_AdminP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(124)))), ((int)(((byte)(147)))));
+            this.LB_AdminP.Location = new System.Drawing.Point(195, 21);
+            this.LB_AdminP.Name = "LB_AdminP";
+            this.LB_AdminP.Size = new System.Drawing.Size(83, 15);
+            this.LB_AdminP.TabIndex = 5;
+            this.LB_AdminP.Text = "- Admin Panel";
+            this.LB_AdminP.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // LB_LFHeader
+            // 
+            this.LB_LFHeader.AutoSize = true;
+            this.LB_LFHeader.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.LB_LFHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(50)))), ((int)(((byte)(77)))));
+            this.LB_LFHeader.Location = new System.Drawing.Point(68, 17);
+            this.LB_LFHeader.Name = "LB_LFHeader";
+            this.LB_LFHeader.Size = new System.Drawing.Size(130, 19);
+            this.LB_LFHeader.TabIndex = 5;
+            this.LB_LFHeader.Text = "Lost & Found System";
+            this.LB_LFHeader.Click += new System.EventHandler(this.label1_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Gainsboro;
@@ -87,45 +134,6 @@
             this.LogoHeader.Name = "LogoHeader";
             this.LogoHeader.Size = new System.Drawing.Size(28, 28);
             this.LogoHeader.TabIndex = 4;
-            // 
-            // LB_LFHeader
-            // 
-            this.LB_LFHeader.AutoSize = true;
-            this.LB_LFHeader.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.LB_LFHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(50)))), ((int)(((byte)(77)))));
-            this.LB_LFHeader.Location = new System.Drawing.Point(68, 17);
-            this.LB_LFHeader.Name = "LB_LFHeader";
-            this.LB_LFHeader.Size = new System.Drawing.Size(130, 19);
-            this.LB_LFHeader.TabIndex = 5;
-            this.LB_LFHeader.Text = "Lost & Found System";
-            this.LB_LFHeader.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // LB_AdminP
-            // 
-            this.LB_AdminP.AutoSize = true;
-            this.LB_AdminP.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.LB_AdminP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(124)))), ((int)(((byte)(147)))));
-            this.LB_AdminP.Location = new System.Drawing.Point(195, 21);
-            this.LB_AdminP.Name = "LB_AdminP";
-            this.LB_AdminP.Size = new System.Drawing.Size(83, 15);
-            this.LB_AdminP.TabIndex = 5;
-            this.LB_AdminP.Text = "- Admin Panel";
-            this.LB_AdminP.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // btn_Logout
-            // 
-            this.btn_Logout.BackColor = System.Drawing.Color.White;
-            this.btn_Logout.FlatAppearance.BorderSize = 2;
-            this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Logout.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(109)))), ((int)(((byte)(138)))));
-            this.btn_Logout.Location = new System.Drawing.Point(728, 13);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(60, 30);
-            this.btn_Logout.TabIndex = 5;
-            this.btn_Logout.Text = "Logout";
-            this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // LB_rUsers
             // 
@@ -147,6 +155,7 @@
             // 
             // Grd_User
             // 
+            this.Grd_User.AllowUserToAddRows = false;
             this.Grd_User.AllowUserToResizeRows = false;
             this.Grd_User.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.Grd_User.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -159,10 +168,10 @@
             this.Grd_User.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
             this.Grd_User.Location = new System.Drawing.Point(58, 134);
             this.Grd_User.Name = "Grd_User";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.Grd_User.Size = new System.Drawing.Size(509, 144);
             this.Grd_User.TabIndex = 7;
             // 
@@ -190,12 +199,73 @@
             this.colAction.Name = "colAction";
             this.colAction.Width = 150;
             // 
+            // LB_AItems
+            // 
+            this.LB_AItems.AutoSize = true;
+            this.LB_AItems.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.LB_AItems.Location = new System.Drawing.Point(54, 336);
+            this.LB_AItems.Name = "LB_AItems";
+            this.LB_AItems.Size = new System.Drawing.Size(67, 20);
+            this.LB_AItems.TabIndex = 8;
+            this.LB_AItems.Text = "All Items";
+            // 
+            // LB_AllLFReport
+            // 
+            this.LB_AllLFReport.AutoSize = true;
+            this.LB_AllLFReport.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.LB_AllLFReport.Location = new System.Drawing.Point(55, 356);
+            this.LB_AllLFReport.Name = "LB_AllLFReport";
+            this.LB_AllLFReport.Size = new System.Drawing.Size(147, 13);
+            this.LB_AllLFReport.TabIndex = 9;
+            this.LB_AllLFReport.Text = "All Lost and Found Reports";
+            this.LB_AllLFReport.Click += new System.EventHandler(this.LB_AllLFReport_Click);
+            // 
+            // Grd_Items
+            // 
+            this.Grd_Items.AllowUserToAddRows = false;
+            this.Grd_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grd_Items.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colItem,
+            this.colReporter,
+            this.colStatus,
+            this.colActionItem});
+            this.Grd_Items.Location = new System.Drawing.Point(58, 392);
+            this.Grd_Items.Name = "Grd_Items";
+            this.Grd_Items.Size = new System.Drawing.Size(509, 144);
+            this.Grd_Items.TabIndex = 10;
+            // 
+            // colItem
+            // 
+            this.colItem.HeaderText = "ITEM";
+            this.colItem.Name = "colItem";
+            this.colItem.Width = 90;
+            // 
+            // colReporter
+            // 
+            this.colReporter.HeaderText = "REPORTER";
+            this.colReporter.Name = "colReporter";
+            this.colReporter.Width = 150;
+            // 
+            // colStatus
+            // 
+            this.colStatus.HeaderText = "STATUS";
+            this.colStatus.Name = "colStatus";
+            // 
+            // colActionItem
+            // 
+            this.colActionItem.HeaderText = "ACTION";
+            this.colActionItem.Name = "colActionItem";
+            this.colActionItem.Width = 150;
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 567);
+            this.Controls.Add(this.Grd_Items);
+            this.Controls.Add(this.LB_AllLFReport);
+            this.Controls.Add(this.LB_AItems);
             this.Controls.Add(this.Grd_User);
             this.Controls.Add(this.btn_AddUser);
             this.Controls.Add(this.LB_rUsers);
@@ -210,6 +280,7 @@
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +302,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAction;
+        private System.Windows.Forms.Label LB_AItems;
+        private System.Windows.Forms.Label LB_AllLFReport;
+        private System.Windows.Forms.DataGridView Grd_Items;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReporter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActionItem;
     }
 }

@@ -39,5 +39,10 @@ namespace lostandfound.cs
         {
 
         }
+
+        private void LB_AllLFReport_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
