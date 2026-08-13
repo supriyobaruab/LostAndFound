@@ -26,20 +26,20 @@ namespace lostandfound.cs
 
         private void Btn_ReportItem_Click(object sender, EventArgs e)
         {
-           ViewReportsForm reportForm = new ViewReportsForm();
-            reportForm.Show();
-        }
-
-        private void Btn_FindItems_Click(object sender, EventArgs e)
-        {
             FoundItemForm foundItemForm = new FoundItemForm();
             foundItemForm.Show();
         }
 
+        private void Btn_FindItems_Click(object sender, EventArgs e)
+        {
+            SearchItemForm searchItemForm = new SearchItemForm();
+            searchItemForm.Show();
+        }
+
         private void Btn_MyReports_Click(object sender, EventArgs e)
         {
-            ViewReportsForm myReportsForm = new ViewReportsForm();
-            myReportsForm.Show();
+            ViewReports reports = new ViewReports();
+            reports.Show();
         }
     }
 }

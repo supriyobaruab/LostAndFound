@@ -159,7 +159,7 @@
             this.dgvItems.RowTemplate.Height = 33;
             this.dgvItems.Size = new System.Drawing.Size(234, 258);
             this.dgvItems.TabIndex = 9;
-            this.dgvItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellContentClick);
+            
             // 
             // colImage
             // 

@@ -62,15 +62,6 @@ namespace lostandfound.cs
 
         }
 
-
-        private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.ColumnIndex == dgvItems.Columns["colView"].Index)
-            {
-                ViewReportsForm details = new ViewReportsForm();
-                details.Show();
-            }
-        }
     }
     }
 
