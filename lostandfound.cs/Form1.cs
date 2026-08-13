@@ -26,39 +26,32 @@ namespace lostandfound.cs
             {
                 conn.Open();
 
-                string query = "SELECT Role FROM [User] WHERE User_ID = @User_ID AND Password = @Password";
+                string query = "SELECT Role, Name FROM [User] WHERE User_ID = @User_ID AND Password = @Password";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
                 cmd.Parameters.AddWithValue("@User_ID", textBox1.Text);
                 cmd.Parameters.AddWithValue("@Password", textBox2.Text);
 
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                object result = cmd.ExecuteScalar();
-       
-
-                if (result != null)
-
+                if (reader.Read())
                 {
-                    string role = result.ToString().Trim();
-                    MessageBox.Show(role);
+                    string role = reader["Role"].ToString().Trim();
+                    string name = reader["Name"].ToString().Trim();
 
                     if (role == "admin")
                     {
-                        //Admin admin = new Admin();
-                        //admin.Show();
-                        //this.Hide();
+                        AdminDashboard admin = new AdminDashboard();
+                        admin.Show();
+                        this.Hide();
                     }
                     else if (role == "student")
                     {
-                        Dashboard dashboard = new Dashboard();
+                        Dashboard dashboard = new Dashboard(name);
                         dashboard.Show();
                         this.Hide();
                     }
-                    //else
-                    //{
-                    //    MessageBox.Show("Invalid UserID or Password. Please try again.");
-                    //}
                 }
                 else
                 {
