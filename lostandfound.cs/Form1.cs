@@ -41,13 +41,13 @@ namespace lostandfound.cs
 
                 {
                     string role = result.ToString().Trim();
-                    MessageBox.Show(role);
+                    //MessageBox.Show(role);
 
                     if (role == "admin")
                     {
-                        //Admin admin = new Admin();
-                        //admin.Show();
-                        //this.Hide();
+                        AdminDashboard admin = new AdminDashboard();
+                        admin.Show();
+                        this.Hide();
                     }
                     else if (role == "student")
                     {
