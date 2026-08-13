@@ -28,138 +28,147 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.LB_Finditem = new System.Windows.Forms.Label();
+            this.btn_Bag = new System.Windows.Forms.Button();
+            this.btn_Electronics = new System.Windows.Forms.Button();
+            this.btn_Wallet = new System.Windows.Forms.Button();
+            this.btn_ID = new System.Windows.Forms.Button();
+            this.btn_Books = new System.Windows.Forms.Button();
+            this.btn_Key = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.btn_Clothing = new System.Windows.Forms.Button();
+            this.btn_Others = new System.Windows.Forms.Button();
+            this.IMG_Itemimg = new System.Windows.Forms.DataGridView();
             this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colView = new System.Windows.Forms.DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_Itemimg)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // LB_Finditem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(352, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 29);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Find Items";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.LB_Finditem.AutoSize = true;
+            this.LB_Finditem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LB_Finditem.Location = new System.Drawing.Point(172, 35);
+            this.LB_Finditem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LB_Finditem.Name = "LB_Finditem";
+            this.LB_Finditem.Size = new System.Drawing.Size(74, 15);
+            this.LB_Finditem.TabIndex = 0;
+            this.LB_Finditem.Text = "Find Items";
+            this.LB_Finditem.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // btn_Bag
             // 
-            this.button1.Location = new System.Drawing.Point(97, 137);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(141, 66);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Bags";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Bag.Location = new System.Drawing.Point(48, 83);
+            this.btn_Bag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Bag.Name = "btn_Bag";
+            this.btn_Bag.Size = new System.Drawing.Size(70, 34);
+            this.btn_Bag.TabIndex = 1;
+            this.btn_Bag.Text = "Bags";
+            this.btn_Bag.UseVisualStyleBackColor = true;
+            this.btn_Bag.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btn_Electronics
             // 
-            this.button2.Location = new System.Drawing.Point(97, 239);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(141, 64);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Electronics";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Electronics.Location = new System.Drawing.Point(48, 142);
+            this.btn_Electronics.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Electronics.Name = "btn_Electronics";
+            this.btn_Electronics.Size = new System.Drawing.Size(70, 33);
+            this.btn_Electronics.TabIndex = 2;
+            this.btn_Electronics.Text = "Electronics";
+            this.btn_Electronics.UseVisualStyleBackColor = true;
+            this.btn_Electronics.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
+            // btn_Wallet
             // 
-            this.button3.Location = new System.Drawing.Point(97, 336);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(141, 57);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Wallets";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn_Wallet.Location = new System.Drawing.Point(48, 215);
+            this.btn_Wallet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Wallet.Name = "btn_Wallet";
+            this.btn_Wallet.Size = new System.Drawing.Size(70, 30);
+            this.btn_Wallet.TabIndex = 3;
+            this.btn_Wallet.Text = "Wallets";
+            this.btn_Wallet.UseVisualStyleBackColor = true;
+            this.btn_Wallet.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btn_ID
             // 
-            this.button4.Location = new System.Drawing.Point(97, 454);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(141, 48);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "ID Cards";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn_ID.Location = new System.Drawing.Point(48, 277);
+            this.btn_ID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_ID.Name = "btn_ID";
+            this.btn_ID.Size = new System.Drawing.Size(70, 25);
+            this.btn_ID.TabIndex = 4;
+            this.btn_ID.Text = "ID Cards";
+            this.btn_ID.UseVisualStyleBackColor = true;
+            this.btn_ID.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // btn_Books
             // 
-            this.button5.Location = new System.Drawing.Point(559, 137);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(157, 48);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Books";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btn_Books.Location = new System.Drawing.Point(278, 83);
+            this.btn_Books.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Books.Name = "btn_Books";
+            this.btn_Books.Size = new System.Drawing.Size(78, 34);
+            this.btn_Books.TabIndex = 5;
+            this.btn_Books.Text = "Books";
+            this.btn_Books.UseVisualStyleBackColor = true;
+            this.btn_Books.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // btn_Key
             // 
-            this.button6.Location = new System.Drawing.Point(558, 259);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(157, 44);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Keys";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btn_Key.Location = new System.Drawing.Point(278, 152);
+            this.btn_Key.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Key.Name = "btn_Key";
+            this.btn_Key.Size = new System.Drawing.Size(78, 23);
+            this.btn_Key.TabIndex = 6;
+            this.btn_Key.Text = "Keys";
+            this.btn_Key.UseVisualStyleBackColor = true;
+            this.btn_Key.Click += new System.EventHandler(this.button6_Click);
             // 
-            // button7
+            // btn_Clothing
             // 
-            this.button7.Location = new System.Drawing.Point(559, 345);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(157, 48);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Clothing";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btn_Clothing.Location = new System.Drawing.Point(278, 218);
+            this.btn_Clothing.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Clothing.Name = "btn_Clothing";
+            this.btn_Clothing.Size = new System.Drawing.Size(78, 25);
+            this.btn_Clothing.TabIndex = 7;
+            this.btn_Clothing.Text = "Clothing";
+            this.btn_Clothing.UseVisualStyleBackColor = true;
+            this.btn_Clothing.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button8
+            // btn_Others
             // 
-            this.button8.Location = new System.Drawing.Point(558, 452);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(158, 50);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Others";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btn_Others.Location = new System.Drawing.Point(278, 276);
+            this.btn_Others.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Others.Name = "btn_Others";
+            this.btn_Others.Size = new System.Drawing.Size(79, 26);
+            this.btn_Others.TabIndex = 8;
+            this.btn_Others.Text = "Others";
+            this.btn_Others.UseVisualStyleBackColor = true;
+            this.btn_Others.Click += new System.EventHandler(this.button8_Click);
             // 
-            // dgvItems
+            // IMG_Itemimg
             // 
-            this.dgvItems.AllowDrop = true;
-            this.dgvItems.AllowUserToAddRows = false;
-            this.dgvItems.AllowUserToDeleteRows = false;
-            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IMG_Itemimg.AllowDrop = true;
+            this.IMG_Itemimg.AllowUserToAddRows = false;
+            this.IMG_Itemimg.AllowUserToDeleteRows = false;
+            this.IMG_Itemimg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.IMG_Itemimg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colImage,
             this.colItemName,
             this.colDateFound,
             this.colFoundLocation,
             this.colStatus,
             this.colView});
-            this.dgvItems.Location = new System.Drawing.Point(861, 164);
-            this.dgvItems.Name = "dgvItems";
-            this.dgvItems.ReadOnly = true;
-            this.dgvItems.RowHeadersWidth = 82;
-            this.dgvItems.RowTemplate.Height = 33;
-            this.dgvItems.Size = new System.Drawing.Size(234, 258);
-            this.dgvItems.TabIndex = 9;
-            
+            this.IMG_Itemimg.Location = new System.Drawing.Point(447, 83);
+            this.IMG_Itemimg.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IMG_Itemimg.Name = "IMG_Itemimg";
+            this.IMG_Itemimg.ReadOnly = true;
+            this.IMG_Itemimg.RowHeadersWidth = 82;
+            this.IMG_Itemimg.RowTemplate.Height = 33;
+            this.IMG_Itemimg.Size = new System.Drawing.Size(159, 156);
+            this.IMG_Itemimg.TabIndex = 9;
             // 
             // colImage
             // 
@@ -213,22 +222,23 @@
             // 
             // SearchItemForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1217, 772);
-            this.Controls.Add(this.dgvItems);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(704, 448);
+            this.Controls.Add(this.IMG_Itemimg);
+            this.Controls.Add(this.btn_Others);
+            this.Controls.Add(this.btn_Clothing);
+            this.Controls.Add(this.btn_Key);
+            this.Controls.Add(this.btn_Books);
+            this.Controls.Add(this.btn_ID);
+            this.Controls.Add(this.btn_Wallet);
+            this.Controls.Add(this.btn_Electronics);
+            this.Controls.Add(this.btn_Bag);
+            this.Controls.Add(this.LB_Finditem);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SearchItemForm";
             this.Text = "SearchItemForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_Itemimg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,17 +246,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label LB_Finditem;
+        private System.Windows.Forms.Button btn_Bag;
+        private System.Windows.Forms.Button btn_Electronics;
+        private System.Windows.Forms.Button btn_Wallet;
+        private System.Windows.Forms.Button btn_ID;
+        private System.Windows.Forms.Button btn_Books;
+        private System.Windows.Forms.Button btn_Key;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.DataGridView dgvItems;
+        private System.Windows.Forms.Button btn_Clothing;
+        private System.Windows.Forms.Button btn_Others;
+        private System.Windows.Forms.DataGridView IMG_Itemimg;
         private System.Windows.Forms.DataGridViewImageColumn colImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateFound;
