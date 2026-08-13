@@ -160,6 +160,9 @@
     <Compile Include="AdminDashboard.Designer.cs">
       <DependentUpon>AdminDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
