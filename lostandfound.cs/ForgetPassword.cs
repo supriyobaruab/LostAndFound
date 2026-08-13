@@ -40,7 +40,7 @@ namespace lostandfound.cs
             {
                 conn.Open();
 
-                string query = "SELECT [User] FROM Login WHERE User_ID = @User_ID";
+                string query = "SELECT Role FROM [User] WHERE User_ID = @User_ID";
 
                 SqlCommand cmd = new SqlCommand(query, conn);
 
