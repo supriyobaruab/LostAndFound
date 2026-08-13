@@ -17,6 +17,30 @@ namespace lostandfound.cs
         {
             Application.Exit();
         }
+
+        private void btn_ReportLost_Click(object sender, EventArgs e)
+        {
+            LostItemForm lostItemForm = new LostItemForm();
+            lostItemForm.Show();
+        }
+
+        private void Btn_ReportItem_Click(object sender, EventArgs e)
+        {
+           ViewReportsForm reportForm = new ViewReportsForm();
+            reportForm.Show();
+        }
+
+        private void Btn_FindItems_Click(object sender, EventArgs e)
+        {
+            FoundItemForm foundItemForm = new FoundItemForm();
+            foundItemForm.Show();
+        }
+
+        private void Btn_MyReports_Click(object sender, EventArgs e)
+        {
+            ViewReportsForm myReportsForm = new ViewReportsForm();
+            myReportsForm.Show();
+        }
     }
 }
 
