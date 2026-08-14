@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace lostandfound.cs
@@ -19,15 +20,23 @@ namespace lostandfound.cs
 
             SelectItem.Items.AddRange(new string[]
                 {
-                    "Choose an item",
                     "Bag",
                     "Phone",
                     "Wallet",
                     "Laptop"
                  });
 
-            SelectItem.SelectedIndex = 0;
+            Find_Items.Rows.Add(
+                null,
+                "Black Bag",
+                "14/08/2026",
+                "AIUB Campus",
+                "Found",
+                "View"
+);
         }
+
+        
 
 
 

@@ -30,7 +30,7 @@
         {
             this.LB_Finditem = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.IMG_Itemimg = new System.Windows.Forms.DataGridView();
+            this.Find_Items = new System.Windows.Forms.DataGridView();
             this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,7 +39,7 @@
             this.colView = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.SelectItem = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.IMG_Itemimg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Find_Items)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_Finditem
@@ -53,25 +53,27 @@
             this.LB_Finditem.TabIndex = 0;
             this.LB_Finditem.Text = "Find Items";
             // 
-            // IMG_Itemimg
+            // Find_Items
             // 
-            this.IMG_Itemimg.AllowDrop = true;
-            this.IMG_Itemimg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.IMG_Itemimg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Find_Items.AllowDrop = true;
+            this.Find_Items.AllowUserToAddRows = false;
+            this.Find_Items.AllowUserToDeleteRows = false;
+            this.Find_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Find_Items.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colImage,
             this.colItemName,
             this.colDateFound,
             this.colFoundLocation,
             this.colStatus,
             this.colView});
-            this.IMG_Itemimg.Location = new System.Drawing.Point(20, 120);
-            this.IMG_Itemimg.Margin = new System.Windows.Forms.Padding(2);
-            this.IMG_Itemimg.Name = "IMG_Itemimg";
-            this.IMG_Itemimg.ReadOnly = true;
-            this.IMG_Itemimg.RowHeadersWidth = 82;
-            this.IMG_Itemimg.RowTemplate.Height = 33;
-            this.IMG_Itemimg.Size = new System.Drawing.Size(1090, 458);
-            this.IMG_Itemimg.TabIndex = 9;
+            this.Find_Items.Location = new System.Drawing.Point(20, 99);
+            this.Find_Items.Margin = new System.Windows.Forms.Padding(2);
+            this.Find_Items.Name = "Find_Items";
+            this.Find_Items.ReadOnly = true;
+            this.Find_Items.RowHeadersWidth = 82;
+            this.Find_Items.RowTemplate.Height = 33;
+            this.Find_Items.Size = new System.Drawing.Size(1090, 479);
+            this.Find_Items.TabIndex = 9;
             // 
             // colImage
             // 
@@ -152,12 +154,12 @@
             this.ClientSize = new System.Drawing.Size(1121, 614);
             this.Controls.Add(this.SelectItem);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.IMG_Itemimg);
+            this.Controls.Add(this.Find_Items);
             this.Controls.Add(this.LB_Finditem);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SearchItemForm";
             this.Text = "SearchItemForm";
-            ((System.ComponentModel.ISupportInitialize)(this.IMG_Itemimg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Find_Items)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +169,7 @@
 
         private System.Windows.Forms.Label LB_Finditem;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataGridView IMG_Itemimg;
+        private System.Windows.Forms.DataGridView Find_Items;
         private System.Windows.Forms.DataGridViewImageColumn colImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateFound;
