@@ -42,37 +42,36 @@
             this.TB_ItemName = new System.Windows.Forms.TextBox();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Upload_Image = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Upload_Image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -125,7 +124,6 @@
             this.LB_FoundLocation.Size = new System.Drawing.Size(81, 13);
             this.LB_FoundLocation.TabIndex = 4;
             this.LB_FoundLocation.Text = "Found Location";
-            this.LB_FoundLocation.Click += new System.EventHandler(this.LB_FoundLocation_Click);
             // 
             // LB_FoundDate
             // 
@@ -136,7 +134,6 @@
             this.LB_FoundDate.Size = new System.Drawing.Size(63, 13);
             this.LB_FoundDate.TabIndex = 5;
             this.LB_FoundDate.Text = "Found Date";
-            this.LB_FoundDate.Click += new System.EventHandler(this.LB_FoundDate_Click);
             // 
             // CB_Category
             // 
@@ -155,7 +152,7 @@
             this.TB_Description.Margin = new System.Windows.Forms.Padding(2);
             this.TB_Description.Multiline = true;
             this.TB_Description.Name = "TB_Description";
-            this.TB_Description.Size = new System.Drawing.Size(259, 167);
+            this.TB_Description.Size = new System.Drawing.Size(259, 185);
             this.TB_Description.TabIndex = 8;
             // 
             // TB_FoundLoc
@@ -163,16 +160,15 @@
             this.TB_FoundLoc.Location = new System.Drawing.Point(68, 43);
             this.TB_FoundLoc.Margin = new System.Windows.Forms.Padding(2);
             this.TB_FoundLoc.Name = "TB_FoundLoc";
-            this.TB_FoundLoc.Size = new System.Drawing.Size(243, 20);
+            this.TB_FoundLoc.Size = new System.Drawing.Size(242, 20);
             this.TB_FoundLoc.TabIndex = 9;
-            this.TB_FoundLoc.TextChanged += new System.EventHandler(this.TB_FoundLoc_TextChanged);
             // 
             // DTP_FoundDate
             // 
             this.DTP_FoundDate.Location = new System.Drawing.Point(68, 42);
             this.DTP_FoundDate.Margin = new System.Windows.Forms.Padding(2);
             this.DTP_FoundDate.Name = "DTP_FoundDate";
-            this.DTP_FoundDate.Size = new System.Drawing.Size(243, 20);
+            this.DTP_FoundDate.Size = new System.Drawing.Size(242, 20);
             this.DTP_FoundDate.TabIndex = 10;
             // 
             // TB_ItemName
@@ -192,6 +188,7 @@
             this.btn_Save.TabIndex = 12;
             this.btn_Save.Text = "Save";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Cancel
             // 
@@ -203,25 +200,17 @@
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // Upload_Image
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(398, 312);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(190, 148);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(402, 476);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Upload Image";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Upload_Image.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Upload_Image.Image = ((System.Drawing.Image)(resources.GetObject("Upload_Image.Image")));
+            this.Upload_Image.Location = new System.Drawing.Point(444, 296);
+            this.Upload_Image.Name = "Upload_Image";
+            this.Upload_Image.Size = new System.Drawing.Size(200, 195);
+            this.Upload_Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Upload_Image.TabIndex = 14;
+            this.Upload_Image.TabStop = false;
+            this.Upload_Image.Click += new System.EventHandler(this.Upload_Image_Click);
             // 
             // pictureBox2
             // 
@@ -253,97 +242,31 @@
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.Upload_Image);
             this.panel1.Location = new System.Drawing.Point(84, 99);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(747, 552);
             this.panel1.TabIndex = 18;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel2
+            // pictureBox8
             // 
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.TB_ItemName);
-            this.panel2.Controls.Add(this.LB_ItemName);
-            this.panel2.Location = new System.Drawing.Point(11, 43);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(348, 83);
-            this.panel2.TabIndex = 16;
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(398, 274);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 18;
+            this.pictureBox8.TabStop = false;
             // 
-            // pictureBox3
+            // label3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(20, 21);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 17;
-            this.pictureBox3.TabStop = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.pictureBox4);
-            this.panel3.Controls.Add(this.LB_Catagory);
-            this.panel3.Controls.Add(this.CB_Category);
-            this.panel3.Location = new System.Drawing.Point(11, 150);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(348, 83);
-            this.panel3.TabIndex = 18;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(20, 21);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 17;
-            this.pictureBox4.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel4.Controls.Add(this.pictureBox5);
-            this.panel4.Controls.Add(this.TB_Description);
-            this.panel4.Controls.Add(this.LB_Description);
-            this.panel4.Location = new System.Drawing.Point(11, 253);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(348, 254);
-            this.panel4.TabIndex = 19;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(20, 21);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 17;
-            this.pictureBox5.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel5.Controls.Add(this.pictureBox6);
-            this.panel5.Controls.Add(this.LB_FoundLocation);
-            this.panel5.Controls.Add(this.TB_FoundLoc);
-            this.panel5.Location = new System.Drawing.Point(378, 43);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(348, 83);
-            this.panel5.TabIndex = 18;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(20, 21);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 17;
-            this.pictureBox6.TabStop = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(442, 276);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Upload Image";
             // 
             // panel6
             // 
@@ -366,25 +289,89 @@
             this.pictureBox7.TabIndex = 17;
             this.pictureBox7.TabStop = false;
             // 
-            // label3
+            // panel5
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(442, 279);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Upload Image";
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel5.Controls.Add(this.pictureBox6);
+            this.panel5.Controls.Add(this.LB_FoundLocation);
+            this.panel5.Controls.Add(this.TB_FoundLoc);
+            this.panel5.Location = new System.Drawing.Point(378, 43);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(348, 83);
+            this.panel5.TabIndex = 18;
             // 
-            // pictureBox8
+            // pictureBox6
             // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(398, 274);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(35, 32);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox8.TabIndex = 18;
-            this.pictureBox8.TabStop = false;
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(20, 21);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 17;
+            this.pictureBox6.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel4.Controls.Add(this.pictureBox5);
+            this.panel4.Controls.Add(this.TB_Description);
+            this.panel4.Controls.Add(this.LB_Description);
+            this.panel4.Location = new System.Drawing.Point(11, 253);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(348, 254);
+            this.panel4.TabIndex = 19;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(20, 21);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 17;
+            this.pictureBox5.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel3.Controls.Add(this.pictureBox4);
+            this.panel3.Controls.Add(this.LB_Catagory);
+            this.panel3.Controls.Add(this.CB_Category);
+            this.panel3.Location = new System.Drawing.Point(11, 150);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(348, 83);
+            this.panel3.TabIndex = 18;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(20, 21);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 17;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel2.Controls.Add(this.pictureBox3);
+            this.panel2.Controls.Add(this.TB_ItemName);
+            this.panel2.Controls.Add(this.LB_ItemName);
+            this.panel2.Location = new System.Drawing.Point(11, 43);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(348, 83);
+            this.panel2.TabIndex = 16;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(20, 21);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 17;
+            this.pictureBox3.TabStop = false;
             // 
             // FoundItemForm
             // 
@@ -400,27 +387,26 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FoundItemForm";
             this.Text = "FoundItemForm";
-            this.Load += new System.EventHandler(this.FoundItemForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Upload_Image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,8 +427,7 @@
         private System.Windows.Forms.TextBox TB_ItemName;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Cancel;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox Upload_Image;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
