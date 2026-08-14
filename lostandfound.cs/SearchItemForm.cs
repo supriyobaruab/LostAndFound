@@ -22,9 +22,13 @@ namespace lostandfound.cs
             SelectItem.Items.AddRange(new string[]
                 {
                     "Bag",
-                    "Phone",
+                    "Electronics",
+                    "Keys",
+                    "ID card",
+                    "Books",
                     "Wallet",
-                    "Laptop"
+                    "Cloth",
+                    "Other"
                  });
             SelectItem.SelectedIndex = -1;
 
