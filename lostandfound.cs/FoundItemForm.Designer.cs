@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FoundItemForm));
             this.label1 = new System.Windows.Forms.Label();
             this.LB_ItemName = new System.Windows.Forms.Label();
             this.LB_Catagory = new System.Windows.Forms.Label();
@@ -41,6 +42,9 @@
             this.TB_ItemName = new System.Windows.Forms.TextBox();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -157,7 +161,7 @@
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(112, 387);
+            this.btn_Save.Location = new System.Drawing.Point(112, 611);
             this.btn_Save.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Save.Name = "btn_Save";
             this.btn_Save.Size = new System.Drawing.Size(84, 38);
@@ -168,7 +172,7 @@
             // 
             // btn_Cancel
             // 
-            this.btn_Cancel.Location = new System.Drawing.Point(202, 387);
+            this.btn_Cancel.Location = new System.Drawing.Point(200, 611);
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(84, 38);
@@ -176,11 +180,34 @@
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = global::lostandfound.cs.Properties.Resources.lost_items;
+            this.pictureBox1.Location = new System.Drawing.Point(202, 357);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(489, 234);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(98, 408);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FoundItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 680);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.TB_ItemName);
@@ -198,6 +225,7 @@
             this.Name = "FoundItemForm";
             this.Text = "FoundItemForm";
             this.Load += new System.EventHandler(this.FoundItemForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,5 +246,7 @@
         private System.Windows.Forms.TextBox TB_ItemName;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
