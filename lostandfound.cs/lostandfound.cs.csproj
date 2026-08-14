@@ -184,6 +184,11 @@
     <Compile Include="FoundItemForm.Designer.cs">
       <DependentUpon>FoundItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LostAndFoundDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LostAndFoundDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LostItemForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +251,17 @@
     <EmbeddedResource Include="ViewReports.resx">
       <DependentUpon>ViewReports.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LostAndFoundDataSet.xsc">
+      <DependentUpon>LostAndFoundDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="LostAndFoundDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LostAndFoundDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LostAndFoundDataSet.xss">
+      <DependentUpon>LostAndFoundDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

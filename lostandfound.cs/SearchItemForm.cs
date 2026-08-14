@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.Data.SqlClient;
 
 namespace lostandfound.cs
 {
@@ -25,21 +26,110 @@ namespace lostandfound.cs
                     "Wallet",
                     "Laptop"
                  });
+            SelectItem.SelectedIndex = -1;
 
-            Find_Items.Rows.Add(
-                null,
-                "Black Bag",
-                "14/08/2026",
-                "AIUB Campus",
-                "Found",
-                "View"
-);
+            LoadAllItems();
+
+        }
+        private void LoadAllItems()
+        {
+            string connectionString = "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                string query = @"SELECT image_Path, item_name, date_found,
+                                found_location, status
+                         FROM FoundItems";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                Find_Items.Rows.Clear();
+
+                while (reader.Read())
+                {
+                    object ImagePath = reader["image_Path"];
+
+                    Find_Items.Rows.Add(
+                        ImagePath,
+                        reader["item_name"].ToString(),
+                        reader["date_found"].ToString(),
+                        reader["found_location"].ToString(),
+                        reader["status"].ToString()
+                    );
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        
 
+        private void SelectItem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SelectItem.SelectedItem == null)
+                return;
 
+            string connectionString = "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
 
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                string query = @"SELECT image_Path, item_name, date_found,
+                                found_location, status
+                         FROM FoundItems
+                         WHERE Category = @Category";
+
+                SqlCommand cmd = new SqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue(
+                    "@Category",
+                    SelectItem.SelectedItem.ToString()
+                );
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                Find_Items.Rows.Clear();
+
+                while (reader.Read())
+                {
+                    object ImagePath = reader["image_Path"];
+
+                    Find_Items.Rows.Add(
+                        ImagePath,
+                        reader["item_name"].ToString(),
+                        reader["date_found"].ToString(),
+                        reader["found_location"].ToString(),
+                        reader["status"].ToString()
+                    );
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
     }
     }
 

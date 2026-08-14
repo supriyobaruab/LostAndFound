@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.LB_Finditem = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Find_Items = new System.Windows.Forms.DataGridView();
@@ -39,7 +40,12 @@
             this.colView = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.SelectItem = new System.Windows.Forms.ComboBox();
+            this.lostAndFoundDataSet = new lostandfound.cs.LostAndFoundDataSet();
+            this.foundItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foundItemsTableAdapter = new lostandfound.cs.LostAndFoundDataSetTableAdapters.FoundItemsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Find_Items)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lostAndFoundDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foundItemsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_Finditem
@@ -146,6 +152,21 @@
             this.SelectItem.Name = "SelectItem";
             this.SelectItem.Size = new System.Drawing.Size(156, 23);
             this.SelectItem.TabIndex = 11;
+            this.SelectItem.SelectedIndexChanged += new System.EventHandler(this.SelectItem_SelectedIndexChanged);
+            // 
+            // lostAndFoundDataSet
+            // 
+            this.lostAndFoundDataSet.DataSetName = "LostAndFoundDataSet";
+            this.lostAndFoundDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // foundItemsBindingSource
+            // 
+            this.foundItemsBindingSource.DataMember = "FoundItems";
+            this.foundItemsBindingSource.DataSource = this.lostAndFoundDataSet;
+            // 
+            // foundItemsTableAdapter
+            // 
+            this.foundItemsTableAdapter.ClearBeforeFill = true;
             // 
             // SearchItemForm
             // 
@@ -159,7 +180,10 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SearchItemForm";
             this.Text = "SearchItemForm";
+            
             ((System.ComponentModel.ISupportInitialize)(this.Find_Items)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lostAndFoundDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.foundItemsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +202,8 @@
         private System.Windows.Forms.DataGridViewButtonColumn colView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox SelectItem;
+        private LostAndFoundDataSet lostAndFoundDataSet;
+        private System.Windows.Forms.BindingSource foundItemsBindingSource;
+        private LostAndFoundDataSetTableAdapters.FoundItemsTableAdapter foundItemsTableAdapter;
     }
 }
