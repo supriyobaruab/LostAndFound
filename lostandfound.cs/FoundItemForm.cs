@@ -15,6 +15,18 @@ namespace lostandfound.cs
         public FoundItemForm()
         {
             InitializeComponent();
+
+            CB_Category.Items.AddRange(new string[]
+                {
+                    "Bag",
+                    "Electronics",
+                    "Keys",
+                    "ID card",
+                    "Books",
+                    "Wallet",
+                    "Cloth",
+                    "Other"
+                 });
         }
 
         private void FoundItemForm_Load(object sender, EventArgs e)
@@ -22,64 +34,22 @@ namespace lostandfound.cs
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void TB_FoundLoc_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void LB_FoundLocation_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
         private void LB_FoundDate_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
