@@ -18,7 +18,7 @@ namespace lostandfound.cs
             //Application.Run(new Register());
             //Application.Run(new LostItemForm());
             Application.Run(new FoundItemForm());
-            Application.Run(new SearchItemForm());
+            //Application.Run(new SearchItemForm());
             //Application.Run(new ViewReports());
 
         }
