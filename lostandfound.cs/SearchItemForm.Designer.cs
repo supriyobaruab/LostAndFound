@@ -66,13 +66,13 @@
             this.colFoundLocation,
             this.colStatus,
             this.colView});
-            this.Find_Items.Location = new System.Drawing.Point(20, 99);
+            this.Find_Items.Location = new System.Drawing.Point(31, 99);
             this.Find_Items.Margin = new System.Windows.Forms.Padding(2);
             this.Find_Items.Name = "Find_Items";
             this.Find_Items.ReadOnly = true;
             this.Find_Items.RowHeadersWidth = 82;
             this.Find_Items.RowTemplate.Height = 33;
-            this.Find_Items.Size = new System.Drawing.Size(1090, 479);
+            this.Find_Items.Size = new System.Drawing.Size(1289, 558);
             this.Find_Items.TabIndex = 9;
             // 
             // colImage
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1121, 614);
+            this.ClientSize = new System.Drawing.Size(1348, 691);
             this.Controls.Add(this.SelectItem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Find_Items);
