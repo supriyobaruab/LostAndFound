@@ -52,6 +52,12 @@ namespace lostandfound.cs
                         dashboard.Show();
                         this.Hide();
                     }
+                    else if (role == "officer")// redirect to staff dashboard after logging in as an officer
+                    {
+                        StaffDashboard staff = new StaffDashboard();
+                        staff.Show();
+                        this.Hide();
+                    }
                 }
                 else
                 {
