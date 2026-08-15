@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_User = new System.Windows.Forms.Label();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.btn_Logout = new System.Windows.Forms.Button();
             this.LB_AdminP = new System.Windows.Forms.Label();
             this.LB_LFHeader = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LogoHeader = new System.Windows.Forms.Panel();
             this.LB_rUsers = new System.Windows.Forms.Label();
             this.btn_AddUser = new System.Windows.Forms.Button();
             this.Grd_User = new System.Windows.Forms.DataGridView();
@@ -50,9 +49,11 @@
             this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colActionItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_User
@@ -69,6 +70,7 @@
             // PanelHeader
             // 
             this.PanelHeader.BackColor = System.Drawing.Color.Silver;
+            this.PanelHeader.Controls.Add(this.IMG_LogoStaff);
             this.PanelHeader.Controls.Add(this.btn_Logout);
             this.PanelHeader.Controls.Add(this.LB_AdminP);
             this.PanelHeader.Controls.Add(this.LB_LFHeader);
@@ -127,14 +129,6 @@
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // LogoHeader
-            // 
-            this.LogoHeader.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.LogoHeader.Location = new System.Drawing.Point(24, 12);
-            this.LogoHeader.Name = "LogoHeader";
-            this.LogoHeader.Size = new System.Drawing.Size(28, 28);
-            this.LogoHeader.TabIndex = 4;
-            // 
             // LB_rUsers
             // 
             this.LB_rUsers.AutoSize = true;
@@ -168,10 +162,10 @@
             this.Grd_User.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
             this.Grd_User.Location = new System.Drawing.Point(58, 134);
             this.Grd_User.Name = "Grd_User";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Grd_User.Size = new System.Drawing.Size(509, 144);
             this.Grd_User.TabIndex = 7;
             // 
@@ -257,6 +251,17 @@
             this.colActionItem.Name = "colActionItem";
             this.colActionItem.Width = 150;
             // 
+            // IMG_LogoStaff
+            // 
+            this.IMG_LogoStaff.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.IMG_LogoStaff.Image = global::lostandfound.cs.Properties.Resources.admin_icon;
+            this.IMG_LogoStaff.Location = new System.Drawing.Point(12, 7);
+            this.IMG_LogoStaff.Name = "IMG_LogoStaff";
+            this.IMG_LogoStaff.Size = new System.Drawing.Size(47, 39);
+            this.IMG_LogoStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IMG_LogoStaff.TabIndex = 11;
+            this.IMG_LogoStaff.TabStop = false;
+            // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,7 +274,6 @@
             this.Controls.Add(this.Grd_User);
             this.Controls.Add(this.btn_AddUser);
             this.Controls.Add(this.LB_rUsers);
-            this.Controls.Add(this.LogoHeader);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.PanelHeader);
             this.Controls.Add(this.LB_User);
@@ -281,6 +285,7 @@
             this.PanelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,7 +296,6 @@
         private System.Windows.Forms.Label LB_User;
         private System.Windows.Forms.Panel PanelHeader;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel LogoHeader;
         private System.Windows.Forms.Label LB_LFHeader;
         private System.Windows.Forms.Label LB_AdminP;
         private System.Windows.Forms.Button btn_Logout;
@@ -309,5 +313,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colReporter;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colActionItem;
+        private System.Windows.Forms.PictureBox IMG_LogoStaff;
     }
 }
