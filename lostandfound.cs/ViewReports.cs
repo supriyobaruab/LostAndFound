@@ -15,7 +15,8 @@ namespace lostandfound.cs
         public ViewReports()
         {
             InitializeComponent();
-
+            
+            //lost grid
             GRD_Lost.AutoGenerateColumns = false;
 
             GRD_Lost.AutoSizeColumnsMode =
@@ -32,8 +33,115 @@ namespace lostandfound.cs
 
             // Make rows tall enough to display images
             GRD_Lost.RowTemplate.Height = 75;
-        }
+            //found Grid
+            GRD_Found.AutoGenerateColumns = false;
 
+            GRD_Found.AutoSizeColumnsMode =
+                DataGridViewAutoSizeColumnsMode.Fill;
+
+            GRD_Found.ReadOnly = true;
+
+            GRD_Found.AllowUserToAddRows = false;
+
+            GRD_Found.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            GRD_Found.MultiSelect = false;
+
+            // Make rows tall enough for images
+            GRD_Found.RowTemplate.Height = 75;
+
+            if (GRD_Found.Columns.Count > 0 &&
+                GRD_Found.Columns[0] is DataGridViewImageColumn imageColumn)
+            {
+                imageColumn.ImageLayout =
+                    DataGridViewImageCellLayout.Zoom;
+            }
+
+            LoadFoundItems();
+        }
+        private void LoadFoundItems()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    string query = @"
+                SELECT
+                    image_Path,
+                    item_name,
+                    date_found,
+                    found_location,
+                    status,
+                    description
+                FROM FoundItems";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        GRD_Found.Rows.Clear();
+
+                        while (reader.Read())
+                        {
+                            string imagePath = reader["image_Path"] == DBNull.Value
+                                ? ""
+                                : reader["image_Path"].ToString();
+
+                            Image itemImage = GetItemImage(imagePath);
+
+                            int rowIndex = GRD_Found.Rows.Add(
+                                itemImage,
+                                reader["item_name"].ToString(),
+                                reader["date_found"].ToString(),
+                                reader["found_location"].ToString(),
+                                reader["description"].ToString(),
+                                reader["status"].ToString(),
+                                "Edit",
+                                "Delete"
+                            );
+
+                            GRD_Found.Rows[rowIndex].Height = 75;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Error loading found items: " + ex.Message,
+                        "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+        }
+        private Image GetItemImage(string imagePath)
+        {
+            if (string.IsNullOrWhiteSpace(imagePath))
+                return null;
+
+            string fullPath = Path.Combine(
+                Application.StartupPath,
+                imagePath.Replace("/", "\\")
+            );
+
+            if (!File.Exists(fullPath))
+                return null;
+
+            try
+            {
+                using (Image tempImage = Image.FromFile(fullPath))
+                {
+                    return new Bitmap(tempImage);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         // ==========================================
         // LOAD REPORTS
