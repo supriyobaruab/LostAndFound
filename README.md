@@ -3,6 +3,8 @@
 A **C# Windows Forms-based Lost and Found Management System** designed to help users report, manage, and search for lost and found items. The system uses **Microsoft SQL Server** for storing user and item information.
 
 ## Preview
+<img width="769" height="505" alt="image" src="https://github.com/user-attachments/assets/df535113-c77e-486d-9b93-a1ce672df1cc" />
+
 <img width="769" height="505" alt="image" src="https://github.com/user-attachments/assets/80931db2-071d-4a30-b056-2f221eb9abe0" />
 
 ## Technologies
