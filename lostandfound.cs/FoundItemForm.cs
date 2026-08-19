@@ -177,7 +177,8 @@ namespace lostandfound.cs
                     Category,
                     Date_Found,
                     Description,
-                    Image_Path
+                    Image_Path,
+                    Status
                 )
                 VALUES
                 (
@@ -186,7 +187,8 @@ namespace lostandfound.cs
                     @Category,
                     @FoundDate,
                     @Description,
-                    @ImagePath
+                    @ImagePath,
+                    @Status
                 )";
 
 
@@ -217,6 +219,8 @@ namespace lostandfound.cs
                     "@FoundDate",
                     DTP_FoundDate.Value.Date
                 );
+                command.Parameters.AddWithValue(
+                    "@Status","Found");
 
                 command.Parameters.AddWithValue(
                     "@Description",

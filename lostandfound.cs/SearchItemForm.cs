@@ -124,7 +124,8 @@ namespace lostandfound.cs
                         item_name,
                         date_found,
                         found_location,
-                        status
+                        status,
+                        description
                     FROM FoundItems";
 
 
@@ -153,7 +154,9 @@ namespace lostandfound.cs
                         reader["item_name"].ToString(),
                         reader["date_found"].ToString(),
                         reader["found_location"].ToString(),
+                        reader["description"].ToString(),
                         reader["status"].ToString()
+                        
                     );
 
 
@@ -204,7 +207,8 @@ namespace lostandfound.cs
                         item_name,
                         date_found,
                         found_location,
-                        status
+                        status,
+                        description
                     FROM FoundItems
                     WHERE Category = @Category";
 
@@ -241,7 +245,9 @@ namespace lostandfound.cs
                         reader["item_name"].ToString(),
                         reader["date_found"].ToString(),
                         reader["found_location"].ToString(),
+                        reader["description"].ToString(),
                         reader["status"].ToString()
+                        
                     );
 
 

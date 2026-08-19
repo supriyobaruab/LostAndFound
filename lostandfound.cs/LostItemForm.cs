@@ -245,7 +245,8 @@ namespace lostandfound.cs
         Category,
         Date_Lost,
         Description,
-        Image_Path
+        Image_Path,
+        Status
     )
     VALUES
     (
@@ -254,7 +255,8 @@ namespace lostandfound.cs
         @Category,
         @LostDate,
         @Description,
-        @ImagePath
+        @ImagePath,
+        'Lost'
     )";
 
             try
@@ -296,6 +298,7 @@ namespace lostandfound.cs
                             "@ImagePath",
                             imagePath
                         );
+                        
 
                         command.ExecuteNonQuery();
                     }

@@ -32,17 +32,18 @@
             this.LB_Finditem = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Find_Items = new System.Windows.Forms.DataGridView();
-            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colView = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.SelectItem = new System.Windows.Forms.ComboBox();
             this.lostAndFoundDataSet = new lostandfound.cs.LostAndFoundDataSet();
             this.foundItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.foundItemsTableAdapter = new lostandfound.cs.LostAndFoundDataSetTableAdapters.FoundItemsTableAdapter();
+            this.colView = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Find_Items)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lostAndFoundDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foundItemsBindingSource)).BeginInit();
@@ -70,6 +71,7 @@
             this.colItemName,
             this.colDateFound,
             this.colFoundLocation,
+            this.Description,
             this.colStatus,
             this.colView});
             this.Find_Items.Location = new System.Drawing.Point(31, 99);
@@ -78,58 +80,8 @@
             this.Find_Items.ReadOnly = true;
             this.Find_Items.RowHeadersWidth = 10;
             this.Find_Items.RowTemplate.Height = 33;
-            this.Find_Items.Size = new System.Drawing.Size(1289, 558);
+            this.Find_Items.Size = new System.Drawing.Size(1075, 558);
             this.Find_Items.TabIndex = 9;
-            // 
-            // colImage
-            // 
-            this.colImage.HeaderText = "Image";
-            this.colImage.MinimumWidth = 10;
-            this.colImage.Name = "colImage";
-            this.colImage.ReadOnly = true;
-            this.colImage.Width = 220;
-            // 
-            // colItemName
-            // 
-            this.colItemName.HeaderText = "Item Name";
-            this.colItemName.MinimumWidth = 10;
-            this.colItemName.Name = "colItemName";
-            this.colItemName.ReadOnly = true;
-            this.colItemName.Width = 200;
-            // 
-            // colDateFound
-            // 
-            this.colDateFound.HeaderText = "Date  found";
-            this.colDateFound.MinimumWidth = 10;
-            this.colDateFound.Name = "colDateFound";
-            this.colDateFound.ReadOnly = true;
-            this.colDateFound.Width = 200;
-            // 
-            // colFoundLocation
-            // 
-            this.colFoundLocation.HeaderText = "Found Location";
-            this.colFoundLocation.MinimumWidth = 10;
-            this.colFoundLocation.Name = "colFoundLocation";
-            this.colFoundLocation.ReadOnly = true;
-            this.colFoundLocation.Width = 200;
-            // 
-            // colStatus
-            // 
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.MinimumWidth = 10;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            this.colStatus.Width = 200;
-            // 
-            // colView
-            // 
-            this.colView.HeaderText = "ViewDetails";
-            this.colView.MinimumWidth = 10;
-            this.colView.Name = "colView";
-            this.colView.ReadOnly = true;
-            this.colView.Text = "View";
-            this.colView.UseColumnTextForButtonValue = true;
-            this.colView.Width = 200;
             // 
             // label1
             // 
@@ -168,11 +120,64 @@
             // 
             this.foundItemsTableAdapter.ClearBeforeFill = true;
             // 
+            // colView
+            // 
+            this.colView.HeaderText = "ViewDetails";
+            this.colView.MinimumWidth = 10;
+            this.colView.Name = "colView";
+            this.colView.ReadOnly = true;
+            this.colView.Text = "View";
+            this.colView.UseColumnTextForButtonValue = true;
+            // 
+            // colStatus
+            // 
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.MinimumWidth = 10;
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 200;
+            // 
+            // colFoundLocation
+            // 
+            this.colFoundLocation.HeaderText = "Found Location";
+            this.colFoundLocation.MinimumWidth = 10;
+            this.colFoundLocation.Name = "colFoundLocation";
+            this.colFoundLocation.ReadOnly = true;
+            this.colFoundLocation.Width = 200;
+            // 
+            // colDateFound
+            // 
+            this.colDateFound.HeaderText = "Date  found";
+            this.colDateFound.MinimumWidth = 10;
+            this.colDateFound.Name = "colDateFound";
+            this.colDateFound.ReadOnly = true;
+            this.colDateFound.Width = 140;
+            // 
+            // colItemName
+            // 
+            this.colItemName.HeaderText = "Item Name";
+            this.colItemName.MinimumWidth = 10;
+            this.colItemName.Name = "colItemName";
+            this.colItemName.ReadOnly = true;
+            // 
+            // colImage
+            // 
+            this.colImage.HeaderText = "Image";
+            this.colImage.Name = "colImage";
+            this.colImage.ReadOnly = true;
+            this.colImage.Width = 220;
+            // 
             // SearchItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1348, 691);
+            this.ClientSize = new System.Drawing.Size(1174, 696);
             this.Controls.Add(this.SelectItem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Find_Items);
@@ -202,6 +207,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateFound;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFoundLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewButtonColumn colView;
     }
