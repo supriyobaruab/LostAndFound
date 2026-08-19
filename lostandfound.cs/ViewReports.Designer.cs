@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.GRD_Lost = new System.Windows.Forms.DataGridView();
-            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditL = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.GRD_Found = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +43,14 @@
             this.LB_MyReport = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.IMG_MyReports = new System.Windows.Forms.PictureBox();
+            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditL = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Lost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Found)).BeginInit();
             this.panel1.SuspendLayout();
@@ -80,64 +80,6 @@
             this.GRD_Lost.RowTemplate.Height = 33;
             this.GRD_Lost.Size = new System.Drawing.Size(1023, 183);
             this.GRD_Lost.TabIndex = 10;
-            // 
-            // colImage
-            // 
-            this.colImage.HeaderText = "Image";
-            this.colImage.Name = "colImage";
-            this.colImage.ReadOnly = true;
-            // 
-            // colItemName
-            // 
-            this.colItemName.HeaderText = "Item Name";
-            this.colItemName.MinimumWidth = 10;
-            this.colItemName.Name = "colItemName";
-            this.colItemName.ReadOnly = true;
-            // 
-            // colDateFound
-            // 
-            this.colDateFound.HeaderText = "Date  found";
-            this.colDateFound.MinimumWidth = 10;
-            this.colDateFound.Name = "colDateFound";
-            this.colDateFound.ReadOnly = true;
-            this.colDateFound.Width = 150;
-            // 
-            // colFoundLocation
-            // 
-            this.colFoundLocation.HeaderText = "Found Location";
-            this.colFoundLocation.MinimumWidth = 10;
-            this.colFoundLocation.Name = "colFoundLocation";
-            this.colFoundLocation.ReadOnly = true;
-            this.colFoundLocation.Width = 200;
-            // 
-            // Description
-            // 
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 150;
-            // 
-            // colStatus
-            // 
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.MinimumWidth = 10;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            // 
-            // EditL
-            // 
-            this.EditL.HeaderText = "Edit Report";
-            this.EditL.Name = "EditL";
-            this.EditL.ReadOnly = true;
-            this.EditL.Text = "Edit";
-            // 
-            // Delete
-            // 
-            this.Delete.HeaderText = "Delete Report";
-            this.Delete.Name = "Delete";
-            this.Delete.ReadOnly = true;
-            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Delete.Text = "Delete";
             // 
             // GRD_Found
             // 
@@ -276,6 +218,71 @@
             this.IMG_MyReports.TabIndex = 0;
             this.IMG_MyReports.TabStop = false;
             // 
+            // colImage
+            // 
+            this.colImage.DataPropertyName = "None";
+            this.colImage.HeaderText = "Image";
+            this.colImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colImage.Name = "colImage";
+            this.colImage.ReadOnly = true;
+            // 
+            // colItemName
+            // 
+            this.colItemName.DataPropertyName = "Item_Name";
+            this.colItemName.HeaderText = "Item Name";
+            this.colItemName.MinimumWidth = 10;
+            this.colItemName.Name = "colItemName";
+            this.colItemName.ReadOnly = true;
+            // 
+            // colDateFound
+            // 
+            this.colDateFound.DataPropertyName = "Date_Lost";
+            this.colDateFound.HeaderText = "Date  Lost";
+            this.colDateFound.MinimumWidth = 10;
+            this.colDateFound.Name = "colDateFound";
+            this.colDateFound.ReadOnly = true;
+            this.colDateFound.Width = 150;
+            // 
+            // colFoundLocation
+            // 
+            this.colFoundLocation.DataPropertyName = "Lost_Location";
+            this.colFoundLocation.HeaderText = "Lost Location";
+            this.colFoundLocation.MinimumWidth = 10;
+            this.colFoundLocation.Name = "colFoundLocation";
+            this.colFoundLocation.ReadOnly = true;
+            this.colFoundLocation.Width = 200;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 150;
+            // 
+            // colStatus
+            // 
+            this.colStatus.DataPropertyName = "Status";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.MinimumWidth = 10;
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            // 
+            // EditL
+            // 
+            this.EditL.HeaderText = "Edit Report";
+            this.EditL.Name = "EditL";
+            this.EditL.ReadOnly = true;
+            this.EditL.Text = "Edit";
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete Report";
+            this.Delete.Name = "Delete";
+            this.Delete.ReadOnly = true;
+            this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Delete.Text = "Delete";
+            // 
             // ViewReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,6 +296,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewReports";
             this.Text = "+";
+            this.Load += new System.EventHandler(this.ViewReports_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Lost)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Found)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -305,14 +313,6 @@
         private System.Windows.Forms.DataGridView GRD_Found;
         private System.Windows.Forms.Label LB_LostReports;
         private System.Windows.Forms.Label LB_FoundReports;
-        private System.Windows.Forms.DataGridViewImageColumn colImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDateFound;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFoundLocation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn EditL;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -324,5 +324,13 @@
         private System.Windows.Forms.Label LB_MyReport;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox IMG_MyReports;
+        private System.Windows.Forms.DataGridViewImageColumn colImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDateFound;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFoundLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn EditL;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
