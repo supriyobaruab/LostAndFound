@@ -277,12 +277,12 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Thistle;
+            this.panel1.BackColor = System.Drawing.Color.PaleVioletRed;
             this.panel1.Controls.Add(this.LB_MyReport);
             this.panel1.Controls.Add(this.IMG_MyReports);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1507, 73);
             this.panel1.TabIndex = 15;
@@ -293,7 +293,7 @@
             this.IMG_MyReports.Image = global::lostandfound.cs.Properties.Resources.pngwing_com;
             this.IMG_MyReports.InitialImage = global::lostandfound.cs.Properties.Resources.pngwing_com;
             this.IMG_MyReports.Location = new System.Drawing.Point(16, 15);
-            this.IMG_MyReports.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.IMG_MyReports.Margin = new System.Windows.Forms.Padding(4);
             this.IMG_MyReports.Name = "IMG_MyReports";
             this.IMG_MyReports.Size = new System.Drawing.Size(57, 43);
             this.IMG_MyReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
