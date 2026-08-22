@@ -122,7 +122,31 @@ namespace lostandfound.cs
                 }
             }
         }
+        private Image GetItemImage(string imagePath)
+        {
+            if (string.IsNullOrWhiteSpace(imagePath))
+                return null;
 
+            string fullPath = Path.Combine(
+                Application.StartupPath,
+                imagePath.Replace("/", "\\")
+            );
+
+            if (!File.Exists(fullPath))
+                return null;
+
+            try
+            {
+                using (Image tempImage = Image.FromFile(fullPath))
+                {
+                    return new Bitmap(tempImage);
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         // ==========================================
         // FORM LOAD

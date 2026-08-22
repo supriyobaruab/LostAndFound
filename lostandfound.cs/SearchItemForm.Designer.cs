@@ -80,7 +80,7 @@
             this.Find_Items.ReadOnly = true;
             this.Find_Items.RowHeadersWidth = 10;
             this.Find_Items.RowTemplate.Height = 33;
-            this.Find_Items.Size = new System.Drawing.Size(1036, 558);
+            this.Find_Items.Size = new System.Drawing.Size(1058, 558);
             this.Find_Items.TabIndex = 9;
             // 
             // label1
@@ -125,7 +125,7 @@
             this.colImage.HeaderText = "Image";
             this.colImage.Name = "colImage";
             this.colImage.ReadOnly = true;
-            this.colImage.Width = 150;
+            this.colImage.Width = 115;
             // 
             // colItemName
             // 
@@ -149,7 +149,7 @@
             this.colFoundLocation.MinimumWidth = 10;
             this.colFoundLocation.Name = "colFoundLocation";
             this.colFoundLocation.ReadOnly = true;
-            this.colFoundLocation.Width = 200;
+            this.colFoundLocation.Width = 150;
             // 
             // Description
             // 

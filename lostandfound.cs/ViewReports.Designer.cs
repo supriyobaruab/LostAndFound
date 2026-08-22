@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.GRD_Lost = new System.Windows.Forms.DataGridView();
+            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EditL = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.GRD_Found = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,14 +51,6 @@
             this.LB_MyReport = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.IMG_MyReports = new System.Windows.Forms.PictureBox();
-            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EditL = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Lost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Found)).BeginInit();
             this.panel1.SuspendLayout();
@@ -72,159 +72,24 @@
             this.colStatus,
             this.EditL,
             this.Delete});
-            this.GRD_Lost.Location = new System.Drawing.Point(57, 129);
-            this.GRD_Lost.Margin = new System.Windows.Forms.Padding(2);
+            this.GRD_Lost.Location = new System.Drawing.Point(76, 159);
+            this.GRD_Lost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GRD_Lost.Name = "GRD_Lost";
             this.GRD_Lost.ReadOnly = true;
             this.GRD_Lost.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.GRD_Lost.RowTemplate.Height = 33;
-            this.GRD_Lost.Size = new System.Drawing.Size(1023, 183);
+            this.GRD_Lost.Size = new System.Drawing.Size(1364, 225);
             this.GRD_Lost.TabIndex = 10;
-            // 
-            // GRD_Found
-            // 
-            this.GRD_Found.AllowDrop = true;
-            this.GRD_Found.AllowUserToAddRows = false;
-            this.GRD_Found.AllowUserToDeleteRows = false;
-            this.GRD_Found.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GRD_Found.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewImageColumn1,
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.EditF,
-            this.DeleteF});
-            this.GRD_Found.Location = new System.Drawing.Point(56, 372);
-            this.GRD_Found.Margin = new System.Windows.Forms.Padding(2);
-            this.GRD_Found.Name = "GRD_Found";
-            this.GRD_Found.ReadOnly = true;
-            this.GRD_Found.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.GRD_Found.RowTemplate.Height = 33;
-            this.GRD_Found.Size = new System.Drawing.Size(1023, 183);
-            this.GRD_Found.TabIndex = 11;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Image";
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Item Name";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Date  found";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Found Location";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 200;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Status";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 10;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // EditF
-            // 
-            this.EditF.HeaderText = "Edit Report";
-            this.EditF.Name = "EditF";
-            this.EditF.ReadOnly = true;
-            this.EditF.Text = "Edit";
-            // 
-            // DeleteF
-            // 
-            this.DeleteF.HeaderText = "Delete Report";
-            this.DeleteF.Name = "DeleteF";
-            this.DeleteF.ReadOnly = true;
-            this.DeleteF.Text = "Delete";
-            // 
-            // LB_LostReports
-            // 
-            this.LB_LostReports.AutoSize = true;
-            this.LB_LostReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.LB_LostReports.Location = new System.Drawing.Point(53, 89);
-            this.LB_LostReports.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LB_LostReports.Name = "LB_LostReports";
-            this.LB_LostReports.Size = new System.Drawing.Size(113, 20);
-            this.LB_LostReports.TabIndex = 12;
-            this.LB_LostReports.Text = "Lost Reports";
-            // 
-            // LB_FoundReports
-            // 
-            this.LB_FoundReports.AutoSize = true;
-            this.LB_FoundReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.LB_FoundReports.Location = new System.Drawing.Point(52, 340);
-            this.LB_FoundReports.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LB_FoundReports.Name = "LB_FoundReports";
-            this.LB_FoundReports.Size = new System.Drawing.Size(129, 20);
-            this.LB_FoundReports.TabIndex = 13;
-            this.LB_FoundReports.Text = "Found Reports";
-            // 
-            // LB_MyReport
-            // 
-            this.LB_MyReport.AutoSize = true;
-            this.LB_MyReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold);
-            this.LB_MyReport.Location = new System.Drawing.Point(50, 9);
-            this.LB_MyReport.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.LB_MyReport.Name = "LB_MyReport";
-            this.LB_MyReport.Size = new System.Drawing.Size(200, 39);
-            this.LB_MyReport.TabIndex = 14;
-            this.LB_MyReport.Text = "My Reports";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.panel1.Controls.Add(this.LB_MyReport);
-            this.panel1.Controls.Add(this.IMG_MyReports);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1130, 59);
-            this.panel1.TabIndex = 15;
-            // 
-            // IMG_MyReports
-            // 
-            this.IMG_MyReports.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.IMG_MyReports.Image = global::lostandfound.cs.Properties.Resources.pngwing_com;
-            this.IMG_MyReports.InitialImage = global::lostandfound.cs.Properties.Resources.pngwing_com;
-            this.IMG_MyReports.Location = new System.Drawing.Point(12, 12);
-            this.IMG_MyReports.Name = "IMG_MyReports";
-            this.IMG_MyReports.Size = new System.Drawing.Size(44, 36);
-            this.IMG_MyReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.IMG_MyReports.TabIndex = 0;
-            this.IMG_MyReports.TabStop = false;
             // 
             // colImage
             // 
             this.colImage.DataPropertyName = "None";
             this.colImage.HeaderText = "Image";
             this.colImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colImage.MinimumWidth = 6;
             this.colImage.Name = "colImage";
             this.colImage.ReadOnly = true;
+            this.colImage.Width = 125;
             // 
             // colItemName
             // 
@@ -233,6 +98,7 @@
             this.colItemName.MinimumWidth = 10;
             this.colItemName.Name = "colItemName";
             this.colItemName.ReadOnly = true;
+            this.colItemName.Width = 125;
             // 
             // colDateFound
             // 
@@ -256,6 +122,7 @@
             // 
             this.Description.DataPropertyName = "Description";
             this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             this.Description.Width = 150;
@@ -267,33 +134,183 @@
             this.colStatus.MinimumWidth = 10;
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
+            this.colStatus.Width = 125;
             // 
             // EditL
             // 
             this.EditL.HeaderText = "Edit Report";
+            this.EditL.MinimumWidth = 6;
             this.EditL.Name = "EditL";
             this.EditL.ReadOnly = true;
             this.EditL.Text = "Edit";
+            this.EditL.Width = 125;
             // 
             // Delete
             // 
             this.Delete.HeaderText = "Delete Report";
+            this.Delete.MinimumWidth = 6;
             this.Delete.Name = "Delete";
             this.Delete.ReadOnly = true;
             this.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Delete.Text = "Delete";
+            this.Delete.Width = 125;
+            // 
+            // GRD_Found
+            // 
+            this.GRD_Found.AllowDrop = true;
+            this.GRD_Found.AllowUserToAddRows = false;
+            this.GRD_Found.AllowUserToDeleteRows = false;
+            this.GRD_Found.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GRD_Found.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewImageColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.EditF,
+            this.DeleteF});
+            this.GRD_Found.Location = new System.Drawing.Point(75, 458);
+            this.GRD_Found.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.GRD_Found.Name = "GRD_Found";
+            this.GRD_Found.ReadOnly = true;
+            this.GRD_Found.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.GRD_Found.RowTemplate.Height = 33;
+            this.GRD_Found.Size = new System.Drawing.Size(1364, 225);
+            this.GRD_Found.TabIndex = 11;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Image";
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Item Name";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Date  found";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Found Location";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Status";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 10;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // EditF
+            // 
+            this.EditF.HeaderText = "Edit Report";
+            this.EditF.MinimumWidth = 6;
+            this.EditF.Name = "EditF";
+            this.EditF.ReadOnly = true;
+            this.EditF.Text = "Edit";
+            this.EditF.Width = 125;
+            // 
+            // DeleteF
+            // 
+            this.DeleteF.HeaderText = "Delete Report";
+            this.DeleteF.MinimumWidth = 6;
+            this.DeleteF.Name = "DeleteF";
+            this.DeleteF.ReadOnly = true;
+            this.DeleteF.Text = "Delete";
+            this.DeleteF.Width = 125;
+            // 
+            // LB_LostReports
+            // 
+            this.LB_LostReports.AutoSize = true;
+            this.LB_LostReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LB_LostReports.Location = new System.Drawing.Point(71, 110);
+            this.LB_LostReports.Name = "LB_LostReports";
+            this.LB_LostReports.Size = new System.Drawing.Size(133, 25);
+            this.LB_LostReports.TabIndex = 12;
+            this.LB_LostReports.Text = "Lost Reports";
+            // 
+            // LB_FoundReports
+            // 
+            this.LB_FoundReports.AutoSize = true;
+            this.LB_FoundReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LB_FoundReports.Location = new System.Drawing.Point(69, 418);
+            this.LB_FoundReports.Name = "LB_FoundReports";
+            this.LB_FoundReports.Size = new System.Drawing.Size(153, 25);
+            this.LB_FoundReports.TabIndex = 13;
+            this.LB_FoundReports.Text = "Found Reports";
+            // 
+            // LB_MyReport
+            // 
+            this.LB_MyReport.AutoSize = true;
+            this.LB_MyReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold);
+            this.LB_MyReport.Location = new System.Drawing.Point(67, 11);
+            this.LB_MyReport.Name = "LB_MyReport";
+            this.LB_MyReport.Size = new System.Drawing.Size(243, 48);
+            this.LB_MyReport.TabIndex = 14;
+            this.LB_MyReport.Text = "My Reports";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.panel1.Controls.Add(this.LB_MyReport);
+            this.panel1.Controls.Add(this.IMG_MyReports);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1507, 73);
+            this.panel1.TabIndex = 15;
+            // 
+            // IMG_MyReports
+            // 
+            this.IMG_MyReports.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.IMG_MyReports.Image = global::lostandfound.cs.Properties.Resources.pngwing_com;
+            this.IMG_MyReports.InitialImage = global::lostandfound.cs.Properties.Resources.pngwing_com;
+            this.IMG_MyReports.Location = new System.Drawing.Point(16, 15);
+            this.IMG_MyReports.Margin = new System.Windows.Forms.Padding(4);
+            this.IMG_MyReports.Name = "IMG_MyReports";
+            this.IMG_MyReports.Size = new System.Drawing.Size(57, 43);
+            this.IMG_MyReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IMG_MyReports.TabIndex = 0;
+            this.IMG_MyReports.TabStop = false;
             // 
             // ViewReports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1130, 581);
+            this.ClientSize = new System.Drawing.Size(1507, 715);
             this.Controls.Add(this.LB_FoundReports);
             this.Controls.Add(this.LB_LostReports);
             this.Controls.Add(this.GRD_Found);
             this.Controls.Add(this.GRD_Lost);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ViewReports";
             this.Text = "+";
             this.Load += new System.EventHandler(this.ViewReports_Load);

@@ -161,7 +161,7 @@ namespace lostandfound.cs
 
 
                     // Make this row bigger
-                    Find_Items.Rows[rowIndex].Height = 130;
+                    Find_Items.Rows[rowIndex].Height = 115;
                 }
 
 
@@ -246,13 +246,14 @@ namespace lostandfound.cs
                         reader["date_found"].ToString(),
                         reader["found_location"].ToString(),
                         reader["description"].ToString(),
-                        reader["status"].ToString()
+                        reader["status"].ToString(),
+                        "claim"
                         
                     );
 
 
                     // Set row height
-                    Find_Items.Rows[rowIndex].Height = 130;
+                    Find_Items.Rows[rowIndex].Height = 115;
                 }
 
 
