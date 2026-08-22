@@ -14,7 +14,7 @@ namespace lostandfound.cs
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
-            Application.Run(new Dashboard("Sujoy"));
+            Application.Run(new Dashboard("Supriyo","24-59312-3"));
             //Application.Run(new Register());
             // Application.Run(new LostItemForm());
             //Application.Run(new FoundItemForm());

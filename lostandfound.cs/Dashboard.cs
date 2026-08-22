@@ -6,9 +6,12 @@ namespace lostandfound.cs
 {
     public partial class Dashboard : Form
     {
-        public Dashboard(string name)
+        private string loggedUser;
+        public Dashboard(string name,string User_ID)
         {
             InitializeComponent();
+
+             loggedUser = User_ID;
             
             Txt_Welcome.Text = "Welcome Back, " + name.Split(' ')[0] + " !";
         }
@@ -20,13 +23,13 @@ namespace lostandfound.cs
 
         private void btn_ReportLost_Click(object sender, EventArgs e)
         {
-            LostItemForm lostItemForm = new LostItemForm();
+            LostItemForm lostItemForm = new LostItemForm(loggedUser);
             lostItemForm.Show();
         }
 
         private void Btn_ReportItem_Click(object sender, EventArgs e)
         {
-            FoundItemForm foundItemForm = new FoundItemForm();
+            FoundItemForm foundItemForm = new FoundItemForm(loggedUser);
             foundItemForm.Show();
         }
 
@@ -38,7 +41,7 @@ namespace lostandfound.cs
 
         private void Btn_MyReports_Click(object sender, EventArgs e)
         {
-            ViewReports reports = new ViewReports();
+            ViewReports reports = new ViewReports(loggedUser);
             reports.Show();
         }
     }

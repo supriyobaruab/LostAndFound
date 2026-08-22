@@ -15,12 +15,14 @@ namespace lostandfound.cs
     public partial class FoundItemForm : Form
     {
         private string selectedImagePath = "";
+        private string loggedUser;
         string connectionString = "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
-        public FoundItemForm()
+        public FoundItemForm(string User_ID)
 
         {
             InitializeComponent();
 
+            loggedUser = User_ID;
 
             CB_Category.Items.AddRange(new string[]
                 {
@@ -178,7 +180,8 @@ namespace lostandfound.cs
                     Date_Found,
                     Description,
                     Image_Path,
-                    Status
+                    Status,
+                    User_ID
                 )
                 VALUES
                 (
@@ -188,7 +191,8 @@ namespace lostandfound.cs
                     @FoundDate,
                     @Description,
                     @ImagePath,
-                    @Status
+                    @Status,
+                    @User_ID
                 )";
 
 
@@ -231,6 +235,10 @@ namespace lostandfound.cs
                     "@ImagePath",
                     imagePath
                 );
+                command.Parameters.AddWithValue(
+                  "@User_ID",
+                  loggedUser
+              );
 
 
                 command.ExecuteNonQuery();
