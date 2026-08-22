@@ -191,7 +191,7 @@ namespace lostandfound.cs
                     @FoundDate,
                     @Description,
                     @ImagePath,
-                    @Status,
+                    'Found',
                     @User_ID
                 )";
 
