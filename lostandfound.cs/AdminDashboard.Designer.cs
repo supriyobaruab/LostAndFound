@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_User = new System.Windows.Forms.Label();
             this.PanelHeader = new System.Windows.Forms.Panel();
+            this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
             this.btn_Logout = new System.Windows.Forms.Button();
             this.LB_AdminP = new System.Windows.Forms.Label();
             this.LB_LFHeader = new System.Windows.Forms.Label();
@@ -49,11 +50,11 @@
             this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colActionItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
+            this.Panel_Member = new System.Windows.Forms.Panel();
             this.PanelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_User
@@ -77,8 +78,19 @@
             this.PanelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelHeader.Location = new System.Drawing.Point(0, 0);
             this.PanelHeader.Name = "PanelHeader";
-            this.PanelHeader.Size = new System.Drawing.Size(800, 52);
+            this.PanelHeader.Size = new System.Drawing.Size(1169, 52);
             this.PanelHeader.TabIndex = 2;
+            // 
+            // IMG_LogoStaff
+            // 
+            this.IMG_LogoStaff.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.IMG_LogoStaff.Image = global::lostandfound.cs.Properties.Resources.admin_icon;
+            this.IMG_LogoStaff.Location = new System.Drawing.Point(12, 7);
+            this.IMG_LogoStaff.Name = "IMG_LogoStaff";
+            this.IMG_LogoStaff.Size = new System.Drawing.Size(47, 39);
+            this.IMG_LogoStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IMG_LogoStaff.TabIndex = 11;
+            this.IMG_LogoStaff.TabStop = false;
             // 
             // btn_Logout
             // 
@@ -87,7 +99,7 @@
             this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Logout.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_Logout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(109)))), ((int)(((byte)(138)))));
-            this.btn_Logout.Location = new System.Drawing.Point(728, 13);
+            this.btn_Logout.Location = new System.Drawing.Point(1097, 11);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Size = new System.Drawing.Size(60, 30);
             this.btn_Logout.TabIndex = 5;
@@ -125,7 +137,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 52);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 1);
+            this.panel1.Size = new System.Drawing.Size(1169, 1);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -140,7 +152,7 @@
             // 
             // btn_AddUser
             // 
-            this.btn_AddUser.Location = new System.Drawing.Point(492, 98);
+            this.btn_AddUser.Location = new System.Drawing.Point(1038, 98);
             this.btn_AddUser.Name = "btn_AddUser";
             this.btn_AddUser.Size = new System.Drawing.Size(75, 23);
             this.btn_AddUser.TabIndex = 6;
@@ -251,23 +263,22 @@
             this.colActionItem.Name = "colActionItem";
             this.colActionItem.Width = 150;
             // 
-            // IMG_LogoStaff
+            // Panel_Member
             // 
-            this.IMG_LogoStaff.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.IMG_LogoStaff.Image = global::lostandfound.cs.Properties.Resources.admin_icon;
-            this.IMG_LogoStaff.Location = new System.Drawing.Point(12, 7);
-            this.IMG_LogoStaff.Name = "IMG_LogoStaff";
-            this.IMG_LogoStaff.Size = new System.Drawing.Size(47, 39);
-            this.IMG_LogoStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.IMG_LogoStaff.TabIndex = 11;
-            this.IMG_LogoStaff.TabStop = false;
+            this.Panel_Member.BackColor = System.Drawing.SystemColors.Window;
+            this.Panel_Member.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Panel_Member.Location = new System.Drawing.Point(611, 134);
+            this.Panel_Member.Name = "Panel_Member";
+            this.Panel_Member.Size = new System.Drawing.Size(502, 402);
+            this.Panel_Member.TabIndex = 11;
             // 
             // AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 567);
+            this.ClientSize = new System.Drawing.Size(1169, 567);
+            this.Controls.Add(this.Panel_Member);
             this.Controls.Add(this.Grd_Items);
             this.Controls.Add(this.LB_AllLFReport);
             this.Controls.Add(this.LB_AItems);
@@ -283,9 +294,9 @@
             this.Text = "AdminDashboard";
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,5 +325,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colActionItem;
         private System.Windows.Forms.PictureBox IMG_LogoStaff;
+        private System.Windows.Forms.Panel Panel_Member;
     }
 }
