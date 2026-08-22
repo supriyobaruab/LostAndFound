@@ -66,10 +66,10 @@ namespace lostandfound.cs
                 {
                     //MessageBox.Show("User ID exists. You can reset your password.");
                     IsExist.Visible = true;
-                    UserID.Visible = false;
-                    TxtUser.Visible = false;
+                    UserID.Visible = true;
+                    TxtUser.Visible = true;
                     LabelPassword.Visible = true;
-                    TxtPassword.Visible = true;
+                    TxtPassword.Enabled = true;
                     PassBanner.Text = "Please enter your new password.";
                     RecoverBtn.Visible = true;
                     FindAccount.Visible = false;
@@ -138,6 +138,11 @@ namespace lostandfound.cs
             {
                 conn.Close();
             }
+
+        }
+
+        private void LabelPassword_Click(object sender, EventArgs e)
+        {
 
         }
     }
