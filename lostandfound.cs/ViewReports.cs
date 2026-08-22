@@ -164,7 +164,7 @@ namespace lostandfound.cs
                     Description,
                     Image_Path,
                     Status
-                FROM dbo.LostItems";
+                FROM LostItems";
 
             try
             {
