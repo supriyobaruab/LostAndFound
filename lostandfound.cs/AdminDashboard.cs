@@ -28,6 +28,7 @@ namespace lostandfound.cs
             Grd_User.DefaultCellStyle.ForeColor;
             //method call
             LoadUsers();
+            LoadItems();
             SetMemberPanelReadOnly(true);
         }
         private void LoadUsers()
@@ -72,6 +73,57 @@ namespace lostandfound.cs
             btn_Delete.Enabled = false;
             btn_Clear.Enabled = false;
         }
+
+
+        //Load items table 
+
+        private void LoadItems()
+        {
+            string query = @"
+        SELECT
+            L.Item_Name AS Item,
+            U.Name AS Reporter,
+            'Lost' AS Status
+        FROM LostItems L
+        INNER JOIN [User] U ON L.User_ID = U.User_ID
+
+        UNION ALL
+
+        SELECT
+            F.Item_Name AS Item,
+            U.Name AS Reporter,
+            'Found' AS Status
+        FROM FoundItems F
+        INNER JOIN [User] U ON F.User_ID = U.User_ID;
+    ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    using (SqlDataAdapter adapter =
+                           new SqlDataAdapter(query, connection))
+                    {
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        Grd_Items.DataSource = table;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Error loading items: " + ex.Message,
+                        "Database Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                }
+            }
+        }
+
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {

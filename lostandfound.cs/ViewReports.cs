@@ -165,6 +165,7 @@ namespace lostandfound.cs
 
         private void LoadLostReports()
         {
+
             string query = @"
                 SELECT
                     Item_Name,

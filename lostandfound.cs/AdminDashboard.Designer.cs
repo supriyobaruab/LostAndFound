@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_User = new System.Windows.Forms.Label();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
@@ -58,15 +58,16 @@
             this.TB_UID = new System.Windows.Forms.TextBox();
             this.TB_Password = new System.Windows.Forms.TextBox();
             this.LB_Password = new System.Windows.Forms.Label();
-            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colActionItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colUpdate = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).BeginInit();
@@ -193,10 +194,10 @@
             this.Grd_User.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
             this.Grd_User.Location = new System.Drawing.Point(58, 134);
             this.Grd_User.Name = "Grd_User";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.Grd_User.Size = new System.Drawing.Size(496, 144);
             this.Grd_User.TabIndex = 7;
             this.Grd_User.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_User_CellContentClick);
@@ -230,7 +231,8 @@
             this.colItem,
             this.colReporter,
             this.colStatus,
-            this.colActionItem});
+            this.colDelete,
+            this.colUpdate});
             this.Grd_Items.GridColor = System.Drawing.SystemColors.Control;
             this.Grd_Items.Location = new System.Drawing.Point(58, 381);
             this.Grd_Items.Name = "Grd_Items";
@@ -400,29 +402,6 @@
             this.LB_Password.TabIndex = 24;
             this.LB_Password.Text = "Password";
             // 
-            // colItem
-            // 
-            this.colItem.HeaderText = "ITEM";
-            this.colItem.Name = "colItem";
-            this.colItem.Width = 90;
-            // 
-            // colReporter
-            // 
-            this.colReporter.HeaderText = "REPORTER";
-            this.colReporter.Name = "colReporter";
-            this.colReporter.Width = 150;
-            // 
-            // colStatus
-            // 
-            this.colStatus.HeaderText = "STATUS";
-            this.colStatus.Name = "colStatus";
-            // 
-            // colActionItem
-            // 
-            this.colActionItem.HeaderText = "ACTION";
-            this.colActionItem.Name = "colActionItem";
-            this.colActionItem.Width = 115;
-            // 
             // UID
             // 
             this.UID.DataPropertyName = "User_ID";
@@ -457,6 +436,44 @@
             this.Update.Text = "Update";
             this.Update.UseColumnTextForButtonValue = true;
             this.Update.Width = 65;
+            // 
+            // colItem
+            // 
+            this.colItem.DataPropertyName = "Item";
+            this.colItem.HeaderText = "Item";
+            this.colItem.Name = "colItem";
+            this.colItem.Width = 80;
+            // 
+            // colReporter
+            // 
+            this.colReporter.DataPropertyName = "Reporter";
+            this.colReporter.HeaderText = "Reporter";
+            this.colReporter.Name = "colReporter";
+            this.colReporter.Width = 125;
+            // 
+            // colStatus
+            // 
+            this.colStatus.DataPropertyName = "Status";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
+            // 
+            // colDelete
+            // 
+            this.colDelete.HeaderText = "Delete";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.Text = "Delete";
+            this.colDelete.UseColumnTextForButtonValue = true;
+            this.colDelete.Width = 45;
+            // 
+            // colUpdate
+            // 
+            this.colUpdate.HeaderText = "Tracking Status";
+            this.colUpdate.Items.AddRange(new object[] {
+            "Match Pending",
+            "Resolved",
+            "Searching"});
+            this.colUpdate.Name = "colUpdate";
+            this.colUpdate.Width = 105;
             // 
             // AdminDashboard
             // 
@@ -523,14 +540,15 @@
         private System.Windows.Forms.Label LB_UID;
         private System.Windows.Forms.TextBox TB_Password;
         private System.Windows.Forms.Label LB_Password;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colReporter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colActionItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn UID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
         private System.Windows.Forms.DataGridViewButtonColumn Update;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReporter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colUpdate;
     }
 }
