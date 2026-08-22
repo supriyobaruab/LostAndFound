@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -9,14 +8,37 @@ namespace lostandfound.cs
 {
     public partial class ViewReports : Form
     {
+        // ==========================================
+        // LOGGED-IN USER
+        // ==========================================
+
+        private string loggedUser;
+
+
+        // ==========================================
+        // DATABASE CONNECTION
+        // ==========================================
+
         private string connectionString =
             "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        public ViewReports()
+
+        // ==========================================
+        // CONSTRUCTOR
+        // ==========================================
+
+        public ViewReports(string User_ID)
         {
             InitializeComponent();
-            
-            //lost grid
+
+            // Store logged-in user's ID
+            loggedUser = User_ID;
+
+
+            // ==========================================
+            // LOST GRID SETTINGS
+            // ==========================================
+
             GRD_Lost.AutoGenerateColumns = false;
 
             GRD_Lost.AutoSizeColumnsMode =
@@ -31,9 +53,21 @@ namespace lostandfound.cs
 
             GRD_Lost.MultiSelect = false;
 
-            // Make rows tall enough to display images
-            GRD_Lost.RowTemplate.Height = 75;
-            //found Grid
+            GRD_Lost.RowTemplate.Height = 90;
+
+
+            // Remove blue selection
+            GRD_Lost.DefaultCellStyle.SelectionBackColor =
+                Color.White;
+
+            GRD_Lost.DefaultCellStyle.SelectionForeColor =
+                Color.Black;
+
+
+            // ==========================================
+            // FOUND GRID SETTINGS
+            // ==========================================
+
             GRD_Found.AutoGenerateColumns = false;
 
             GRD_Found.AutoSizeColumnsMode =
@@ -48,72 +82,43 @@ namespace lostandfound.cs
 
             GRD_Found.MultiSelect = false;
 
-            // Make rows tall enough for images
-            GRD_Found.RowTemplate.Height = 75;
+            GRD_Found.RowTemplate.Height = 90;
 
-            if (GRD_Found.Columns.Count > 0 &&
-                GRD_Found.Columns[0] is DataGridViewImageColumn imageColumn)
-            {
-                imageColumn.ImageLayout =
-                    DataGridViewImageCellLayout.Zoom;
-            }
 
-            LoadFoundItems();
+            // Remove blue selection
+            GRD_Found.DefaultCellStyle.SelectionBackColor =
+                Color.White;
+
+            GRD_Found.DefaultCellStyle.SelectionForeColor =
+                Color.Black;
+
+
+            // ==========================================
+            // IMAGE COLUMN SETTINGS
+            // ==========================================
+
+            SetImageColumnZoom(GRD_Lost);
+            SetImageColumnZoom(GRD_Found);
         }
-        private void LoadFoundItems()
+
+
+        // ==========================================
+        // SET IMAGE COLUMN TO ZOOM
+        // ==========================================
+
+        private void SetImageColumnZoom(DataGridView grid)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            foreach (DataGridViewColumn column in grid.Columns)
             {
-                try
+                if (column is DataGridViewImageColumn imageColumn)
                 {
-                    conn.Open();
+                    imageColumn.ImageLayout =
+                        DataGridViewImageCellLayout.Zoom;
 
-                    string query = @"
-                SELECT
-                    image_Path,
-                    item_name,
-                    date_found,
-                    found_location,
-                    status,
-                    description
-                FROM FoundItems";
+                    imageColumn.DefaultCellStyle.Alignment =
+                        DataGridViewContentAlignment.MiddleCenter;
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    using (SqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        GRD_Found.Rows.Clear();
-
-                        while (reader.Read())
-                        {
-                            string imagePath = reader["image_Path"] == DBNull.Value
-                                ? ""
-                                : reader["image_Path"].ToString();
-
-                            Image itemImage = GetItemImage(imagePath);
-
-                            int rowIndex = GRD_Found.Rows.Add(
-                                itemImage,
-                                reader["item_name"].ToString(),
-                                reader["date_found"].ToString(),
-                                reader["found_location"].ToString(),
-                                reader["description"].ToString(),
-                                reader["status"].ToString(),
-                                "Edit",
-                                "Delete"
-                            );
-
-                            GRD_Found.Rows[rowIndex].Height = 75;
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Error loading found items: " + ex.Message,
-                        "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
+                    break;
                 }
             }
         }
@@ -144,16 +149,21 @@ namespace lostandfound.cs
         }
 
         // ==========================================
-        // LOAD REPORTS
+        // FORM LOAD
         // ==========================================
 
         private void ViewReports_Load(object sender, EventArgs e)
         {
-            LoadReports();
+            LoadLostReports();
+            LoadFoundReports();
         }
 
 
-        private void LoadReports()
+        // ==========================================
+        // LOAD LOST REPORTS
+        // ==========================================
+
+        private void LoadLostReports()
         {
             string query = @"
                 SELECT
@@ -164,93 +174,369 @@ namespace lostandfound.cs
                     Description,
                     Image_Path,
                     Status
-                FROM LostItems";
+                FROM LostItems
+                WHERE User_ID = @User_ID";
+
+
+            SqlConnection connection = null;
+            SqlCommand command = null;
+            SqlDataReader reader = null;
+
 
             try
             {
-                using (SqlConnection connection =
-                       new SqlConnection(connectionString))
+                // ==========================================
+                // CREATE CONNECTION
+                // ==========================================
+
+                connection =
+                    new SqlConnection(connectionString);
+
+
+                // ==========================================
+                // OPEN CONNECTION
+                // ==========================================
+
+                connection.Open();
+
+
+                // ==========================================
+                // CREATE COMMAND
+                // ==========================================
+
+                command =
+                    new SqlCommand(query, connection);
+
+
+                // ==========================================
+                // ADD USER ID
+                // ==========================================
+
+                command.Parameters.Add(
+                    "@User_ID",
+                    System.Data.SqlDbType.VarChar,
+                    50
+                );
+
+                command.Parameters["@User_ID"].Value =
+                    loggedUser;
+
+
+                // ==========================================
+                // EXECUTE QUERY
+                // ==========================================
+
+                reader =
+                    command.ExecuteReader();
+
+
+                // ==========================================
+                // CLEAR OLD ROWS
+                // ==========================================
+
+                GRD_Lost.Rows.Clear();
+
+
+                // ==========================================
+                // READ DATABASE
+                // ==========================================
+
+                while (reader.Read())
                 {
-                    connection.Open();
+                    Image itemImage = null;
 
-                    using (SqlDataAdapter adapter =
-                           new SqlDataAdapter(query, connection))
+
+                    // ==========================================
+                    // IMAGE PATH
+                    // ==========================================
+
+                    string imagePath =
+                        reader["Image_Path"].ToString();
+
+
+                    if (!string.IsNullOrWhiteSpace(imagePath))
                     {
-                        DataTable table = new DataTable();
-
-                        adapter.Fill(table);
-
-                        // Clear existing rows
-                        GRD_Lost.Rows.Clear();
-
-
-                        // Add database records to the existing grid
-                        foreach (DataRow row in table.Rows)
-                        {
-                            Image itemImage = null;
-
-
-                            // ==================================
-                            // LOAD IMAGE
-                            // ==================================
-
-                            string imagePath =
-                                row["Image_Path"].ToString();
-
-                            if (!string.IsNullOrWhiteSpace(imagePath))
-                            {
-                                string fullImagePath =
-                                    Path.Combine(
-                                        Application.StartupPath,
-                                        imagePath.Replace("/", "\\")
-                                    );
-
-
-                                if (File.Exists(fullImagePath))
-                                {
-                                    try
-                                    {
-                                        using (Image tempImage =
-                                               Image.FromFile(fullImagePath))
-                                        {
-                                            itemImage =
-                                                new Bitmap(tempImage);
-                                        }
-                                    }
-                                    catch
-                                    {
-                                        itemImage = null;
-                                    }
-                                }
-                            }
-
-
-                            // ==================================
-                            // ADD ROW
-                            // ==================================
-
-                            GRD_Lost.Rows.Add(
-                                itemImage,
-                                row["Item_Name"].ToString(),
-                                row["Date_Lost"].ToString(),
-                                row["Lost_Location"].ToString(),
-                                row["Description"].ToString(),
-                                row["Status"].ToString(),
-                                "Edit",
-                                "Delete"
+                        string fullImagePath =
+                            Path.Combine(
+                                Application.StartupPath,
+                                imagePath.Replace("/", "\\")
                             );
+
+
+                        if (File.Exists(fullImagePath))
+                        {
+                            try
+                            {
+                                Image tempImage =
+                                    Image.FromFile(fullImagePath);
+
+                                itemImage =
+                                    new Bitmap(tempImage);
+
+                                tempImage.Dispose();
+                            }
+                            catch
+                            {
+                                itemImage = null;
+                            }
                         }
                     }
+
+
+                    // ==========================================
+                    // ADD TO LOST GRID
+                    // ==========================================
+
+                    GRD_Lost.Rows.Add(
+                        itemImage,
+                        reader["Item_Name"].ToString(),
+                        reader["Date_Lost"].ToString(),
+                        reader["Lost_Location"].ToString(),
+                        reader["Description"].ToString(),
+                        reader["Status"].ToString(),
+                        "Edit",
+                        "Delete"
+                    );
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Database Error:\n" + ex.Message,
+                    "Lost Reports Database Error:\n" +
+                    ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
+            }
+            finally
+            {
+                // ==========================================
+                // CLEAN UP READER
+                // ==========================================
+
+                if (reader != null)
+                {
+                    reader.Close();
+                    reader.Dispose();
+                }
+
+
+                // ==========================================
+                // CLEAN UP COMMAND
+                // ==========================================
+
+                if (command != null)
+                {
+                    command.Dispose();
+                }
+
+
+                // ==========================================
+                // CLEAN UP CONNECTION
+                // ==========================================
+
+                if (connection != null)
+                {
+                    if (connection.State !=
+                        System.Data.ConnectionState.Closed)
+                    {
+                        connection.Close();
+                    }
+
+                    connection.Dispose();
+                }
+            }
+        }
+
+
+        // ==========================================
+        // LOAD FOUND REPORTS
+        // ==========================================
+
+        private void LoadFoundReports()
+        {
+            string query = @"
+                SELECT
+                    Item_Name,
+                    Found_Location,
+                    Category,
+                    Date_Found,
+                    Description,
+                    Image_Path,
+                    Status
+                FROM FoundItems
+                WHERE User_ID = @User_ID";
+
+
+            SqlConnection connection = null;
+            SqlCommand command = null;
+            SqlDataReader reader = null;
+
+
+            try
+            {
+                // ==========================================
+                // CREATE CONNECTION
+                // ==========================================
+
+                connection =
+                    new SqlConnection(connectionString);
+
+
+                // ==========================================
+                // OPEN CONNECTION
+                // ==========================================
+
+                connection.Open();
+
+
+                // ==========================================
+                // CREATE COMMAND
+                // ==========================================
+
+                command =
+                    new SqlCommand(query, connection);
+
+
+                // ==========================================
+                // ADD USER ID
+                // ==========================================
+
+                command.Parameters.Add(
+                    "@User_ID",
+                    System.Data.SqlDbType.VarChar,
+                    50
+                );
+
+                command.Parameters["@User_ID"].Value =
+                    loggedUser;
+
+
+                // ==========================================
+                // EXECUTE QUERY
+                // ==========================================
+
+                reader =
+                    command.ExecuteReader();
+
+
+                // ==========================================
+                // CLEAR OLD ROWS
+                // ==========================================
+
+                GRD_Found.Rows.Clear();
+
+
+                // ==========================================
+                // READ DATABASE
+                // ==========================================
+
+                while (reader.Read())
+                {
+                    Image itemImage = null;
+
+
+                    // ==========================================
+                    // IMAGE PATH
+                    // ==========================================
+
+                    string imagePath =
+                        reader["Image_Path"].ToString();
+
+
+                    if (!string.IsNullOrWhiteSpace(imagePath))
+                    {
+                        string fullImagePath =
+                            Path.Combine(
+                                Application.StartupPath,
+                                imagePath.Replace("/", "\\")
+                            );
+
+
+                        if (File.Exists(fullImagePath))
+                        {
+                            try
+                            {
+                                Image tempImage =
+                                    Image.FromFile(fullImagePath);
+
+                                itemImage =
+                                    new Bitmap(tempImage);
+
+                                tempImage.Dispose();
+                            }
+                            catch
+                            {
+                                itemImage = null;
+                            }
+                        }
+                    }
+
+
+                    // ==========================================
+                    // ADD TO FOUND GRID
+                    // ==========================================
+
+                    GRD_Found.Rows.Add(
+                        itemImage,
+                        reader["Item_Name"].ToString(),
+                        reader["Date_Found"].ToString(),
+                        reader["Found_Location"].ToString(),
+                        reader["Description"].ToString(),
+                        reader["Status"].ToString(),
+                        "Edit",
+                        "Delete"
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Found Reports Database Error:\n" +
+                    ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+            finally
+            {
+                // ==========================================
+                // CLEAN UP READER
+                // ==========================================
+
+                if (reader != null)
+                {
+                    reader.Close();
+                    reader.Dispose();
+                }
+
+
+                // ==========================================
+                // CLEAN UP COMMAND
+                // ==========================================
+
+                if (command != null)
+                {
+                    command.Dispose();
+                }
+
+
+                // ==========================================
+                // CLEAN UP CONNECTION
+                // ==========================================
+
+                if (connection != null)
+                {
+                    if (connection.State !=
+                        System.Data.ConnectionState.Closed)
+                    {
+                        connection.Close();
+                    }
+
+                    connection.Dispose();
+                }
             }
         }
 

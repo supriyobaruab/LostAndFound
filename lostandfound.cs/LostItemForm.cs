@@ -10,7 +10,7 @@ namespace lostandfound.cs
     public partial class LostItemForm : Form
     {
         private string selectedImagePath = "";
-
+        private string loggedUser;
         private string connectionString =
             "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
 
@@ -19,9 +19,11 @@ namespace lostandfound.cs
         // CONSTRUCTOR
         // ==========================================
 
-        public LostItemForm()
+        public LostItemForm(string User_ID)
         {
             InitializeComponent();
+
+            loggedUser = User_ID;
 
             // Add categories
             CB_Category.Items.AddRange(new string[]
@@ -246,7 +248,8 @@ namespace lostandfound.cs
         Date_Lost,
         Description,
         Image_Path,
-        Status
+        Status,
+        User_ID
     )
     VALUES
     (
@@ -256,7 +259,8 @@ namespace lostandfound.cs
         @LostDate,
         @Description,
         @ImagePath,
-        'Lost'
+        'Lost',
+        @User_ID
     )";
 
             try
@@ -297,6 +301,9 @@ namespace lostandfound.cs
                         command.Parameters.AddWithValue(
                             "@ImagePath",
                             imagePath
+                        );
+                        command.Parameters.AddWithValue(
+                            "@User_ID", loggedUser
                         );
                         
 

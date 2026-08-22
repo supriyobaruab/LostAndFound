@@ -48,7 +48,7 @@ namespace lostandfound.cs
                     }
                     else if (role == "student")
                     {
-                        Dashboard dashboard = new Dashboard(name);
+                        Dashboard dashboard = new Dashboard(name, textBox1.Text.Trim());
                         dashboard.Show();
                         this.Hide();
                     }
