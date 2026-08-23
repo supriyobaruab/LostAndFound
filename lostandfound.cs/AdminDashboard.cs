@@ -130,31 +130,6 @@ namespace lostandfound.cs
         }
 
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Logout_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LB_AllLFReport_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Grd_User_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -185,6 +160,11 @@ namespace lostandfound.cs
             }
             }
 
+        //=======================================================================================================================================================================================
+        //ADD User
+        //======================================================================================================================================================================================
+
+
         private void btn_AddUser_Click(object sender, EventArgs e)
         {
             // Not editing
@@ -205,6 +185,12 @@ namespace lostandfound.cs
             btn_Clear.Enabled = true;
             btn_Delete.Enabled = false;
         }
+
+
+        //============================================================================================================================================================================================
+        //SAVE
+        //============================================================================================================================================================================================
+
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
@@ -320,6 +306,128 @@ namespace lostandfound.cs
             GRP_SelectedMember.Enabled = false;
 
             isEditing = false;
+        }
+
+        //======================================================================================================================
+        // Delete Functions
+        //======================================================================================================================
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TB_UID.Text))
+            {
+                MessageBox.Show("Please select a user first.");
+                return;
+            }
+
+            // Check whether the selected user is an Admin
+            if (CB_Role.Text == "admin")
+            {
+                MessageBox.Show(
+                    "Admin users cannot be deleted.",
+                    "Delete Not Allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete this user?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            string query = "DELETE FROM [User] WHERE user_id = @user_id";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@user_id", originalUserID);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show(
+                    "User deleted successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                LoadUsers();
+
+                TB_Name.Clear();
+                TB_Email.Clear();
+                TB_UID.Clear();
+                TB_Password.Clear();
+                CB_Role.SelectedIndex = -1;
+
+                GRP_SelectedMember.Enabled = false;
+
+                btn_Save.Enabled = false;
+                btn_Delete.Enabled = false;
+                btn_Clear.Enabled = false;
+
+                isEditing = false;
+                originalUserID = "";
+            }
+            else
+            {
+                MessageBox.Show(
+                    "User could not be deleted.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+
+        // ====================================================================================================================================================================
+        //CLEAR
+        // ====================================================================================================================================================================
+
+
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+       "Are you sure you want to clear all the information?",
+       "Confirm Clear",
+       MessageBoxButtons.YesNo,
+       MessageBoxIcon.Warning
+   );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            TB_Name.Clear();
+            TB_Email.Clear();
+            TB_UID.Clear();
+            TB_Password.Clear();
+            CB_Role.SelectedIndex = -1;
+
+            isEditing = false;
+            originalUserID = "";
+
+            
         }
     }
 }

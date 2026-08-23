@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_User = new System.Windows.Forms.Label();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
@@ -124,7 +124,6 @@
             this.btn_Logout.TabIndex = 5;
             this.btn_Logout.Text = "Log-out";
             this.btn_Logout.UseVisualStyleBackColor = false;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
             // 
             // LB_AdminP
             // 
@@ -136,7 +135,6 @@
             this.LB_AdminP.Size = new System.Drawing.Size(83, 15);
             this.LB_AdminP.TabIndex = 5;
             this.LB_AdminP.Text = "- Admin Panel";
-            this.LB_AdminP.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // LB_LFHeader
             // 
@@ -148,7 +146,6 @@
             this.LB_LFHeader.Size = new System.Drawing.Size(130, 19);
             this.LB_LFHeader.TabIndex = 5;
             this.LB_LFHeader.Text = "Lost & Found System";
-            this.LB_LFHeader.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel1
             // 
@@ -158,7 +155,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1169, 1);
             this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // LB_rUsers
             // 
@@ -195,10 +191,10 @@
             this.Grd_User.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
             this.Grd_User.Location = new System.Drawing.Point(58, 134);
             this.Grd_User.Name = "Grd_User";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.Grd_User.Size = new System.Drawing.Size(496, 144);
             this.Grd_User.TabIndex = 7;
             this.Grd_User.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_User_CellContentClick);
@@ -257,7 +253,6 @@
             this.LB_AllLFReport.Size = new System.Drawing.Size(147, 13);
             this.LB_AllLFReport.TabIndex = 9;
             this.LB_AllLFReport.Text = "All Lost and Found Reports";
-            this.LB_AllLFReport.Click += new System.EventHandler(this.LB_AllLFReport_Click);
             // 
             // Grd_Items
             // 
@@ -389,6 +384,7 @@
             this.btn_Clear.TabIndex = 21;
             this.btn_Clear.Text = "Clear";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Delete
             // 
@@ -398,6 +394,7 @@
             this.btn_Delete.TabIndex = 20;
             this.btn_Delete.Text = "Delete";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Save
             // 
