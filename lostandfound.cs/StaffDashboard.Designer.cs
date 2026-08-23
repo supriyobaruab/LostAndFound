@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_AllReports = new System.Windows.Forms.Label();
             this.LB_ReviewandUpdate = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -37,10 +37,11 @@
             this.LB_StaffPanel = new System.Windows.Forms.Label();
             this.LB_LFHeader = new System.Windows.Forms.Label();
             this.Grd_ReviewTable = new System.Windows.Forms.DataGridView();
-            this.colAction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAction = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.colUpdate = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ReviewTable)).BeginInit();
@@ -75,7 +76,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(704, 60);
+            this.panel1.Size = new System.Drawing.Size(813, 60);
             this.panel1.TabIndex = 2;
             // 
             // IMG_LogoStaff
@@ -96,7 +97,7 @@
             this.btn_Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Logout.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_Logout.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.btn_Logout.Location = new System.Drawing.Point(632, 17);
+            this.btn_Logout.Location = new System.Drawing.Point(741, 17);
             this.btn_Logout.Name = "btn_Logout";
             this.btn_Logout.Size = new System.Drawing.Size(60, 30);
             this.btn_Logout.TabIndex = 11;
@@ -133,50 +134,66 @@
             this.Grd_ReviewTable.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.Grd_ReviewTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grd_ReviewTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colName,
-            this.colRole,
-            this.colEmail,
-            this.colAction});
+            this.colItem,
+            this.colReporter,
+            this.colStatus,
+            this.colAction,
+            this.colUpdate});
             this.Grd_ReviewTable.EnableHeadersVisualStyles = false;
             this.Grd_ReviewTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
             this.Grd_ReviewTable.Location = new System.Drawing.Point(82, 161);
             this.Grd_ReviewTable.Name = "Grd_ReviewTable";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_ReviewTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.Grd_ReviewTable.Size = new System.Drawing.Size(444, 255);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_ReviewTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Grd_ReviewTable.Size = new System.Drawing.Size(610, 255);
             this.Grd_ReviewTable.TabIndex = 8;
+            // 
+            // colItem
+            // 
+            this.colItem.DataPropertyName = "Item";
+            this.colItem.HeaderText = "Item";
+            this.colItem.Name = "colItem";
+            this.colItem.Width = 90;
+            // 
+            // colReporter
+            // 
+            this.colReporter.DataPropertyName = "Reporter";
+            this.colReporter.HeaderText = "Reporter";
+            this.colReporter.Name = "colReporter";
+            this.colReporter.Width = 150;
+            // 
+            // colStatus
+            // 
+            this.colStatus.DataPropertyName = "Status";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.Width = 80;
             // 
             // colAction
             // 
             this.colAction.HeaderText = "Action";
             this.colAction.Name = "colAction";
-            this.colAction.Width = 80;
+            this.colAction.Text = "Mark Returned";
+            this.colAction.UseColumnTextForButtonValue = true;
+            this.colAction.Width = 125;
             // 
-            // colEmail
+            // colUpdate
             // 
-            this.colEmail.HeaderText = "Status";
-            this.colEmail.Name = "colEmail";
-            this.colEmail.Width = 80;
-            // 
-            // colRole
-            // 
-            this.colRole.HeaderText = "Reporter";
-            this.colRole.Name = "colRole";
-            this.colRole.Width = 150;
-            // 
-            // colName
-            // 
-            this.colName.HeaderText = "Item";
-            this.colName.Name = "colName";
-            this.colName.Width = 90;
+            this.colUpdate.HeaderText = "Tracking Status";
+            this.colUpdate.Items.AddRange(new object[] {
+            "Match Pending",
+            "Resolved",
+            "Searching"});
+            this.colUpdate.Name = "colUpdate";
+            this.colUpdate.Width = 125;
             // 
             // StaffDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 497);
+            this.ClientSize = new System.Drawing.Size(813, 497);
             this.Controls.Add(this.Grd_ReviewTable);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LB_ReviewandUpdate);
@@ -202,9 +219,10 @@
         private System.Windows.Forms.Label LB_LFHeader;
         private System.Windows.Forms.Label LB_StaffPanel;
         private System.Windows.Forms.Button btn_Logout;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRole;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colAction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colReporter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn colAction;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colUpdate;
     }
 }
