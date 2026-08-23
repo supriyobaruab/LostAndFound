@@ -70,9 +70,29 @@ namespace lostandfound.cs
                 MessageBox.Show("Error loading reports: " + ex.Message);
             }
         }
+
+
+        //======================================================================================================================================================================
+        //LOGOUT
+        //======================================================================================================================================================================
+
+
+
         private void btn_Logout_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show(
+       "Are you sure you want to logout?",
+       "Confirm Logout",
+       MessageBoxButtons.YesNo,
+       MessageBoxIcon.Question);
 
+            if (result == DialogResult.Yes)
+            {
+                Login loginForm = new Login();
+                loginForm.Show();
+
+                this.Close();
+            }
         }
     }
 }
