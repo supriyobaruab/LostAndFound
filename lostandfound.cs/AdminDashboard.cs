@@ -13,6 +13,11 @@ namespace lostandfound.cs
 {
     public partial class AdminDashboard : Form
     {
+        //assuming that admin isnt editing at beggining 
+        bool isEditing = false;
+        //original user id storing inorder to let the compiler find the previous uid instead of trying to compare it with the updated one
+        string originalUserID = "";
+
         string connectionString =
         "Server=localhost;Database=LostAndFound;Trusted_Connection=True;TrustServerCertificate=True;";
 
@@ -125,31 +130,6 @@ namespace lostandfound.cs
         }
 
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btn_Logout_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LB_AllLFReport_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Grd_User_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -157,18 +137,297 @@ namespace lostandfound.cs
 
             if (Grd_User.Columns[e.ColumnIndex].Name == "Update")
             {
+                isEditing = true;
+               
                 // Get selected user's information
                 TB_Name.Text = Grd_User.Rows[e.RowIndex].Cells["colName"].Value?.ToString();
                 TB_Email.Text = Grd_User.Rows[e.RowIndex].Cells["colEmail"].Value?.ToString();
                 TB_UID.Text = Grd_User.Rows[e.RowIndex].Cells["UID"].Value?.ToString();
                 CB_Role.Text = Grd_User.Rows[e.RowIndex].Cells["colRole"].Value?.ToString();
 
+                //store original user id 
+
+                originalUserID = TB_UID.Text;
+
+
+
                 // Enable editing
                 SetMemberPanelReadOnly(false);
+                GRP_SelectedMember.Enabled = true;
                 btn_Save.Enabled = true;
                 btn_Delete.Enabled = true;
                 btn_Clear.Enabled = true;
             }
             }
+
+        //=======================================================================================================================================================================================
+        //ADD User
+        //======================================================================================================================================================================================
+
+
+        private void btn_AddUser_Click(object sender, EventArgs e)
+        {
+            // Not editing
+            isEditing = false;
+
+            TB_Name.Clear();
+            TB_Email.Clear();
+            TB_UID.Clear();
+            TB_Password.Clear();
+            CB_Role.SelectedIndex = -1;
+
+            TB_Name.Focus();
+
+            //enable editing
+            SetMemberPanelReadOnly(false);
+            GRP_SelectedMember.Enabled = true;
+            btn_Save.Enabled = true;
+            btn_Clear.Enabled = true;
+            btn_Delete.Enabled = false;
+        }
+
+
+        //============================================================================================================================================================================================
+        //SAVE
+        //============================================================================================================================================================================================
+
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            if (TB_Name.Text == "" ||
+       TB_Email.Text == "" ||
+       TB_UID.Text == "" ||
+       CB_Role.Text == "")
+            {
+                MessageBox.Show("Please fill in all required fields.");
+                return;
+            }
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            if (isEditing == false)
+            {
+                // ADD NEW USER
+
+                string checkQuery = "SELECT COUNT(*) FROM [User] WHERE user_id = @user_id";
+
+                SqlCommand checkCmd = new SqlCommand(checkQuery, con);
+                checkCmd.Parameters.AddWithValue("@user_id", TB_UID.Text);
+
+                int count = (int)checkCmd.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show("This User ID already exists.");
+                    con.Close();
+                    return;
+                }
+
+                string query = @"INSERT INTO [User]
+                         (name, email, user_id, password, role)
+                         VALUES
+                         (@name, @email, @user_id, @password, @role)";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@name", TB_Name.Text);
+                cmd.Parameters.AddWithValue("@email", TB_Email.Text);
+                cmd.Parameters.AddWithValue("@user_id", TB_UID.Text);
+                cmd.Parameters.AddWithValue("@password", TB_Password.Text);
+                cmd.Parameters.AddWithValue("@role", CB_Role.Text);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("User added successfully!");
+            }
+            else
+            {
+                // UPDATE EXISTING USER
+
+                // Check if the NEW User ID already exists
+                string checkQuery = @"SELECT COUNT(*)
+                          FROM [User]
+                          WHERE user_id = @newUserID
+                          AND user_id <> @originalUserID";
+
+                SqlCommand checkCmd = new SqlCommand(checkQuery, con);
+
+                checkCmd.Parameters.AddWithValue("@newUserID", TB_UID.Text);
+                checkCmd.Parameters.AddWithValue("@originalUserID", originalUserID);
+
+                int count = (int)checkCmd.ExecuteScalar();
+
+                if (count > 0)
+                {
+                    MessageBox.Show(
+                        "This User ID already exists. Please choose another User ID.",
+                        "Duplicate User ID",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    con.Close();
+                    return;
+                }
+
+
+                string query = @"UPDATE [User]
+                 SET name = @name,
+                     email = @email,
+                     user_id = @newUserID,
+                     password = @password,
+                     role = @role
+                 WHERE user_id = @originalUserID";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@name", TB_Name.Text);
+                cmd.Parameters.AddWithValue("@email", TB_Email.Text);
+                cmd.Parameters.AddWithValue("@newUserID", TB_UID.Text);
+                cmd.Parameters.AddWithValue("@password", TB_Password.Text);
+                cmd.Parameters.AddWithValue("@role", CB_Role.Text);
+                cmd.Parameters.AddWithValue("@originalUserID", originalUserID);
+
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("User updated successfully!");
+            }
+
+            con.Close();
+
+            LoadUsers();
+            TB_Name.Clear();
+            TB_Email.Clear();
+            TB_UID.Clear();
+            TB_Password.Clear();
+            CB_Role.SelectedIndex = -1;
+
+            GRP_SelectedMember.Enabled = false;
+
+            isEditing = false;
+        }
+
+        //======================================================================================================================
+        // Delete Functions
+        //======================================================================================================================
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TB_UID.Text))
+            {
+                MessageBox.Show("Please select a user first.");
+                return;
+            }
+
+            // Check whether the selected user is an Admin
+            if (CB_Role.Text == "admin")
+            {
+                MessageBox.Show(
+                    "Admin users cannot be deleted.",
+                    "Delete Not Allowed",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete this user?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+
+            string query = "DELETE FROM [User] WHERE user_id = @user_id";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@user_id", originalUserID);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+
+            con.Close();
+
+            if (rowsAffected > 0)
+            {
+                MessageBox.Show(
+                    "User deleted successfully!",
+                    "Success",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                LoadUsers();
+
+                TB_Name.Clear();
+                TB_Email.Clear();
+                TB_UID.Clear();
+                TB_Password.Clear();
+                CB_Role.SelectedIndex = -1;
+
+                GRP_SelectedMember.Enabled = false;
+
+                btn_Save.Enabled = false;
+                btn_Delete.Enabled = false;
+                btn_Clear.Enabled = false;
+
+                isEditing = false;
+                originalUserID = "";
+            }
+            else
+            {
+                MessageBox.Show(
+                    "User could not be deleted.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+
+        // ====================================================================================================================================================================
+        //CLEAR
+        // ====================================================================================================================================================================
+
+
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+       "Are you sure you want to clear all the information?",
+       "Confirm Clear",
+       MessageBoxButtons.YesNo,
+       MessageBoxIcon.Warning
+   );
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            TB_Name.Clear();
+            TB_Email.Clear();
+            TB_UID.Clear();
+            TB_Password.Clear();
+            CB_Role.SelectedIndex = -1;
+
+            isEditing = false;
+            originalUserID = "";
+
+            
+        }
     }
 }
