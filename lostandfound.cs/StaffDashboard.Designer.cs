@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_AllReports = new System.Windows.Forms.Label();
             this.LB_ReviewandUpdate = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,6 +42,8 @@
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAction = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colUpdate = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_cancle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_ReviewTable)).BeginInit();
@@ -51,7 +53,7 @@
             // 
             this.LB_AllReports.AutoSize = true;
             this.LB_AllReports.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LB_AllReports.Location = new System.Drawing.Point(78, 83);
+            this.LB_AllReports.Location = new System.Drawing.Point(101, 81);
             this.LB_AllReports.Name = "LB_AllReports";
             this.LB_AllReports.Size = new System.Drawing.Size(87, 20);
             this.LB_AllReports.TabIndex = 0;
@@ -60,7 +62,7 @@
             // LB_ReviewandUpdate
             // 
             this.LB_ReviewandUpdate.AutoSize = true;
-            this.LB_ReviewandUpdate.Location = new System.Drawing.Point(79, 112);
+            this.LB_ReviewandUpdate.Location = new System.Drawing.Point(102, 110);
             this.LB_ReviewandUpdate.Name = "LB_ReviewandUpdate";
             this.LB_ReviewandUpdate.Size = new System.Drawing.Size(177, 13);
             this.LB_ReviewandUpdate.TabIndex = 1;
@@ -141,13 +143,13 @@
             this.colUpdate});
             this.Grd_ReviewTable.EnableHeadersVisualStyles = false;
             this.Grd_ReviewTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
-            this.Grd_ReviewTable.Location = new System.Drawing.Point(82, 161);
+            this.Grd_ReviewTable.Location = new System.Drawing.Point(105, 146);
             this.Grd_ReviewTable.Name = "Grd_ReviewTable";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_ReviewTable.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.Grd_ReviewTable.Size = new System.Drawing.Size(610, 255);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_ReviewTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.Grd_ReviewTable.Size = new System.Drawing.Size(612, 276);
             this.Grd_ReviewTable.TabIndex = 8;
             // 
             // colItem
@@ -189,11 +191,31 @@
             this.colUpdate.Name = "colUpdate";
             this.colUpdate.Width = 125;
             // 
+            // btn_save
+            // 
+            this.btn_save.Location = new System.Drawing.Point(475, 447);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(118, 43);
+            this.btn_save.TabIndex = 9;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            // 
+            // btn_cancle
+            // 
+            this.btn_cancle.Location = new System.Drawing.Point(599, 447);
+            this.btn_cancle.Name = "btn_cancle";
+            this.btn_cancle.Size = new System.Drawing.Size(118, 43);
+            this.btn_cancle.TabIndex = 10;
+            this.btn_cancle.Text = "Cancel";
+            this.btn_cancle.UseVisualStyleBackColor = true;
+            // 
             // StaffDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 497);
+            this.ClientSize = new System.Drawing.Size(813, 537);
+            this.Controls.Add(this.btn_cancle);
+            this.Controls.Add(this.btn_save);
             this.Controls.Add(this.Grd_ReviewTable);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LB_ReviewandUpdate);
@@ -224,5 +246,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewButtonColumn colAction;
         private System.Windows.Forms.DataGridViewComboBoxColumn colUpdate;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_cancle;
     }
 }

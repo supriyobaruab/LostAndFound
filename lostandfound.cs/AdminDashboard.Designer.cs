@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LB_User = new System.Windows.Forms.Label();
             this.PanelHeader = new System.Windows.Forms.Panel();
             this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
@@ -39,35 +39,35 @@
             this.LB_rUsers = new System.Windows.Forms.Label();
             this.btn_AddUser = new System.Windows.Forms.Button();
             this.Grd_User = new System.Windows.Forms.DataGridView();
-            this.LB_AItems = new System.Windows.Forms.Label();
-            this.LB_AllLFReport = new System.Windows.Forms.Label();
-            this.Grd_Items = new System.Windows.Forms.DataGridView();
-            this.LB_MemberManagement = new System.Windows.Forms.Label();
-            this.GRP_SelectedMember = new System.Windows.Forms.GroupBox();
-            this.LB_Name = new System.Windows.Forms.Label();
-            this.TB_Name = new System.Windows.Forms.TextBox();
-            this.LB_Email = new System.Windows.Forms.Label();
-            this.TB_Email = new System.Windows.Forms.TextBox();
-            this.LB_Role = new System.Windows.Forms.Label();
-            this.CB_Role = new System.Windows.Forms.ComboBox();
-            this.Panel_Member = new System.Windows.Forms.Panel();
-            this.btn_Save = new System.Windows.Forms.Button();
-            this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_Clear = new System.Windows.Forms.Button();
-            this.LB_UID = new System.Windows.Forms.Label();
-            this.TB_UID = new System.Windows.Forms.TextBox();
-            this.TB_Password = new System.Windows.Forms.TextBox();
-            this.LB_Password = new System.Windows.Forms.Label();
             this.UID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.LB_AItems = new System.Windows.Forms.Label();
+            this.LB_AllLFReport = new System.Windows.Forms.Label();
+            this.Grd_Items = new System.Windows.Forms.DataGridView();
             this.colItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.colUpdate = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.LB_MemberManagement = new System.Windows.Forms.Label();
+            this.GRP_SelectedMember = new System.Windows.Forms.GroupBox();
+            this.TB_Password = new System.Windows.Forms.TextBox();
+            this.LB_Password = new System.Windows.Forms.Label();
+            this.TB_UID = new System.Windows.Forms.TextBox();
+            this.LB_UID = new System.Windows.Forms.Label();
+            this.btn_Clear = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
+            this.CB_Role = new System.Windows.Forms.ComboBox();
+            this.LB_Role = new System.Windows.Forms.Label();
+            this.TB_Email = new System.Windows.Forms.TextBox();
+            this.LB_Email = new System.Windows.Forms.Label();
+            this.TB_Name = new System.Windows.Forms.TextBox();
+            this.LB_Name = new System.Windows.Forms.Label();
+            this.Panel_Member = new System.Windows.Forms.Panel();
             this.PanelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).BeginInit();
@@ -177,6 +177,7 @@
             this.btn_AddUser.TabIndex = 6;
             this.btn_AddUser.Text = "Add User";
             this.btn_AddUser.UseVisualStyleBackColor = true;
+            this.btn_AddUser.Click += new System.EventHandler(this.btn_AddUser_Click);
             // 
             // Grd_User
             // 
@@ -194,13 +195,48 @@
             this.Grd_User.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
             this.Grd_User.Location = new System.Drawing.Point(58, 134);
             this.Grd_User.Name = "Grd_User";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Grd_User.Size = new System.Drawing.Size(496, 144);
             this.Grd_User.TabIndex = 7;
             this.Grd_User.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_User_CellContentClick);
+            // 
+            // UID
+            // 
+            this.UID.DataPropertyName = "User_ID";
+            this.UID.HeaderText = "User ID";
+            this.UID.Name = "UID";
+            this.UID.Width = 90;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            this.colName.Width = 125;
+            // 
+            // colRole
+            // 
+            this.colRole.DataPropertyName = "Role";
+            this.colRole.HeaderText = "Role";
+            this.colRole.Name = "colRole";
+            this.colRole.Width = 80;
+            // 
+            // colEmail
+            // 
+            this.colEmail.DataPropertyName = "Email";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
+            // 
+            // Update
+            // 
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            this.Update.Width = 65;
             // 
             // LB_AItems
             // 
@@ -239,204 +275,6 @@
             this.Grd_Items.Size = new System.Drawing.Size(496, 144);
             this.Grd_Items.TabIndex = 10;
             // 
-            // LB_MemberManagement
-            // 
-            this.LB_MemberManagement.AutoSize = true;
-            this.LB_MemberManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.LB_MemberManagement.Location = new System.Drawing.Point(762, 106);
-            this.LB_MemberManagement.Name = "LB_MemberManagement";
-            this.LB_MemberManagement.Size = new System.Drawing.Size(204, 25);
-            this.LB_MemberManagement.TabIndex = 12;
-            this.LB_MemberManagement.Text = "Member Management";
-            // 
-            // GRP_SelectedMember
-            // 
-            this.GRP_SelectedMember.Controls.Add(this.TB_Password);
-            this.GRP_SelectedMember.Controls.Add(this.LB_Password);
-            this.GRP_SelectedMember.Controls.Add(this.TB_UID);
-            this.GRP_SelectedMember.Controls.Add(this.LB_UID);
-            this.GRP_SelectedMember.Controls.Add(this.btn_Clear);
-            this.GRP_SelectedMember.Controls.Add(this.btn_Delete);
-            this.GRP_SelectedMember.Controls.Add(this.btn_Save);
-            this.GRP_SelectedMember.Controls.Add(this.CB_Role);
-            this.GRP_SelectedMember.Controls.Add(this.LB_Role);
-            this.GRP_SelectedMember.Controls.Add(this.TB_Email);
-            this.GRP_SelectedMember.Controls.Add(this.LB_Email);
-            this.GRP_SelectedMember.Controls.Add(this.TB_Name);
-            this.GRP_SelectedMember.Controls.Add(this.LB_Name);
-            this.GRP_SelectedMember.Location = new System.Drawing.Point(28, 20);
-            this.GRP_SelectedMember.Name = "GRP_SelectedMember";
-            this.GRP_SelectedMember.Size = new System.Drawing.Size(445, 357);
-            this.GRP_SelectedMember.TabIndex = 0;
-            this.GRP_SelectedMember.TabStop = false;
-            this.GRP_SelectedMember.Text = "Selected Member";
-            // 
-            // LB_Name
-            // 
-            this.LB_Name.AutoSize = true;
-            this.LB_Name.BackColor = System.Drawing.SystemColors.Control;
-            this.LB_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LB_Name.Location = new System.Drawing.Point(17, 67);
-            this.LB_Name.Name = "LB_Name";
-            this.LB_Name.Size = new System.Drawing.Size(80, 20);
-            this.LB_Name.TabIndex = 13;
-            this.LB_Name.Text = "Full Name";
-            // 
-            // TB_Name
-            // 
-            this.TB_Name.Location = new System.Drawing.Point(103, 67);
-            this.TB_Name.Name = "TB_Name";
-            this.TB_Name.Size = new System.Drawing.Size(324, 20);
-            this.TB_Name.TabIndex = 14;
-            // 
-            // LB_Email
-            // 
-            this.LB_Email.AutoSize = true;
-            this.LB_Email.BackColor = System.Drawing.SystemColors.Control;
-            this.LB_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LB_Email.Location = new System.Drawing.Point(17, 114);
-            this.LB_Email.Name = "LB_Email";
-            this.LB_Email.Size = new System.Drawing.Size(48, 20);
-            this.LB_Email.TabIndex = 15;
-            this.LB_Email.Text = "Email";
-            // 
-            // TB_Email
-            // 
-            this.TB_Email.Location = new System.Drawing.Point(103, 114);
-            this.TB_Email.Name = "TB_Email";
-            this.TB_Email.Size = new System.Drawing.Size(324, 20);
-            this.TB_Email.TabIndex = 16;
-            // 
-            // LB_Role
-            // 
-            this.LB_Role.AutoSize = true;
-            this.LB_Role.BackColor = System.Drawing.SystemColors.Control;
-            this.LB_Role.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LB_Role.Location = new System.Drawing.Point(17, 240);
-            this.LB_Role.Name = "LB_Role";
-            this.LB_Role.Size = new System.Drawing.Size(42, 20);
-            this.LB_Role.TabIndex = 17;
-            this.LB_Role.Text = "Role";
-            // 
-            // CB_Role
-            // 
-            this.CB_Role.FormattingEnabled = true;
-            this.CB_Role.Items.AddRange(new object[] {
-            "Student",
-            "Officer"});
-            this.CB_Role.Location = new System.Drawing.Point(103, 239);
-            this.CB_Role.Name = "CB_Role";
-            this.CB_Role.Size = new System.Drawing.Size(324, 21);
-            this.CB_Role.TabIndex = 18;
-            // 
-            // Panel_Member
-            // 
-            this.Panel_Member.BackColor = System.Drawing.SystemColors.Window;
-            this.Panel_Member.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Panel_Member.Controls.Add(this.GRP_SelectedMember);
-            this.Panel_Member.Location = new System.Drawing.Point(611, 134);
-            this.Panel_Member.Name = "Panel_Member";
-            this.Panel_Member.Size = new System.Drawing.Size(502, 402);
-            this.Panel_Member.TabIndex = 11;
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Location = new System.Drawing.Point(44, 306);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(100, 35);
-            this.btn_Save.TabIndex = 19;
-            this.btn_Save.Text = "Save";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Location = new System.Drawing.Point(189, 306);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(100, 35);
-            this.btn_Delete.TabIndex = 20;
-            this.btn_Delete.Text = "Delete";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_Clear
-            // 
-            this.btn_Clear.Location = new System.Drawing.Point(327, 306);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(100, 35);
-            this.btn_Clear.TabIndex = 21;
-            this.btn_Clear.Text = "Clear";
-            this.btn_Clear.UseVisualStyleBackColor = true;
-            // 
-            // LB_UID
-            // 
-            this.LB_UID.AutoSize = true;
-            this.LB_UID.BackColor = System.Drawing.SystemColors.Control;
-            this.LB_UID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LB_UID.Location = new System.Drawing.Point(17, 157);
-            this.LB_UID.Name = "LB_UID";
-            this.LB_UID.Size = new System.Drawing.Size(64, 20);
-            this.LB_UID.TabIndex = 22;
-            this.LB_UID.Text = "User ID";
-            // 
-            // TB_UID
-            // 
-            this.TB_UID.Location = new System.Drawing.Point(103, 154);
-            this.TB_UID.Name = "TB_UID";
-            this.TB_UID.Size = new System.Drawing.Size(324, 20);
-            this.TB_UID.TabIndex = 23;
-            // 
-            // TB_Password
-            // 
-            this.TB_Password.Location = new System.Drawing.Point(103, 196);
-            this.TB_Password.Name = "TB_Password";
-            this.TB_Password.Size = new System.Drawing.Size(324, 20);
-            this.TB_Password.TabIndex = 25;
-            // 
-            // LB_Password
-            // 
-            this.LB_Password.AutoSize = true;
-            this.LB_Password.BackColor = System.Drawing.SystemColors.Control;
-            this.LB_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.LB_Password.Location = new System.Drawing.Point(17, 199);
-            this.LB_Password.Name = "LB_Password";
-            this.LB_Password.Size = new System.Drawing.Size(78, 20);
-            this.LB_Password.TabIndex = 24;
-            this.LB_Password.Text = "Password";
-            // 
-            // UID
-            // 
-            this.UID.DataPropertyName = "User_ID";
-            this.UID.HeaderText = "User ID";
-            this.UID.Name = "UID";
-            this.UID.Width = 90;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            this.colName.Width = 125;
-            // 
-            // colRole
-            // 
-            this.colRole.DataPropertyName = "Role";
-            this.colRole.HeaderText = "Role";
-            this.colRole.Name = "colRole";
-            this.colRole.Width = 80;
-            // 
-            // colEmail
-            // 
-            this.colEmail.DataPropertyName = "Email";
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
-            // 
-            // Update
-            // 
-            this.Update.HeaderText = "Update";
-            this.Update.Name = "Update";
-            this.Update.Text = "Update";
-            this.Update.UseColumnTextForButtonValue = true;
-            this.Update.Width = 65;
-            // 
             // colItem
             // 
             this.colItem.DataPropertyName = "Item";
@@ -474,6 +312,170 @@
             "Searching"});
             this.colUpdate.Name = "colUpdate";
             this.colUpdate.Width = 105;
+            // 
+            // LB_MemberManagement
+            // 
+            this.LB_MemberManagement.AutoSize = true;
+            this.LB_MemberManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.LB_MemberManagement.Location = new System.Drawing.Point(762, 106);
+            this.LB_MemberManagement.Name = "LB_MemberManagement";
+            this.LB_MemberManagement.Size = new System.Drawing.Size(204, 25);
+            this.LB_MemberManagement.TabIndex = 12;
+            this.LB_MemberManagement.Text = "Member Management";
+            // 
+            // GRP_SelectedMember
+            // 
+            this.GRP_SelectedMember.Controls.Add(this.TB_Password);
+            this.GRP_SelectedMember.Controls.Add(this.LB_Password);
+            this.GRP_SelectedMember.Controls.Add(this.TB_UID);
+            this.GRP_SelectedMember.Controls.Add(this.LB_UID);
+            this.GRP_SelectedMember.Controls.Add(this.btn_Clear);
+            this.GRP_SelectedMember.Controls.Add(this.btn_Delete);
+            this.GRP_SelectedMember.Controls.Add(this.btn_Save);
+            this.GRP_SelectedMember.Controls.Add(this.CB_Role);
+            this.GRP_SelectedMember.Controls.Add(this.LB_Role);
+            this.GRP_SelectedMember.Controls.Add(this.TB_Email);
+            this.GRP_SelectedMember.Controls.Add(this.LB_Email);
+            this.GRP_SelectedMember.Controls.Add(this.TB_Name);
+            this.GRP_SelectedMember.Controls.Add(this.LB_Name);
+            this.GRP_SelectedMember.Location = new System.Drawing.Point(28, 20);
+            this.GRP_SelectedMember.Name = "GRP_SelectedMember";
+            this.GRP_SelectedMember.Size = new System.Drawing.Size(445, 357);
+            this.GRP_SelectedMember.TabIndex = 0;
+            this.GRP_SelectedMember.TabStop = false;
+            this.GRP_SelectedMember.Text = "Selected Member";
+            // 
+            // TB_Password
+            // 
+            this.TB_Password.Location = new System.Drawing.Point(103, 196);
+            this.TB_Password.Name = "TB_Password";
+            this.TB_Password.Size = new System.Drawing.Size(324, 20);
+            this.TB_Password.TabIndex = 25;
+            // 
+            // LB_Password
+            // 
+            this.LB_Password.AutoSize = true;
+            this.LB_Password.BackColor = System.Drawing.SystemColors.Control;
+            this.LB_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LB_Password.Location = new System.Drawing.Point(17, 199);
+            this.LB_Password.Name = "LB_Password";
+            this.LB_Password.Size = new System.Drawing.Size(78, 20);
+            this.LB_Password.TabIndex = 24;
+            this.LB_Password.Text = "Password";
+            // 
+            // TB_UID
+            // 
+            this.TB_UID.Location = new System.Drawing.Point(103, 154);
+            this.TB_UID.Name = "TB_UID";
+            this.TB_UID.Size = new System.Drawing.Size(324, 20);
+            this.TB_UID.TabIndex = 23;
+            // 
+            // LB_UID
+            // 
+            this.LB_UID.AutoSize = true;
+            this.LB_UID.BackColor = System.Drawing.SystemColors.Control;
+            this.LB_UID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LB_UID.Location = new System.Drawing.Point(17, 157);
+            this.LB_UID.Name = "LB_UID";
+            this.LB_UID.Size = new System.Drawing.Size(64, 20);
+            this.LB_UID.TabIndex = 22;
+            this.LB_UID.Text = "User ID";
+            // 
+            // btn_Clear
+            // 
+            this.btn_Clear.Location = new System.Drawing.Point(327, 306);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(100, 35);
+            this.btn_Clear.TabIndex = 21;
+            this.btn_Clear.Text = "Clear";
+            this.btn_Clear.UseVisualStyleBackColor = true;
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(189, 306);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(100, 35);
+            this.btn_Delete.TabIndex = 20;
+            this.btn_Delete.Text = "Delete";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Location = new System.Drawing.Point(44, 306);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(100, 35);
+            this.btn_Save.TabIndex = 19;
+            this.btn_Save.Text = "Save";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
+            // CB_Role
+            // 
+            this.CB_Role.FormattingEnabled = true;
+            this.CB_Role.Items.AddRange(new object[] {
+            "Student",
+            "Officer"});
+            this.CB_Role.Location = new System.Drawing.Point(103, 239);
+            this.CB_Role.Name = "CB_Role";
+            this.CB_Role.Size = new System.Drawing.Size(324, 21);
+            this.CB_Role.TabIndex = 18;
+            // 
+            // LB_Role
+            // 
+            this.LB_Role.AutoSize = true;
+            this.LB_Role.BackColor = System.Drawing.SystemColors.Control;
+            this.LB_Role.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LB_Role.Location = new System.Drawing.Point(17, 240);
+            this.LB_Role.Name = "LB_Role";
+            this.LB_Role.Size = new System.Drawing.Size(42, 20);
+            this.LB_Role.TabIndex = 17;
+            this.LB_Role.Text = "Role";
+            // 
+            // TB_Email
+            // 
+            this.TB_Email.Location = new System.Drawing.Point(103, 114);
+            this.TB_Email.Name = "TB_Email";
+            this.TB_Email.Size = new System.Drawing.Size(324, 20);
+            this.TB_Email.TabIndex = 16;
+            // 
+            // LB_Email
+            // 
+            this.LB_Email.AutoSize = true;
+            this.LB_Email.BackColor = System.Drawing.SystemColors.Control;
+            this.LB_Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LB_Email.Location = new System.Drawing.Point(17, 114);
+            this.LB_Email.Name = "LB_Email";
+            this.LB_Email.Size = new System.Drawing.Size(48, 20);
+            this.LB_Email.TabIndex = 15;
+            this.LB_Email.Text = "Email";
+            // 
+            // TB_Name
+            // 
+            this.TB_Name.Location = new System.Drawing.Point(103, 67);
+            this.TB_Name.Name = "TB_Name";
+            this.TB_Name.Size = new System.Drawing.Size(324, 20);
+            this.TB_Name.TabIndex = 14;
+            // 
+            // LB_Name
+            // 
+            this.LB_Name.AutoSize = true;
+            this.LB_Name.BackColor = System.Drawing.SystemColors.Control;
+            this.LB_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.LB_Name.Location = new System.Drawing.Point(17, 67);
+            this.LB_Name.Name = "LB_Name";
+            this.LB_Name.Size = new System.Drawing.Size(80, 20);
+            this.LB_Name.TabIndex = 13;
+            this.LB_Name.Text = "Full Name";
+            // 
+            // Panel_Member
+            // 
+            this.Panel_Member.BackColor = System.Drawing.SystemColors.Window;
+            this.Panel_Member.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Panel_Member.Controls.Add(this.GRP_SelectedMember);
+            this.Panel_Member.Location = new System.Drawing.Point(611, 134);
+            this.Panel_Member.Name = "Panel_Member";
+            this.Panel_Member.Size = new System.Drawing.Size(502, 402);
+            this.Panel_Member.TabIndex = 11;
             // 
             // AdminDashboard
             // 
