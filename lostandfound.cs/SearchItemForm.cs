@@ -14,21 +14,8 @@ namespace lostandfound.cs
         {
             InitializeComponent();
 
-            // ==============================
-            // DATAGRIDVIEW IMAGE SETTINGS
-            // ==============================
-
-            // Image is the first column
-            Find_Items.Columns[0].Width = 220;
-
-            // Default row height
-            Find_Items.RowTemplate.Height = 130;
-
-            // Set image layout to Zoom
-            DataGridViewImageColumn imageColumn =
-                (DataGridViewImageColumn)Find_Items.Columns[0];
-
-            imageColumn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            // The selected item's photo is displayed in the panel beside the table.
+            Find_Items.RowTemplate.Height = 42;
 
 
             // ==============================
@@ -134,8 +121,7 @@ namespace lostandfound.cs
                 SqlDataReader reader = cmd.ExecuteReader();
 
 
-                // Clear old rows
-                Find_Items.Rows.Clear();
+                ClearItemRows();
 
 
                 while (reader.Read())
@@ -150,7 +136,6 @@ namespace lostandfound.cs
 
                     // Add row
                     int rowIndex = Find_Items.Rows.Add(
-                        itemImage,
                         reader["item_name"].ToString(),
                         reader["date_found"].ToString(),
                         reader["found_location"].ToString(),
@@ -160,8 +145,7 @@ namespace lostandfound.cs
                     );
 
 
-                    // Make this row bigger
-                    Find_Items.Rows[rowIndex].Height = 115;
+                    Find_Items.Rows[rowIndex].Tag = itemImage;
                 }
 
 
@@ -225,8 +209,7 @@ namespace lostandfound.cs
                 SqlDataReader reader = cmd.ExecuteReader();
 
 
-                // Clear existing rows
-                Find_Items.Rows.Clear();
+                ClearItemRows();
 
 
                 while (reader.Read())
@@ -241,19 +224,16 @@ namespace lostandfound.cs
 
                     // Add row
                     int rowIndex = Find_Items.Rows.Add(
-                        itemImage,
                         reader["item_name"].ToString(),
                         reader["date_found"].ToString(),
                         reader["found_location"].ToString(),
                         reader["description"].ToString(),
-                        reader["status"].ToString(),
-                        "claim"
+                        reader["status"].ToString()
                         
                     );
 
 
-                    // Set row height
-                    Find_Items.Rows[rowIndex].Height = 115;
+                    Find_Items.Rows[rowIndex].Tag = itemImage;
                 }
 
 
@@ -272,6 +252,30 @@ namespace lostandfound.cs
             {
                 conn.Close();
             }
+        }
+
+        private void ClearItemRows()
+        {
+            foreach (DataGridViewRow row in Find_Items.Rows)
+            {
+                Image image = row.Tag as Image;
+                if (image != null)
+                    image.Dispose();
+            }
+
+            Find_Items.Rows.Clear();
+            SelectedItemImage.Image = null;
+        }
+
+        private void Find_Items_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Find_Items.SelectedRows.Count == 0)
+            {
+                SelectedItemImage.Image = null;
+                return;
+            }
+
+            SelectedItemImage.Image = Find_Items.SelectedRows[0].Tag as Image;
         }
     }
 }
