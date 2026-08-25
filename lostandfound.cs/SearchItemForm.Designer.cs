@@ -32,21 +32,25 @@
             this.LB_Finditem = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Find_Items = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SelectItem = new System.Windows.Forms.ComboBox();
-            this.lostAndFoundDataSet = new lostandfound.cs.LostAndFoundDataSet();
-            this.foundItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.foundItemsTableAdapter = new lostandfound.cs.LostAndFoundDataSetTableAdapters.FoundItemsTableAdapter();
-            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colView = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.SelectItem = new System.Windows.Forms.ComboBox();
+            this.lostAndFoundDataSet = new lostandfound.cs.LostAndFoundDataSet();
+            this.foundItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.foundItemsTableAdapter = new lostandfound.cs.LostAndFoundDataSetTableAdapters.FoundItemsTableAdapter();
+            this.ImagePreviewPanel = new System.Windows.Forms.Panel();
+            this.SelectedItemImage = new System.Windows.Forms.PictureBox();
+            this.labelImagePreview = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Find_Items)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lostAndFoundDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.foundItemsBindingSource)).BeginInit();
+            this.ImagePreviewPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedItemImage)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_Finditem
@@ -67,65 +71,22 @@
             this.Find_Items.AllowUserToDeleteRows = false;
             this.Find_Items.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Find_Items.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colImage,
             this.colItemName,
             this.colDateFound,
             this.colFoundLocation,
             this.Description,
             this.colStatus,
             this.colView});
-            this.Find_Items.Location = new System.Drawing.Point(31, 99);
+            this.Find_Items.Location = new System.Drawing.Point(357, 107);
             this.Find_Items.Margin = new System.Windows.Forms.Padding(2);
             this.Find_Items.Name = "Find_Items";
             this.Find_Items.ReadOnly = true;
             this.Find_Items.RowHeadersWidth = 10;
             this.Find_Items.RowTemplate.Height = 33;
-            this.Find_Items.Size = new System.Drawing.Size(1058, 558);
+            this.Find_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Find_Items.Size = new System.Drawing.Size(838, 300);
             this.Find_Items.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.label1.Location = new System.Drawing.Point(28, 55);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Select Catagory";
-            // 
-            // SelectItem
-            // 
-            this.SelectItem.AllowDrop = true;
-            this.SelectItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SelectItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.SelectItem.FormattingEnabled = true;
-            this.SelectItem.Location = new System.Drawing.Point(136, 52);
-            this.SelectItem.Name = "SelectItem";
-            this.SelectItem.Size = new System.Drawing.Size(156, 23);
-            this.SelectItem.TabIndex = 11;
-            this.SelectItem.SelectedIndexChanged += new System.EventHandler(this.SelectItem_SelectedIndexChanged);
-            // 
-            // lostAndFoundDataSet
-            // 
-            this.lostAndFoundDataSet.DataSetName = "LostAndFoundDataSet";
-            this.lostAndFoundDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // foundItemsBindingSource
-            // 
-            this.foundItemsBindingSource.DataMember = "FoundItems";
-            this.foundItemsBindingSource.DataSource = this.lostAndFoundDataSet;
-            // 
-            // foundItemsTableAdapter
-            // 
-            this.foundItemsTableAdapter.ClearBeforeFill = true;
-            // 
-            // colImage
-            // 
-            this.colImage.HeaderText = "Image";
-            this.colImage.Name = "colImage";
-            this.colImage.ReadOnly = true;
-            this.colImage.Width = 115;
+            this.Find_Items.SelectionChanged += new System.EventHandler(this.Find_Items_SelectionChanged);
             // 
             // colItemName
             // 
@@ -174,11 +135,78 @@
             this.colView.Text = "Claim";
             this.colView.UseColumnTextForButtonValue = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.label1.Location = new System.Drawing.Point(28, 55);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 16);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Select Catagory";
+            // 
+            // SelectItem
+            // 
+            this.SelectItem.AllowDrop = true;
+            this.SelectItem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
+            this.SelectItem.FormattingEnabled = true;
+            this.SelectItem.Location = new System.Drawing.Point(136, 52);
+            this.SelectItem.Name = "SelectItem";
+            this.SelectItem.Size = new System.Drawing.Size(156, 23);
+            this.SelectItem.TabIndex = 11;
+            this.SelectItem.SelectedIndexChanged += new System.EventHandler(this.SelectItem_SelectedIndexChanged);
+            // 
+            // lostAndFoundDataSet
+            // 
+            this.lostAndFoundDataSet.DataSetName = "LostAndFoundDataSet";
+            this.lostAndFoundDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // foundItemsBindingSource
+            // 
+            this.foundItemsBindingSource.DataMember = "FoundItems";
+            this.foundItemsBindingSource.DataSource = this.lostAndFoundDataSet;
+            // 
+            // foundItemsTableAdapter
+            // 
+            this.foundItemsTableAdapter.ClearBeforeFill = true;
+            // 
+            // ImagePreviewPanel
+            // 
+            this.ImagePreviewPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ImagePreviewPanel.Controls.Add(this.SelectedItemImage);
+            this.ImagePreviewPanel.Controls.Add(this.labelImagePreview);
+            this.ImagePreviewPanel.Location = new System.Drawing.Point(31, 107);
+            this.ImagePreviewPanel.Name = "ImagePreviewPanel";
+            this.ImagePreviewPanel.Size = new System.Drawing.Size(285, 300);
+            this.ImagePreviewPanel.TabIndex = 12;
+            // 
+            // SelectedItemImage
+            // 
+            this.SelectedItemImage.Location = new System.Drawing.Point(12, 42);
+            this.SelectedItemImage.Name = "SelectedItemImage";
+            this.SelectedItemImage.Size = new System.Drawing.Size(259, 244);
+            this.SelectedItemImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SelectedItemImage.TabIndex = 0;
+            this.SelectedItemImage.TabStop = false;
+            // 
+            // labelImagePreview
+            // 
+            this.labelImagePreview.AutoSize = true;
+            this.labelImagePreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.labelImagePreview.Location = new System.Drawing.Point(12, 13);
+            this.labelImagePreview.Name = "labelImagePreview";
+            this.labelImagePreview.Size = new System.Drawing.Size(154, 17);
+            this.labelImagePreview.TabIndex = 1;
+            this.labelImagePreview.Text = "Selected Item Image";
+            // 
             // SearchItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 696);
+            this.ClientSize = new System.Drawing.Size(1225, 457);
+            this.Controls.Add(this.ImagePreviewPanel);
             this.Controls.Add(this.SelectItem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Find_Items);
@@ -189,6 +217,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.Find_Items)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lostAndFoundDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.foundItemsBindingSource)).EndInit();
+            this.ImagePreviewPanel.ResumeLayout(false);
+            this.ImagePreviewPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectedItemImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,12 +235,14 @@
         private LostAndFoundDataSet lostAndFoundDataSet;
         private System.Windows.Forms.BindingSource foundItemsBindingSource;
         private LostAndFoundDataSetTableAdapters.FoundItemsTableAdapter foundItemsTableAdapter;
-        private System.Windows.Forms.DataGridViewImageColumn colImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDateFound;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFoundLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewButtonColumn colView;
+        private System.Windows.Forms.Panel ImagePreviewPanel;
+        private System.Windows.Forms.PictureBox SelectedItemImage;
+        private System.Windows.Forms.Label labelImagePreview;
     }
 }
