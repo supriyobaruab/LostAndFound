@@ -315,7 +315,24 @@ namespace lostandfound.cs
                 cmd.Parameters.AddWithValue("@email", TB_Email.Text);
                 cmd.Parameters.AddWithValue("@user_id", TB_UID.Text);
                 cmd.Parameters.AddWithValue("@password", TB_Password.Text);
-                cmd.Parameters.AddWithValue("@role", CB_Role.Text);
+                
+
+
+                //Issues with Login form Bug Fix for Small and Capital lettered role addition(rspected values)
+
+
+                string role;
+
+                if (CB_Role.Text == "Officer")
+                {
+                    role = "officer";
+                }
+                else
+                {
+                    role = "student";
+                }
+
+                cmd.Parameters.AddWithValue("@role", role);
 
                 cmd.ExecuteNonQuery();
 
