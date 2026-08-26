@@ -24,6 +24,20 @@ namespace lostandfound.cs
         public AdminDashboard()
         {
             InitializeComponent();
+            //saving Tracking status
+            Grd_Items.CellValueChanged += Grd_Items_CellValueChanged;
+            Grd_Items.CurrentCellDirtyStateChanged += Grd_Items_CurrentCellDirtyStateChanged;
+            
+            
+            DataGridViewComboBoxColumn trackingColumn =
+    (DataGridViewComboBoxColumn)Grd_Items.Columns["TrackingStatus"];
+
+            TrackingStatus.Items.Clear();
+            TrackingStatus.Items.Add("Searching");
+            TrackingStatus.Items.Add("Match Pending");
+            TrackingStatus.Items.Add("Resolved");
+
+
             Grd_User.AutoGenerateColumns = false;
             //clicking cell items colour change problem solve
             Grd_User.DefaultCellStyle.SelectionBackColor =
@@ -88,7 +102,9 @@ namespace lostandfound.cs
         SELECT
             L.Item_Name AS Item,
             U.Name AS Reporter,
-            'Lost' AS Status
+            'Lost' AS Status,
+            L.TrackingStatus AS TrackingStatus,
+            L.User_ID AS UserID
         FROM LostItems L
         INNER JOIN [User] U ON L.User_ID = U.User_ID
 
@@ -97,10 +113,13 @@ namespace lostandfound.cs
         SELECT
             F.Item_Name AS Item,
             U.Name AS Reporter,
-            'Found' AS Status
+            'Found' AS Status,
+            F.TrackingStatus AS TrackingStatus,
+            F.User_ID AS UserID
         FROM FoundItems F
         INNER JOIN [User] U ON F.User_ID = U.User_ID;
     ";
+            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -129,6 +148,51 @@ namespace lostandfound.cs
             }
         }
 
+
+
+
+        //================================================================================================================================================
+        //Update Value for Iterms Table in the Database
+        //================================================================================================================================================
+
+
+
+        private void Grd_Items_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (Grd_Items.Columns[e.ColumnIndex].Name == "TrackingStatus")
+            {
+                string item = Grd_Items.Rows[e.RowIndex].Cells["colItem"].Value.ToString();
+                string status = Grd_Items.Rows[e.RowIndex].Cells["colStatus"].Value.ToString();
+                string tracking = Grd_Items.Rows[e.RowIndex].Cells["TrackingStatus"].Value.ToString();
+
+                string table = status == "Lost" ? "LostItems" : "FoundItems";
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = $@"
+                UPDATE {table}
+                SET TrackingStatus = @tracking
+                WHERE Item_Name = @item";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@tracking", tracking);
+                        cmd.Parameters.AddWithValue("@item", item);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+        }
+
+        //================================================================================================================================================
+        //Update Value for User Table in the Database
+        //================================================================================================================================================
 
         private void Grd_User_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -159,6 +223,22 @@ namespace lostandfound.cs
                 btn_Clear.Enabled = true;
             }
             }
+
+
+
+
+        //================================================================================================================================================
+        //DYNAMIC update after changing a value inside dropdown to fire Items_CellContentClick       
+        //================================================================================================================================================
+
+
+        private void Grd_Items_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (Grd_Items.IsCurrentCellDirty)
+            {
+                Grd_Items.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
 
         //=======================================================================================================================================================================================
         //ADD User
@@ -449,8 +529,71 @@ namespace lostandfound.cs
 
                 this.Close();
             }
-        }      
+        }
 
 
+        //======================================================================================================================================================================
+        //DELETE
+        //======================================================================================================================================================================
+
+
+        private void Grd_Items_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (Grd_Items.Columns[e.ColumnIndex].Name == "colDelete")
+            {
+                string item = Grd_Items.Rows[e.RowIndex]
+                    .Cells["colItem"].Value?.ToString();
+
+                string status = Grd_Items.Rows[e.RowIndex]
+                    .Cells["colStatus"].Value?.ToString();
+
+                if (string.IsNullOrEmpty(item))
+                    return;
+
+                DialogResult result = MessageBox.Show(
+                    "Are you sure you want to delete this item?",
+                    "Confirm Delete",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.No)
+                    return;
+
+                string table;
+
+                if (status == "Lost")
+                {
+                    table = "LostItems";
+                }
+                else
+                {
+                    table = "FoundItems";
+                }
+
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    string query = $@"
+                DELETE FROM {table}
+                WHERE Item_Name = @item";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@item", item);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Item deleted successfully!");
+
+                LoadItems();
+            }
+        }
     }
 }
