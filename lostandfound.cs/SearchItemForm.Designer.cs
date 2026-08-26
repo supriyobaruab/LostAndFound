@@ -86,6 +86,7 @@
             this.Find_Items.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Find_Items.Size = new System.Drawing.Size(838, 300);
             this.Find_Items.TabIndex = 9;
+            this.Find_Items.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Find_Items_CellContentClick);
             this.Find_Items.SelectionChanged += new System.EventHandler(this.Find_Items_SelectionChanged);
             // 
             // colItemName
@@ -133,7 +134,7 @@
             this.colView.Name = "colView";
             this.colView.ReadOnly = true;
             this.colView.Text = "Claim";
-            this.colView.UseColumnTextForButtonValue = true;
+            this.colView.UseColumnTextForButtonValue = false;
             // 
             // label1
             // 
