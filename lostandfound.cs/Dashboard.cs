@@ -35,7 +35,7 @@ namespace lostandfound.cs
 
         private void Btn_FindItems_Click(object sender, EventArgs e)
         {
-            SearchItemForm searchItemForm = new SearchItemForm();
+            SearchItemForm searchItemForm = new SearchItemForm(loggedUser);
             searchItemForm.Show();
         }
 
