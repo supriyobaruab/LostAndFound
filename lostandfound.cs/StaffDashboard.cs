@@ -18,6 +18,19 @@ namespace lostandfound.cs
         public StaffDashboard()
         {
             InitializeComponent();
+            //saving Tracking status
+            Grd_ReviewTable.CellValueChanged += Grd_Items_CellValueChanged;
+            
+
+            DataGridViewComboBoxColumn trackingColumn =
+    (DataGridViewComboBoxColumn)Grd_ReviewTable.Columns["TrackingStatus"];
+
+            trackingColumn.Items.Clear();
+            trackingColumn.Items.Add("Searching");
+            trackingColumn.Items.Add("Match Pending");
+            trackingColumn.Items.Add("Resolved");
+
+
             //clicking cell items colour change problem solve
             Grd_ReviewTable.DefaultCellStyle.SelectionBackColor =
             Grd_ReviewTable.DefaultCellStyle.BackColor;
@@ -30,6 +43,14 @@ namespace lostandfound.cs
             Grd_ReviewTable.Columns["colStatus"].ReadOnly = true;
             LoadReports();
         }
+
+
+
+        //==============================================================================================================================================
+        //LOAD Items 
+        //==============================================================================================================================================
+
+
         private void LoadReports()
         {
             try
@@ -38,21 +59,23 @@ namespace lostandfound.cs
                 {
 
                     string query = @"
-        SELECT
-            L.Item_Name AS Item,
-            U.Name AS Reporter,
-            'Lost' AS Status
-        FROM LostItems L
-        INNER JOIN [User] U ON L.User_ID = U.User_ID
+     SELECT
+    L.Item_Name AS Item,
+    U.Name AS Reporter,
+    'Lost' AS Status,
+    L.TrackingStatus AS TrackingStatus
+    FROM LostItems L
+    INNER JOIN [User] U ON L.User_ID = U.User_ID
 
-        UNION ALL
+    UNION ALL
 
-        SELECT
-            F.Item_Name AS Item,
-            U.Name AS Reporter,
-            'Found' AS Status
-        FROM FoundItems F
-        INNER JOIN [User] U ON F.User_ID = U.User_ID;
+    SELECT
+    F.Item_Name AS Item,
+    U.Name AS Reporter,
+    'Found' AS Status,
+    F.TrackingStatus AS TrackingStatus
+    FROM FoundItems F
+    INNER JOIN [User] U ON F.User_ID = U.User_ID;
     ";
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(query, con))
@@ -70,6 +93,21 @@ namespace lostandfound.cs
                 MessageBox.Show("Error loading reports: " + ex.Message);
             }
         }
+
+
+
+
+        private void Grd_Items_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (Grd_ReviewTable.Columns[e.ColumnIndex].Name == "TrackingStatus")
+            {
+            }    
+                
+        }
+
 
 
         //======================================================================================================================================================================
@@ -94,5 +132,136 @@ namespace lostandfound.cs
                 this.Close();
             }
         }
+
+        //============================================================================================================================================================================================
+        //SAVE
+        //============================================================================================================================================================================================
+
+        private void btn_save_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    foreach (DataGridViewRow row in Grd_ReviewTable.Rows)
+                    {
+                        if (row.IsNewRow)
+                            continue;
+
+                        string item = row.Cells["colItem"].Value?.ToString();
+                        string status = row.Cells["colStatus"].Value?.ToString();
+                        string tracking = row.Cells["TrackingStatus"].Value?.ToString();
+
+                        if (string.IsNullOrEmpty(item) || string.IsNullOrEmpty(status))
+                            continue;
+
+                        string table;
+
+                        if (status == "Lost")
+                        {
+                            table = "LostItems";
+                        }
+                        else
+                        {
+                            table = "FoundItems";
+                        }
+
+                        string query = $@"
+                    UPDATE {table}
+                    SET TrackingStatus = @tracking
+                    WHERE Item_Name = @item";
+
+                        using (SqlCommand cmd = new SqlCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@tracking", tracking);
+                            cmd.Parameters.AddWithValue("@item", item);
+
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+
+                MessageBox.Show("Changes saved successfully.");
+
+                LoadReports();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving changes: " + ex.Message);
+            }
+        }
+
+
+
+        //============================================================================================================================================================================================
+        //Resolved - Mark Returned Button (Action)
+        //============================================================================================================================================================================================
+
+
+
+
+        private void Grd_ReviewTable_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string item = Grd_ReviewTable.CurrentRow.Cells["colItem"].Value.ToString();
+            string status = Grd_ReviewTable.CurrentRow.Cells["colStatus"].Value.ToString();
+
+            string table;
+
+            if (status == "Lost")
+            {
+                table = "LostItems";
+            }
+            else
+            {
+                table = "FoundItems";
+            }
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+
+                string query = $@"
+            UPDATE {table}
+            SET TrackingStatus = 'Resolved'
+            WHERE Item_Name = @item";
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@item", item);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+            Grd_ReviewTable.CurrentRow.Cells["TrackingStatus"].Value = "Resolved";
+
+            MessageBox.Show("Item marked as returned.");
+        }
+
+
+
+        //============================================================================================================================================================================================
+        //Cancel
+        //============================================================================================================================================================================================
+
+
+
+        private void btn_cancle_Click(object sender, EventArgs e)
+        {
+            DialogResult cancel = MessageBox.Show("Are you sure you want to restore to default settings ?", "Restore Default",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (cancel==DialogResult.Yes)
+            {
+                LoadReports();
+
+            }
+        }
     }
+
+
+
+
+
+
 }

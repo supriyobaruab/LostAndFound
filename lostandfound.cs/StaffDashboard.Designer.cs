@@ -41,7 +41,7 @@
             this.colReporter = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAction = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colUpdate = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.TrackingStatus = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.btn_save = new System.Windows.Forms.Button();
             this.btn_cancle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -140,7 +140,7 @@
             this.colReporter,
             this.colStatus,
             this.colAction,
-            this.colUpdate});
+            this.TrackingStatus});
             this.Grd_ReviewTable.EnableHeadersVisualStyles = false;
             this.Grd_ReviewTable.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(237)))), ((int)(((byte)(242)))));
             this.Grd_ReviewTable.Location = new System.Drawing.Point(105, 146);
@@ -151,6 +151,7 @@
             this.Grd_ReviewTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Grd_ReviewTable.Size = new System.Drawing.Size(612, 276);
             this.Grd_ReviewTable.TabIndex = 8;
+            this.Grd_ReviewTable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_ReviewTable_CellContentClick);
             // 
             // colItem
             // 
@@ -181,15 +182,16 @@
             this.colAction.UseColumnTextForButtonValue = true;
             this.colAction.Width = 125;
             // 
-            // colUpdate
+            // TrackingStatus
             // 
-            this.colUpdate.HeaderText = "Tracking Status";
-            this.colUpdate.Items.AddRange(new object[] {
+            this.TrackingStatus.DataPropertyName = "TrackingStatus";
+            this.TrackingStatus.HeaderText = "Tracking Status";
+            this.TrackingStatus.Items.AddRange(new object[] {
             "Match Pending",
             "Resolved",
             "Searching"});
-            this.colUpdate.Name = "colUpdate";
-            this.colUpdate.Width = 125;
+            this.TrackingStatus.Name = "TrackingStatus";
+            this.TrackingStatus.Width = 125;
             // 
             // btn_save
             // 
@@ -199,6 +201,7 @@
             this.btn_save.TabIndex = 9;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
             // 
             // btn_cancle
             // 
@@ -208,6 +211,7 @@
             this.btn_cancle.TabIndex = 10;
             this.btn_cancle.Text = "Cancel";
             this.btn_cancle.UseVisualStyleBackColor = true;
+            this.btn_cancle.Click += new System.EventHandler(this.btn_cancle_Click);
             // 
             // StaffDashboard
             // 
@@ -241,12 +245,12 @@
         private System.Windows.Forms.Label LB_LFHeader;
         private System.Windows.Forms.Label LB_StaffPanel;
         private System.Windows.Forms.Button btn_Logout;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_cancle;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn colReporter;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewButtonColumn colAction;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colUpdate;
-        private System.Windows.Forms.Button btn_save;
-        private System.Windows.Forms.Button btn_cancle;
+        private System.Windows.Forms.DataGridViewComboBoxColumn TrackingStatus;
     }
 }
