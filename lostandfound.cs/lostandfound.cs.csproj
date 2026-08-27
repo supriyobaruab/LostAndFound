@@ -293,6 +293,9 @@
     <None Include="Resources\admin-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\f44e0342-841c-449b-be84-f09f0c9d667f.png" />
+    <None Include="Resources\ChatGPT Image Aug 28, 2026, 04_58_56 AM.png" />
+    <None Include="Resources\ChatGPT Image Aug 28, 2026, 04_58_56 AM1.png" />
     <Content Include="Resources\login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
