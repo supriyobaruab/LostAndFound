@@ -34,6 +34,9 @@ namespace lostandfound.cs
             // Store logged-in user's ID
             loggedUser = User_ID;
 
+            GRD_Lost.CellContentClick += GRD_Lost_CellContentClick;
+            GRD_Found.CellContentClick += GRD_Found_CellContentClick;
+
 
             // ==========================================
             // LOST GRID SETTINGS
@@ -295,7 +298,7 @@ namespace lostandfound.cs
                         reader["Lost_Location"].ToString(),
                         reader["Description"].ToString(),
                         reader["Status"].ToString(),
-                        "Edit",
+                        
                         "Delete"
                     );
                 }
@@ -486,7 +489,7 @@ namespace lostandfound.cs
                         reader["Found_Location"].ToString(),
                         reader["Description"].ToString(),
                         reader["Status"].ToString(),
-                        "Edit",
+                       
                         "Delete"
                     );
                 }
@@ -545,6 +548,72 @@ namespace lostandfound.cs
         // ==========================================
         // CLOSE BUTTON
         // ==========================================
+
+        private void GRD_Lost_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (GRD_Lost.Columns[e.ColumnIndex].Name == "DeleteL")
+            {
+                string itemName =
+                    GRD_Lost.Rows[e.RowIndex].Cells["colItemName"].Value?.ToString();
+
+                DeleteReport("LostItems", itemName);
+                LoadLostReports();
+            }
+        }
+
+        private void GRD_Found_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+                return;
+
+            if (GRD_Found.Columns[e.ColumnIndex].Name == "DeleteF")
+            {
+                string itemName =
+                    GRD_Found.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn1"].Value?.ToString();
+
+                DeleteReport("FoundItems", itemName);
+                LoadFoundReports();
+            }
+        }
+
+        private void DeleteReport(string tableName, string itemName)
+        {
+            if (string.IsNullOrWhiteSpace(itemName))
+                return;
+
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to delete this report?",
+                "Confirm Delete",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (result == DialogResult.No)
+                return;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = $@"
+                    DELETE FROM {tableName}
+                    WHERE Item_Name = @ItemName
+                    AND User_ID = @User_ID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@ItemName", itemName);
+                    command.Parameters.AddWithValue("@User_ID", loggedUser);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            MessageBox.Show("Report deleted successfully!");
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
