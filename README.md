@@ -24,4 +24,7 @@ A **C# Windows Forms-based Lost and Found Management System** designed to help u
 * User & Admin Management
 * Password Recovery
 
+## Database design
+
+The entity relationship diagram is available in [ER_DIAGRAM.md](ER_DIAGRAM.md), with the standalone Mermaid source in [ER_DIAGRAM.mmd](ER_DIAGRAM.mmd).
 

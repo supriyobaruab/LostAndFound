@@ -1,0 +1,46 @@
+erDiagram
+    User ||--o{ LostItems : "reports (User_ID)"
+    User ||--o{ FoundItems : "reports (User_ID)"
+    User ||--o{ ItemClaims : "submits (User_ID)"
+    FoundItems ||--o{ ItemClaims : "is claimed in (FoundItem_ID)"
+
+    User {
+        string User_ID PK
+        string Name
+        string Email
+        string Password
+        string Role
+    }
+
+    LostItems {
+        int LostItem_ID PK
+        string User_ID FK
+        string Item_Name
+        string Lost_Location
+        string Category
+        date Date_Lost
+        string Description
+        string Image_Path
+        string Status
+        string TrackingStatus
+    }
+
+    FoundItems {
+        int FoundItem_ID PK
+        string User_ID FK
+        string Item_Name
+        string Found_Location
+        string Category
+        date Date_Found
+        string Description
+        string Image_Path
+        string Status
+        string TrackingStatus
+    }
+
+    ItemClaims {
+        int FoundItem_ID FK
+        string User_ID FK
+        string Claim_Status
+        datetime Claimed_At
+    }
