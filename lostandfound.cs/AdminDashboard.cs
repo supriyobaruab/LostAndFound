@@ -313,8 +313,7 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
         {
             if (TB_Name.Text == "" ||
        TB_Email.Text == "" ||
-       TB_UID.Text == "" ||
-       CB_Role.Text == "")
+       TB_UID.Text == "")
             {
                 MessageBox.Show("Please fill in all required fields.");
                 return;
