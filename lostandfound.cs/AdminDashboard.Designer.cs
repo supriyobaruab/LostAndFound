@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             this.LB_User = new System.Windows.Forms.Label();
             this.PanelHeader = new System.Windows.Forms.Panel();
+            this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
             this.btn_Logout = new System.Windows.Forms.Button();
             this.LB_AdminP = new System.Windows.Forms.Label();
             this.LB_LFHeader = new System.Windows.Forms.Label();
@@ -39,6 +40,11 @@
             this.LB_rUsers = new System.Windows.Forms.Label();
             this.btn_AddUser = new System.Windows.Forms.Button();
             this.Grd_User = new System.Windows.Forms.DataGridView();
+            this.UID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.LB_AItems = new System.Windows.Forms.Label();
             this.LB_AllLFReport = new System.Windows.Forms.Label();
             this.Grd_Items = new System.Windows.Forms.DataGridView();
@@ -55,6 +61,7 @@
             this.LB_UID = new System.Windows.Forms.Label();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.CB_Role = new System.Windows.Forms.ComboBox();
             this.LB_Role = new System.Windows.Forms.Label();
             this.TB_Email = new System.Windows.Forms.TextBox();
@@ -62,23 +69,16 @@
             this.TB_Name = new System.Windows.Forms.TextBox();
             this.LB_Name = new System.Windows.Forms.Label();
             this.Panel_Member = new System.Windows.Forms.Panel();
-            this.UID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Update = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_Save = new System.Windows.Forms.Button();
-            this.IMG_LogoStaff = new System.Windows.Forms.PictureBox();
             this.PanelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).BeginInit();
             this.GRP_SelectedMember.SuspendLayout();
             this.Panel_Member.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).BeginInit();
             this.SuspendLayout();
             // 
             // LB_User
@@ -106,6 +106,17 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Size = new System.Drawing.Size(1169, 52);
             this.PanelHeader.TabIndex = 2;
+            // 
+            // IMG_LogoStaff
+            // 
+            this.IMG_LogoStaff.Cursor = System.Windows.Forms.Cursors.No;
+            this.IMG_LogoStaff.Image = global::lostandfound.cs.Properties.Resources.f44e0342_841c_449b_be84_f09f0c9d667f;
+            this.IMG_LogoStaff.Location = new System.Drawing.Point(0, -3);
+            this.IMG_LogoStaff.Name = "IMG_LogoStaff";
+            this.IMG_LogoStaff.Size = new System.Drawing.Size(71, 53);
+            this.IMG_LogoStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.IMG_LogoStaff.TabIndex = 11;
+            this.IMG_LogoStaff.TabStop = false;
             // 
             // btn_Logout
             // 
@@ -201,13 +212,47 @@
             this.Grd_User.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(215)))), ((int)(((byte)(227)))));
             this.Grd_User.Location = new System.Drawing.Point(58, 134);
             this.Grd_User.Name = "Grd_User";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
-            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(43)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(245)))), ((int)(((byte)(249)))));
+            this.Grd_User.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Grd_User.Size = new System.Drawing.Size(501, 144);
             this.Grd_User.TabIndex = 7;
             this.Grd_User.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grd_User_CellContentClick);
+            // 
+            // UID
+            // 
+            this.UID.DataPropertyName = "User_ID";
+            this.UID.HeaderText = "User ID";
+            this.UID.Name = "UID";
+            this.UID.Width = 90;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "Name";
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            // 
+            // colRole
+            // 
+            this.colRole.DataPropertyName = "Role";
+            this.colRole.HeaderText = "Role";
+            this.colRole.Name = "colRole";
+            this.colRole.Width = 80;
+            // 
+            // colEmail
+            // 
+            this.colEmail.DataPropertyName = "Email";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.Name = "colEmail";
+            // 
+            // Update
+            // 
+            this.Update.HeaderText = "Update";
+            this.Update.Name = "Update";
+            this.Update.Text = "Update";
+            this.Update.UseColumnTextForButtonValue = true;
+            this.Update.Width = 68;
             // 
             // LB_AItems
             // 
@@ -398,8 +443,23 @@
             this.btn_Delete.UseVisualStyleBackColor = true;
             this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
+            // btn_Save
+            // 
+            this.btn_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(75)))), ((int)(((byte)(185)))));
+            this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Save.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.ForeColor = System.Drawing.Color.White;
+            this.btn_Save.Location = new System.Drawing.Point(68, 304);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(115, 37);
+            this.btn_Save.TabIndex = 19;
+            this.btn_Save.Text = "Save";
+            this.btn_Save.UseVisualStyleBackColor = false;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            // 
             // CB_Role
             // 
+            this.CB_Role.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CB_Role.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.CB_Role.FormattingEnabled = true;
             this.CB_Role.Items.AddRange(new object[] {
@@ -474,40 +534,6 @@
             this.Panel_Member.Size = new System.Drawing.Size(502, 402);
             this.Panel_Member.TabIndex = 11;
             // 
-            // UID
-            // 
-            this.UID.DataPropertyName = "User_ID";
-            this.UID.HeaderText = "User ID";
-            this.UID.Name = "UID";
-            this.UID.Width = 90;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "Name";
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            // 
-            // colRole
-            // 
-            this.colRole.DataPropertyName = "Role";
-            this.colRole.HeaderText = "Role";
-            this.colRole.Name = "colRole";
-            this.colRole.Width = 80;
-            // 
-            // colEmail
-            // 
-            this.colEmail.DataPropertyName = "Email";
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.Name = "colEmail";
-            // 
-            // Update
-            // 
-            this.Update.HeaderText = "Update";
-            this.Update.Name = "Update";
-            this.Update.Text = "Update";
-            this.Update.UseColumnTextForButtonValue = true;
-            this.Update.Width = 68;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.No;
@@ -530,31 +556,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(75)))), ((int)(((byte)(185)))));
-            this.btn_Save.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Save.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Save.ForeColor = System.Drawing.Color.White;
-            this.btn_Save.Location = new System.Drawing.Point(68, 304);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(115, 37);
-            this.btn_Save.TabIndex = 19;
-            this.btn_Save.Text = "Save";
-            this.btn_Save.UseVisualStyleBackColor = false;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
-            // 
-            // IMG_LogoStaff
-            // 
-            this.IMG_LogoStaff.Cursor = System.Windows.Forms.Cursors.No;
-            this.IMG_LogoStaff.Image = global::lostandfound.cs.Properties.Resources.f44e0342_841c_449b_be84_f09f0c9d667f;
-            this.IMG_LogoStaff.Location = new System.Drawing.Point(0, -3);
-            this.IMG_LogoStaff.Name = "IMG_LogoStaff";
-            this.IMG_LogoStaff.Size = new System.Drawing.Size(71, 53);
-            this.IMG_LogoStaff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.IMG_LogoStaff.TabIndex = 11;
-            this.IMG_LogoStaff.TabStop = false;
             // 
             // AdminDashboard
             // 
@@ -581,6 +582,7 @@
             this.Text = "AdminDashboard";
             this.PanelHeader.ResumeLayout(false);
             this.PanelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_User)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Grd_Items)).EndInit();
             this.GRP_SelectedMember.ResumeLayout(false);
@@ -588,7 +590,6 @@
             this.Panel_Member.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.IMG_LogoStaff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
