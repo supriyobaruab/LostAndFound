@@ -399,7 +399,18 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
                 cmd.Parameters.AddWithValue("@email", TB_Email.Text);
                 cmd.Parameters.AddWithValue("@newUserID", TB_UID.Text);
                 cmd.Parameters.AddWithValue("@password", TB_Password.Text);
-                cmd.Parameters.AddWithValue("@role", CB_Role.Text);
+                string role;
+
+                if (CB_Role.Text == "Officer")
+                {
+                    role = "officer";
+                }
+                else
+                {
+                    role = "student";
+                }
+
+                cmd.Parameters.AddWithValue("@role", role);
                 cmd.Parameters.AddWithValue("@originalUserID", originalUserID);
 
                 cmd.ExecuteNonQuery();
