@@ -15,6 +15,7 @@ namespace lostandfound.cs
     {
         //assuming that admin isnt editing at beggining 
         bool isEditing = false;
+        bool isAdmin = false;
         //original user id storing inorder to let the compiler find the previous uid instead of trying to compare it with the updated one
         string originalUserID = "";
 
@@ -223,7 +224,8 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
                 TB_Name.Text = Grd_User.Rows[e.RowIndex].Cells["colName"].Value?.ToString();
                 TB_Email.Text = Grd_User.Rows[e.RowIndex].Cells["colEmail"].Value?.ToString();
                 TB_UID.Text = Grd_User.Rows[e.RowIndex].Cells["UID"].Value?.ToString();
-                CB_Role.Text = Grd_User.Rows[e.RowIndex].Cells["colRole"].Value?.ToString();
+                string role = Grd_User.Rows[e.RowIndex].Cells["colRole"].Value?.ToString();
+
 
                 //store original user id 
 
@@ -237,6 +239,24 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
                 btn_Save.Enabled = true;
                 btn_Delete.Enabled = true;
                 btn_Clear.Enabled = true;
+
+                //Admin Role cant be changed
+
+                if (role.ToLower() == "admin")
+                {
+                    isAdmin = true;
+                    CB_Role.Text = "Admin";
+                    CB_Role.Enabled = false;
+                }
+                else
+                {
+                    isAdmin = false;
+                    CB_Role.Text = role;
+                    CB_Role.Enabled = true;
+                }
+
+
+
             }
             }
 
@@ -265,6 +285,7 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
         {
             // Not editing
             isEditing = false;
+            isAdmin = false;
 
             TB_Name.Clear();
             TB_Email.Clear();
@@ -385,23 +406,47 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
                 }
 
 
-                string query = @"UPDATE [User]
-                 SET name = @name,
-                     email = @email,
-                     user_id = @newUserID,
-                     password = @password,
-                     role = @role
-                 WHERE user_id = @originalUserID";
+                string query;
+
+                if (TB_Password.Text == "")
+                {
+                    query = @"UPDATE [User]
+              SET name = @name,
+                  email = @email,
+                  user_id = @newUserID,
+                  role = @role
+              WHERE user_id = @originalUserID";
+                }
+                else
+                {
+                    query = @"UPDATE [User]
+              SET name = @name,
+                  email = @email,
+                  user_id = @newUserID,
+                  password = @password,
+                  role = @role
+              WHERE user_id = @originalUserID";
+                }
+              
 
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@name", TB_Name.Text);
                 cmd.Parameters.AddWithValue("@email", TB_Email.Text);
                 cmd.Parameters.AddWithValue("@newUserID", TB_UID.Text);
-                cmd.Parameters.AddWithValue("@password", TB_Password.Text);
+
+                if (TB_Password.Text != "")
+                {
+                    cmd.Parameters.AddWithValue("@password", TB_Password.Text);
+                }
+
                 string role;
 
-                if (CB_Role.Text == "Officer")
+                if (isAdmin)
+                {
+                    role = "admin";
+                }
+                else if (CB_Role.Text == "Officer")
                 {
                     role = "officer";
                 }
@@ -445,7 +490,7 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
             }
 
             // Check whether the selected user is an Admin
-            if (CB_Role.Text == "admin")
+            if (isAdmin)
             {
                 MessageBox.Show(
                     "Admin users cannot be deleted.",
@@ -456,7 +501,6 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
 
                 return;
             }
-
 
 
             DialogResult result = MessageBox.Show(
@@ -508,6 +552,7 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
                 btn_Clear.Enabled = false;
 
                 isEditing = false;
+                isAdmin = false;
                 originalUserID = "";
             }
             else
@@ -549,6 +594,7 @@ INNER JOIN [User] U ON F.User_ID = U.User_ID;
             CB_Role.SelectedIndex = -1;
 
             isEditing = false;
+            isAdmin = false;
             originalUserID = "";
 
             
