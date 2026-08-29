@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.GRD_Lost = new System.Windows.Forms.DataGridView();
+            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteL = new System.Windows.Forms.DataGridViewButtonColumn();
             this.GRD_Found = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,13 +49,6 @@
             this.LB_MyReport = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.IMG_MyReports = new System.Windows.Forms.PictureBox();
-            this.colImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateFound = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFoundLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeleteL = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Lost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GRD_Found)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,6 +77,70 @@
             this.GRD_Lost.RowTemplate.Height = 33;
             this.GRD_Lost.Size = new System.Drawing.Size(1023, 183);
             this.GRD_Lost.TabIndex = 10;
+            // 
+            // colImage
+            // 
+            this.colImage.DataPropertyName = "None";
+            this.colImage.HeaderText = "Image";
+            this.colImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colImage.MinimumWidth = 6;
+            this.colImage.Name = "colImage";
+            this.colImage.ReadOnly = true;
+            this.colImage.Width = 125;
+            // 
+            // colItemName
+            // 
+            this.colItemName.DataPropertyName = "Item_Name";
+            this.colItemName.HeaderText = "Item Name";
+            this.colItemName.MinimumWidth = 10;
+            this.colItemName.Name = "colItemName";
+            this.colItemName.ReadOnly = true;
+            this.colItemName.Width = 125;
+            // 
+            // colDateFound
+            // 
+            this.colDateFound.DataPropertyName = "Date_Lost";
+            this.colDateFound.HeaderText = "Date  Lost";
+            this.colDateFound.MinimumWidth = 10;
+            this.colDateFound.Name = "colDateFound";
+            this.colDateFound.ReadOnly = true;
+            this.colDateFound.Width = 150;
+            // 
+            // colFoundLocation
+            // 
+            this.colFoundLocation.DataPropertyName = "Lost_Location";
+            this.colFoundLocation.HeaderText = "Lost Location";
+            this.colFoundLocation.MinimumWidth = 10;
+            this.colFoundLocation.Name = "colFoundLocation";
+            this.colFoundLocation.ReadOnly = true;
+            this.colFoundLocation.Width = 200;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 150;
+            // 
+            // colStatus
+            // 
+            this.colStatus.DataPropertyName = "Status";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.MinimumWidth = 10;
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            this.colStatus.Width = 125;
+            // 
+            // DeleteL
+            // 
+            this.DeleteL.HeaderText = "Delete Report";
+            this.DeleteL.MinimumWidth = 6;
+            this.DeleteL.Name = "DeleteL";
+            this.DeleteL.ReadOnly = true;
+            this.DeleteL.Text = "Edit";
+            this.DeleteL.Width = 125;
             // 
             // GRD_Found
             // 
@@ -193,7 +257,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel1.Controls.Add(this.LB_MyReport);
             this.panel1.Controls.Add(this.IMG_MyReports);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -213,70 +277,6 @@
             this.IMG_MyReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.IMG_MyReports.TabIndex = 0;
             this.IMG_MyReports.TabStop = false;
-            // 
-            // colImage
-            // 
-            this.colImage.DataPropertyName = "None";
-            this.colImage.HeaderText = "Image";
-            this.colImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colImage.MinimumWidth = 6;
-            this.colImage.Name = "colImage";
-            this.colImage.ReadOnly = true;
-            this.colImage.Width = 125;
-            // 
-            // colItemName
-            // 
-            this.colItemName.DataPropertyName = "Item_Name";
-            this.colItemName.HeaderText = "Item Name";
-            this.colItemName.MinimumWidth = 10;
-            this.colItemName.Name = "colItemName";
-            this.colItemName.ReadOnly = true;
-            this.colItemName.Width = 125;
-            // 
-            // colDateFound
-            // 
-            this.colDateFound.DataPropertyName = "Date_Lost";
-            this.colDateFound.HeaderText = "Date  Lost";
-            this.colDateFound.MinimumWidth = 10;
-            this.colDateFound.Name = "colDateFound";
-            this.colDateFound.ReadOnly = true;
-            this.colDateFound.Width = 150;
-            // 
-            // colFoundLocation
-            // 
-            this.colFoundLocation.DataPropertyName = "Lost_Location";
-            this.colFoundLocation.HeaderText = "Lost Location";
-            this.colFoundLocation.MinimumWidth = 10;
-            this.colFoundLocation.Name = "colFoundLocation";
-            this.colFoundLocation.ReadOnly = true;
-            this.colFoundLocation.Width = 200;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.MinimumWidth = 6;
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 150;
-            // 
-            // colStatus
-            // 
-            this.colStatus.DataPropertyName = "Status";
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.MinimumWidth = 10;
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            this.colStatus.Width = 125;
-            // 
-            // DeleteL
-            // 
-            this.DeleteL.HeaderText = "Delete Report";
-            this.DeleteL.MinimumWidth = 6;
-            this.DeleteL.Name = "DeleteL";
-            this.DeleteL.ReadOnly = true;
-            this.DeleteL.Text = "Edit";
-            this.DeleteL.Width = 125;
             // 
             // ViewReports
             // 
