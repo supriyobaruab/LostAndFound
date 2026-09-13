@@ -40,8 +40,6 @@
             this.SelectProf = new System.Windows.Forms.Label();
             this.Txt_UserID = new System.Windows.Forms.TextBox();
             this.LB_UserID = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.TxtEmail = new System.Windows.Forms.TextBox();
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.LB_LastName = new System.Windows.Forms.Label();
@@ -52,6 +50,8 @@
             // LoginPanel
             // 
             this.LoginPanel.BackColor = System.Drawing.Color.White;
+            this.LoginPanel.BackgroundImage = global::lostandfound.cs.Properties.Resources.ChatGPT_Image_Sep_13__2026__09_02_16_PM;
+            this.LoginPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.LoginPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.LoginPanel.Controls.Add(this.Txt_ConPassword);
             this.LoginPanel.Controls.Add(this.LB_ConPassword);
@@ -64,8 +64,6 @@
             this.LoginPanel.Controls.Add(this.SelectProf);
             this.LoginPanel.Controls.Add(this.Txt_UserID);
             this.LoginPanel.Controls.Add(this.LB_UserID);
-            this.LoginPanel.Controls.Add(this.label5);
-            this.LoginPanel.Controls.Add(this.label4);
             this.LoginPanel.Controls.Add(this.TxtEmail);
             this.LoginPanel.Controls.Add(this.TxtUser);
             this.LoginPanel.Controls.Add(this.LB_LastName);
@@ -78,7 +76,7 @@
             // Txt_ConPassword
             // 
             this.Txt_ConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Txt_ConPassword.Location = new System.Drawing.Point(227, 243);
+            this.Txt_ConPassword.Location = new System.Drawing.Point(235, 233);
             this.Txt_ConPassword.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_ConPassword.Name = "Txt_ConPassword";
             this.Txt_ConPassword.PasswordChar = '*';
@@ -89,7 +87,7 @@
             // 
             this.LB_ConPassword.AutoSize = true;
             this.LB_ConPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LB_ConPassword.Location = new System.Drawing.Point(105, 247);
+            this.LB_ConPassword.Location = new System.Drawing.Point(113, 237);
             this.LB_ConPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LB_ConPassword.Name = "LB_ConPassword";
             this.LB_ConPassword.Size = new System.Drawing.Size(115, 16);
@@ -99,7 +97,7 @@
             // Txt_Password
             // 
             this.Txt_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Txt_Password.Location = new System.Drawing.Point(227, 206);
+            this.Txt_Password.Location = new System.Drawing.Point(235, 196);
             this.Txt_Password.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_Password.Name = "Txt_Password";
             this.Txt_Password.PasswordChar = '*';
@@ -110,7 +108,7 @@
             // 
             this.LB_Password.AutoSize = true;
             this.LB_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LB_Password.Location = new System.Drawing.Point(105, 210);
+            this.LB_Password.Location = new System.Drawing.Point(113, 200);
             this.LB_Password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LB_Password.Name = "LB_Password";
             this.LB_Password.Size = new System.Drawing.Size(67, 16);
@@ -119,29 +117,33 @@
             // 
             // Btn_Exit
             // 
-            this.Btn_Exit.Location = new System.Drawing.Point(450, 352);
+            this.Btn_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(239)))), ((int)(((byte)(255)))));
+            this.Btn_Exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(56)))), ((int)(((byte)(168)))));
+            this.Btn_Exit.Location = new System.Drawing.Point(458, 342);
             this.Btn_Exit.Name = "Btn_Exit";
             this.Btn_Exit.Size = new System.Drawing.Size(94, 33);
             this.Btn_Exit.TabIndex = 13;
             this.Btn_Exit.Text = "Exit";
-            this.Btn_Exit.UseVisualStyleBackColor = true;
+            this.Btn_Exit.UseVisualStyleBackColor = false;
             this.Btn_Exit.Click += new System.EventHandler(this.Btn_Exit_Click);
             // 
             // Btn_Registration
             // 
-            this.Btn_Registration.Location = new System.Drawing.Point(108, 352);
+            this.Btn_Registration.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(75)))), ((int)(((byte)(196)))));
+            this.Btn_Registration.ForeColor = System.Drawing.Color.White;
+            this.Btn_Registration.Location = new System.Drawing.Point(116, 342);
             this.Btn_Registration.Name = "Btn_Registration";
             this.Btn_Registration.Size = new System.Drawing.Size(94, 33);
             this.Btn_Registration.TabIndex = 12;
             this.Btn_Registration.Text = "Register";
-            this.Btn_Registration.UseVisualStyleBackColor = true;
+            this.Btn_Registration.UseVisualStyleBackColor = false;
             this.Btn_Registration.Click += new System.EventHandler(this.Btn_Registration_Click);
             // 
             // RD_Officer
             // 
             this.RD_Officer.AutoSize = true;
             this.RD_Officer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.RD_Officer.Location = new System.Drawing.Point(193, 310);
+            this.RD_Officer.Location = new System.Drawing.Point(201, 300);
             this.RD_Officer.Name = "RD_Officer";
             this.RD_Officer.Size = new System.Drawing.Size(63, 20);
             this.RD_Officer.TabIndex = 11;
@@ -153,7 +155,7 @@
             // 
             this.RD_Student.AutoSize = true;
             this.RD_Student.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.RD_Student.Location = new System.Drawing.Point(108, 310);
+            this.RD_Student.Location = new System.Drawing.Point(116, 300);
             this.RD_Student.Name = "RD_Student";
             this.RD_Student.Size = new System.Drawing.Size(70, 20);
             this.RD_Student.TabIndex = 10;
@@ -165,7 +167,7 @@
             // 
             this.SelectProf.AutoSize = true;
             this.SelectProf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.SelectProf.Location = new System.Drawing.Point(105, 279);
+            this.SelectProf.Location = new System.Drawing.Point(113, 269);
             this.SelectProf.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SelectProf.Name = "SelectProf";
             this.SelectProf.Size = new System.Drawing.Size(116, 16);
@@ -175,7 +177,7 @@
             // Txt_UserID
             // 
             this.Txt_UserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.Txt_UserID.Location = new System.Drawing.Point(227, 166);
+            this.Txt_UserID.Location = new System.Drawing.Point(235, 156);
             this.Txt_UserID.Margin = new System.Windows.Forms.Padding(2);
             this.Txt_UserID.Name = "Txt_UserID";
             this.Txt_UserID.Size = new System.Drawing.Size(317, 23);
@@ -185,37 +187,17 @@
             // 
             this.LB_UserID.AutoSize = true;
             this.LB_UserID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LB_UserID.Location = new System.Drawing.Point(105, 170);
+            this.LB_UserID.Location = new System.Drawing.Point(113, 160);
             this.LB_UserID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LB_UserID.Name = "LB_UserID";
             this.LB_UserID.Size = new System.Drawing.Size(52, 16);
             this.LB_UserID.TabIndex = 7;
             this.LB_UserID.Text = "User ID";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.Location = new System.Drawing.Point(605, 17);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(19, 21);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "X";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.Location = new System.Drawing.Point(24, 17);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 21);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Registration";
-            // 
             // TxtEmail
             // 
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.TxtEmail.Location = new System.Drawing.Point(227, 127);
+            this.TxtEmail.Location = new System.Drawing.Point(235, 117);
             this.TxtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(317, 23);
@@ -224,7 +206,7 @@
             // TxtUser
             // 
             this.TxtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.TxtUser.Location = new System.Drawing.Point(227, 87);
+            this.TxtUser.Location = new System.Drawing.Point(235, 77);
             this.TxtUser.Margin = new System.Windows.Forms.Padding(2);
             this.TxtUser.Name = "TxtUser";
             this.TxtUser.Size = new System.Drawing.Size(317, 23);
@@ -234,7 +216,7 @@
             // 
             this.LB_LastName.AutoSize = true;
             this.LB_LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LB_LastName.Location = new System.Drawing.Point(105, 131);
+            this.LB_LastName.Location = new System.Drawing.Point(113, 121);
             this.LB_LastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LB_LastName.Name = "LB_LastName";
             this.LB_LastName.Size = new System.Drawing.Size(41, 16);
@@ -245,7 +227,7 @@
             // 
             this.LB_FirstName.AutoSize = true;
             this.LB_FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
-            this.LB_FirstName.Location = new System.Drawing.Point(105, 91);
+            this.LB_FirstName.Location = new System.Drawing.Point(113, 81);
             this.LB_FirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.LB_FirstName.Name = "LB_FirstName";
             this.LB_FirstName.Size = new System.Drawing.Size(68, 16);
@@ -270,8 +252,6 @@
         #endregion
 
         private System.Windows.Forms.Panel LoginPanel;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.TextBox TxtUser;
         private System.Windows.Forms.Label LB_LastName;
