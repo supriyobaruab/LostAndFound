@@ -113,6 +113,26 @@ namespace lostandfound.cs.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Sep_13__2026__08_31_58_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Sep 13, 2026, 08_31_58 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChatGPT_Image_Sep_13__2026__08_36_39_PM {
+            get {
+                object obj = ResourceManager.GetObject("ChatGPT Image Sep 13, 2026, 08_36_39 PM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap f44e0342_841c_449b_be84_f09f0c9d667f {
             get {
                 object obj = ResourceManager.GetObject("f44e0342-841c-449b-be84-f09f0c9d667f", resourceCulture);
